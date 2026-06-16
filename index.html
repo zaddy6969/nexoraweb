@@ -257,6 +257,13 @@
     transform: translateY(-2px);
   }
 
+  .btn:disabled {
+    opacity: 0.58;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
   .btn-primary {
     color: #031220;
     background: var(--grad-main);
@@ -974,6 +981,12 @@
     color: var(--text-muted);
     font-size: 0.92rem;
     text-align: center;
+  }
+
+  .portfolio-link-note {
+    margin-top: 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.84rem;
   }
 
   .process-grid {
@@ -1823,10 +1836,10 @@
   <section class="section" id="portfolio">
     <div class="container">
       <div class="section-head">
-        <div class="eyebrow" data-reveal>Portfolio &amp; Demo</div>
-        <h2 data-reveal data-reveal-delay="1">Premium demo directions your business can build on.</h2>
+        <div class="eyebrow" data-reveal>Demo Projects / Portfolio</div>
+        <h2 data-reveal data-reveal-delay="1">Featured demo projects that show the kind of work NexoraWeb can build.</h2>
         <p data-reveal data-reveal-delay="2">
-          These examples show the type of structure, presentation, and user flow NexoraWeb can build for different industries and business goals.
+          These are demo projects and concept builds created to show presentation quality, structure, and UX direction. They are not being presented as paid client projects.
         </p>
       </div>
 
@@ -1834,81 +1847,80 @@
         <article class="portfolio-card" data-reveal>
           <div class="portfolio-preview">
             <div class="portfolio-top">
-              <span class="portfolio-tag">Storefront</span>
-              <span class="portfolio-score">Fashion Retail</span>
+              <span class="portfolio-tag">Web3 / AI Wallet</span>
+              <span class="portfolio-score">Live Demo</span>
             </div>
             <div class="portfolio-wire" aria-hidden="true">
-              <div class="preview-line accent"></div>
-              <div class="preview-line"></div>
-              <div class="preview-line"></div>
+              <div class="preview-line accent" style="width: 64%;"></div>
+              <div class="preview-line" style="width: 88%;"></div>
+              <div class="preview-line" style="width: 73%;"></div>
             </div>
             <div class="portfolio-boxes" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
+              <span style="background: linear-gradient(180deg, rgba(94, 231, 255, 0.28), rgba(12, 19, 40, 0.42));"></span>
+              <span style="background: linear-gradient(180deg, rgba(43, 79, 255, 0.28), rgba(12, 19, 40, 0.42));"></span>
+              <span style="background: linear-gradient(180deg, rgba(115, 130, 255, 0.24), rgba(12, 19, 40, 0.42));"></span>
             </div>
           </div>
-          <h3>Urban Cart Store</h3>
-          <p>Modern product-led homepage for a store that needs clean categories, featured products, and stronger trust signals.</p>
+          <h3>Arc AI Wallet</h3>
+          <p>An AI-powered crypto wallet built on Arc, designed to simplify sending, receiving, swapping, bridging, and tracking transactions with a clean dashboard and AI assistant.</p>
           <div class="portfolio-actions">
-            <a class="btn btn-secondary" href="#contact">View Live Demo</a>
-            <a class="btn btn-primary" href="#contact">Request Similar Site</a>
+            <a class="btn btn-secondary" href="https://arc-ai-wallet.vercel.app/" target="_blank" rel="noreferrer">View Demo</a>
           </div>
         </article>
 
         <article class="portfolio-card" data-reveal data-reveal-delay="1">
           <div class="portfolio-preview">
             <div class="portfolio-top">
-              <span class="portfolio-tag">Office</span>
-              <span class="portfolio-score">Professional Services</span>
+              <span class="portfolio-tag">Security &amp; Smart Automation</span>
+              <span class="portfolio-score">Link Coming Soon</span>
             </div>
             <div class="portfolio-wire" aria-hidden="true">
-              <div class="preview-line accent" style="width: 61%;"></div>
-              <div class="preview-line"></div>
-              <div class="preview-line" style="width: 75%;"></div>
+              <div class="preview-line accent" style="width: 58%;"></div>
+              <div class="preview-line" style="width: 92%;"></div>
+              <div class="preview-line" style="width: 70%;"></div>
             </div>
             <div class="portfolio-boxes" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
+              <span style="background: linear-gradient(180deg, rgba(43, 79, 255, 0.22), rgba(12, 19, 40, 0.42));"></span>
+              <span style="background: linear-gradient(180deg, rgba(0, 188, 212, 0.24), rgba(12, 19, 40, 0.42));"></span>
+              <span style="background: linear-gradient(180deg, rgba(23, 51, 109, 0.5), rgba(12, 19, 40, 0.42));"></span>
             </div>
           </div>
-          <h3>Prime Office Solutions</h3>
-          <p>Corporate-style website with service clarity, strong team positioning, and enquiry-ready contact flow.</p>
+          <h3>Genius Security System (GSS)</h3>
+          <p>A professional business website concept for Genius Security System, focused on security, safety automation, smart infrastructure, and modern building solutions for residential and commercial clients.</p>
           <div class="portfolio-actions">
-            <a class="btn btn-secondary" href="#contact">View Live Demo</a>
-            <a class="btn btn-primary" href="#contact">Request Similar Site</a>
+            <button class="btn btn-secondary" type="button" disabled>View Demo</button>
           </div>
+          <p class="portfolio-link-note">Demo link will be added here.</p>
         </article>
 
         <article class="portfolio-card" data-reveal data-reveal-delay="2">
           <div class="portfolio-preview">
             <div class="portfolio-top">
-              <span class="portfolio-tag">Startup</span>
-              <span class="portfolio-score">SaaS Launch</span>
+              <span class="portfolio-tag">Business Website</span>
+              <span class="portfolio-score">Link Coming Soon</span>
             </div>
             <div class="portfolio-wire" aria-hidden="true">
-              <div class="preview-line accent" style="width: 73%;"></div>
-              <div class="preview-line"></div>
-              <div class="preview-line" style="width: 67%;"></div>
+              <div class="preview-line accent" style="width: 72%;"></div>
+              <div class="preview-line" style="width: 94%;"></div>
+              <div class="preview-line" style="width: 76%;"></div>
             </div>
             <div class="portfolio-boxes" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
+              <span style="background: linear-gradient(180deg, rgba(94, 231, 255, 0.24), rgba(12, 19, 40, 0.42));"></span>
+              <span style="background: linear-gradient(180deg, rgba(43, 79, 255, 0.24), rgba(12, 19, 40, 0.42));"></span>
+              <span style="background: linear-gradient(180deg, rgba(167, 255, 255, 0.18), rgba(12, 19, 40, 0.42));"></span>
             </div>
           </div>
-          <h3>LaunchPad Startup Page</h3>
-          <p>Sharp landing page concept for startups that need modern product storytelling and lead capture sections.</p>
+          <h3>NexoraWeb Demo Business Website</h3>
+          <p>A modern business website demo showing how NexoraWeb can create clean, responsive, and conversion-focused websites for local businesses, offices, stores, and service providers.</p>
           <div class="portfolio-actions">
-            <a class="btn btn-secondary" href="#contact">View Live Demo</a>
-            <a class="btn btn-primary" href="#contact">Request Similar Site</a>
+            <button class="btn btn-secondary" type="button" disabled>View Demo</button>
           </div>
+          <p class="portfolio-link-note">Demo link will be added here.</p>
         </article>
       </div>
 
       <p class="portfolio-note">
-        Want private demo links or a custom style direction for your industry? Ask during your free consultation.
+        Want a private walkthrough or a custom version for your business niche? Ask during your free consultation.
       </p>
     </div>
   </section>
