@@ -381,6 +381,8 @@ nav{
 }
 .cd-label{font-family:var(--font);font-size:0.72rem;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;}
 .cd-val{font-family:var(--font);font-size:0.9rem;color:var(--text);font-weight:600;}
+.contact-link{text-decoration:none;color:inherit;}
+.contact-link:hover .cd-val{color:var(--cyan);}
 .contact-form-wrap{
   background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:2.5rem;
 }
@@ -407,6 +409,7 @@ nav{
   display:flex;align-items:center;justify-content:center;gap:8px;
 }
 .form-submit:hover{opacity:0.88;transform:translateY(-1px);}
+.form-note{margin-top:0.9rem;font-size:0.8rem;color:var(--text3);}
  
 /* FOOTER */
 footer{
@@ -420,6 +423,9 @@ footer{
 .footer-links-col ul{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
 .footer-links-col a{font-size:0.875rem;color:var(--text2);text-decoration:none;transition:color 0.2s;}
 .footer-links-col a:hover{color:var(--text);}
+.footer-contact{display:flex;flex-direction:column;gap:0.5rem;}
+.footer-contact a{font-size:0.875rem;color:var(--text2);text-decoration:none;transition:color 0.2s;}
+.footer-contact a:hover{color:var(--text);}
 .footer-bottom{border-top:1px solid var(--border);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
 .footer-copy{font-size:0.8rem;color:var(--text3);}
 .footer-social{display:flex;gap:0.8rem;}
@@ -813,23 +819,23 @@ footer{
   <div class="sec-inner">
     <div class="eyebrow reveal">Get In Touch</div>
     <h2 class="sec-title reveal">Let's build your<br><span class="grad-text">website today.</span></h2>
-    <p class="sec-sub reveal">Tell us about your project and we'll get back to you within 24 hours with a free quote.</p>
+    <p class="sec-sub reveal">Tell us about your project and send your inquiry directly to WhatsApp for a fast response.</p>
     <div class="contact-grid">
       <div class="contact-info">
-        <div class="contact-detail reveal">
+        <a class="contact-detail contact-link reveal" href="mailto:zubair428kg@gmail.com">
           <div class="cd-icon">📧</div>
           <div>
             <div class="cd-label">Email Us</div>
-            <div class="cd-val">hello@nexoraweb.com</div>
+            <div class="cd-val">zubair428kg@gmail.com</div>
           </div>
-        </div>
-        <div class="contact-detail reveal reveal-delay-1">
+        </a>
+        <a class="contact-detail contact-link reveal reveal-delay-1" href="https://wa.me/917259449945" target="_blank" rel="noreferrer">
           <div class="cd-icon">💬</div>
           <div>
             <div class="cd-label">WhatsApp</div>
-            <div class="cd-val">+91 98765 43210</div>
+            <div class="cd-val">+91 7259449945</div>
           </div>
-        </div>
+        </a>
         <div class="contact-detail reveal reveal-delay-2">
           <div class="cd-icon">🕐</div>
           <div>
@@ -847,24 +853,24 @@ footer{
       </div>
       <div class="contact-form-wrap reveal">
         <div class="form-title">Get a Free Quote</div>
-        <div class="form-sub">Fill in the details below and we'll send you a custom quote within 24 hours.</div>
+        <div class="form-sub">Fill in the details below and tap the button to send your inquiry straight to WhatsApp.</div>
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">Your Name</label>
-            <input class="form-input" type="text" placeholder="Rahul Sharma" />
+            <label class="form-label" for="contactName">Your Name</label>
+            <input class="form-input" id="contactName" type="text" placeholder="Rahul Sharma" />
           </div>
           <div class="form-group">
-            <label class="form-label">Phone / WhatsApp</label>
-            <input class="form-input" type="tel" placeholder="+91 98765 43210" />
+            <label class="form-label" for="contactPhone">Phone / WhatsApp</label>
+            <input class="form-input" id="contactPhone" type="tel" placeholder="Your WhatsApp number" />
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label">Email Address</label>
-          <input class="form-input" type="email" placeholder="rahul@yourbusiness.com" />
+          <label class="form-label" for="contactEmail">Email Address</label>
+          <input class="form-input" id="contactEmail" type="email" placeholder="rahul@yourbusiness.com" />
         </div>
         <div class="form-group">
-          <label class="form-label">Type of Website</label>
-          <select class="form-select form-input">
+          <label class="form-label" for="contactType">Type of Website</label>
+          <select class="form-select form-input" id="contactType">
             <option value="">Select a website type...</option>
             <option>Business / Company Website</option>
             <option>E-Commerce Store</option>
@@ -875,13 +881,14 @@ footer{
           </select>
         </div>
         <div class="form-group">
-          <label class="form-label">Tell us about your project</label>
-          <textarea class="form-textarea" placeholder="What does your business do? Any specific features or pages you need?"></textarea>
+          <label class="form-label" for="contactMessage">Tell us about your project</label>
+          <textarea class="form-textarea" id="contactMessage" placeholder="What does your business do? Any specific features or pages you need?"></textarea>
         </div>
         <button class="form-submit">
-          Send My Request
+          Send Inquiry on WhatsApp
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 5l4 4-4 4"/></svg>
         </button>
+        <p class="form-note">Your inquiry will open in WhatsApp and go directly to +91 7259449945.</p>
       </div>
     </div>
   </div>
@@ -912,13 +919,19 @@ footer{
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
+    <div class="footer-links-col">
+      <h4>Contact</h4>
+      <div class="footer-contact">
+        <a href="mailto:zubair428kg@gmail.com">zubair428kg@gmail.com</a>
+        <a href="https://wa.me/917259449945" target="_blank" rel="noreferrer">+91 7259449945</a>
+      </div>
+    </div>
   </div>
   <div class="footer-bottom">
     <div class="footer-copy">© 2026 NexoraWeb. All rights reserved.</div>
     <div class="footer-social">
-      <a class="social-btn" href="#">in</a>
-      <a class="social-btn" href="#">tw</a>
-      <a class="social-btn" href="#">ig</a>
+      <a class="social-btn" href="https://wa.me/917259449945" target="_blank" rel="noreferrer">wa</a>
+      <a class="social-btn" href="mailto:zubair428kg@gmail.com">@</a>
     </div>
   </div>
 </footer>
@@ -957,15 +970,34 @@ window.addEventListener('scroll', () => {
     window.scrollY > 40 ? '0 4px 30px rgba(0,0,0,0.4)' : 'none';
 });
  
-// Form submit feedback
+// Send quote inquiries to WhatsApp
 document.querySelector('.form-submit').addEventListener('click', function(e) {
   e.preventDefault();
-  this.textContent = '✓ Request sent! We\'ll be in touch soon.';
+
+  const name = document.getElementById('contactName').value.trim() || 'Not provided';
+  const phone = document.getElementById('contactPhone').value.trim() || 'Not provided';
+  const email = document.getElementById('contactEmail').value.trim() || 'Not provided';
+  const type = document.getElementById('contactType').value.trim() || 'Not selected';
+  const message = document.getElementById('contactMessage').value.trim() || 'No project details shared yet.';
+  const whatsappText = [
+    'Hello Zubair, I would like a website quote from NexoraWeb.',
+    '',
+    'Name: ' + name,
+    'Phone / WhatsApp: ' + phone,
+    'Email: ' + email,
+    'Website Type: ' + type,
+    'Project Details: ' + message
+  ].join('\n');
+
+  this.innerHTML = 'Opening WhatsApp...';
   this.style.background = 'linear-gradient(135deg,#059669,#10B981)';
+
+  window.open('https://wa.me/917259449945?text=' + encodeURIComponent(whatsappText), '_blank', 'noopener');
+
   setTimeout(() => {
-    this.innerHTML = 'Send My Request <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 5l4 4-4 4"/></svg>';
+    this.innerHTML = 'Send Inquiry on WhatsApp <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 5l4 4-4 4"/></svg>';
     this.style.background = '';
-  }, 3000);
+  }, 2000);
 });
 </script>
 </body>
