@@ -1,2328 +1,973 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta
-  name="description"
-  content="NexoraWeb builds premium, mobile-friendly websites for stores, offices, startups, local businesses, portfolios, and e-commerce brands."
-/>
-<title>NexoraWeb | Professional Websites That Help Your Business Grow Online</title>
-<link
-  rel="preconnect"
-  href="https://fonts.googleapis.com"
-/>
-<link
-  rel="preconnect"
-  href="https://fonts.gstatic.com"
-  crossorigin
-/>
-<link
-  href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
-  rel="stylesheet"
-/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NexoraWeb — Professional Websites for Businesses</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  :root {
-    --bg: #050816;
-    --bg-alt: #0a1021;
-    --surface: rgba(12, 19, 40, 0.82);
-    --surface-strong: #111b35;
-    --surface-soft: rgba(14, 24, 48, 0.72);
-    --border: rgba(151, 182, 255, 0.18);
-    --border-strong: rgba(74, 222, 255, 0.3);
-    --text: #f4f8ff;
-    --text-soft: #c5d5f4;
-    --text-muted: #8fa3c7;
-    --accent: #5ee7ff;
-    --accent-strong: #289dff;
-    --accent-dark: #17336d;
-    --success: #39d98a;
-    --shadow: 0 24px 70px rgba(2, 8, 24, 0.45);
-    --shadow-soft: 0 16px 40px rgba(2, 8, 24, 0.28);
-    --radius-xl: 28px;
-    --radius-lg: 22px;
-    --radius-md: 18px;
-    --radius-sm: 14px;
-    --container: 1180px;
-    --grad-main: linear-gradient(135deg, #2b4fff 0%, #4edffd 55%, #a7ffff 100%);
-    --grad-surface: linear-gradient(180deg, rgba(17, 27, 53, 0.88), rgba(10, 15, 32, 0.88));
-    --font-display: "Space Grotesk", sans-serif;
-    --font-body: "Manrope", sans-serif;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    min-height: 100vh;
-    background:
-      radial-gradient(circle at 0% 0%, rgba(43, 79, 255, 0.18), transparent 26%),
-      radial-gradient(circle at 100% 0%, rgba(78, 223, 253, 0.14), transparent 24%),
-      radial-gradient(circle at 50% 100%, rgba(42, 90, 187, 0.2), transparent 38%),
-      var(--bg);
-    color: var(--text);
-    font-family: var(--font-body);
-    line-height: 1.65;
-    overflow-x: hidden;
-    overflow-x: hidden;
-  }
-
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-    background-size: 72px 72px;
-    mask-image: radial-gradient(circle at center, black 20%, transparent 82%);
-    opacity: 0.35;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  img {
-    display: block;
-    max-width: 100%;
-  }
-
-  button,
-  input,
-  select,
-  textarea {
-    font: inherit;
-  }
-
-  button {
-    border: none;
-    background: none;
-    color: inherit;
-    cursor: pointer;
-  }
-
-  ::selection {
-    background: rgba(94, 231, 255, 0.25);
-    color: var(--text);
-  }
-
-  .container {
-    width: min(var(--container), calc(100% - 2rem));
-    margin: 0 auto;
-  }
-
-  .site-header {
-    position: fixed;
-    inset: 0 0 auto;
-    z-index: 300;
-    transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  }
-
-  .site-header.scrolled {
-    background: rgba(5, 8, 22, 0.82);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
-    border-bottom: 1px solid rgba(151, 182, 255, 0.12);
-  }
-
-  .nav-shell {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1rem 0;
-  }
-
-  .brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.9rem;
-    font-family: var(--font-display);
-    font-size: 1.05rem;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-  }
-
-  .brand-mark {
-    width: 2.65rem;
-    height: 2.65rem;
-    display: grid;
-    place-items: center;
-    border-radius: 0.95rem;
-    color: #04101f;
-    background: var(--grad-main);
-    box-shadow: 0 10px 30px rgba(40, 157, 255, 0.32);
-  }
-
-  .brand-mark::before {
-    content: "NW";
-    font-size: 0.82rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-  }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 1.6rem;
-    list-style: none;
-  }
-
-  .nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 1.35rem;
-    margin-left: auto;
-  }
-
-  .nav-links a {
-    color: var(--text-soft);
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: color 0.2s ease;
-  }
-
-  .nav-links a:hover,
-  .nav-links a:focus-visible {
-    color: var(--text);
-  }
-
-  .nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.9rem;
-  }
-
-  .mobile-menu-btn {
-    display: none;
-    width: 2.85rem;
-    height: 2.85rem;
-    border: 1px solid var(--border);
-    border-radius: 0.95rem;
-    background: rgba(12, 19, 40, 0.84);
-  }
-
-  .mobile-menu-btn span,
-  .mobile-menu-btn::before,
-  .mobile-menu-btn::after {
-    content: "";
-    display: block;
-    width: 1.15rem;
-    height: 2px;
-    margin: 0.22rem auto;
-    border-radius: 999px;
-    background: var(--text);
-    transition: transform 0.25s ease, opacity 0.25s ease;
-  }
-
-  .mobile-menu-btn[aria-expanded="true"] span {
-    opacity: 0;
-  }
-
-  .mobile-menu-btn[aria-expanded="true"]::before {
-    transform: translateY(6px) rotate(45deg);
-  }
-
-  .mobile-menu-btn[aria-expanded="true"]::after {
-    transform: translateY(-6px) rotate(-45deg);
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    min-height: 3.3rem;
-    padding: 0.95rem 1.5rem;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 0.96rem;
-    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
-  }
-
-  .btn:hover,
-  .btn:focus-visible {
-    transform: translateY(-2px);
-  }
-
-  .btn-primary {
-    color: #031220;
-    background: var(--grad-main);
-    box-shadow: 0 18px 34px rgba(43, 79, 255, 0.24);
-  }
-
-  .btn-secondary {
-    border: 1px solid var(--border);
-    color: var(--text);
-    background: rgba(12, 19, 40, 0.72);
-  }
-
-  .btn-secondary:hover,
-  .btn-secondary:focus-visible {
-    border-color: var(--border-strong);
-    background: rgba(16, 27, 56, 0.92);
-  }
-
-  .hero {
-    position: relative;
-    padding: 9.5rem 0 4rem;
-  }
-
-  .hero::after {
-    content: "";
-    position: absolute;
-    inset: 6rem auto auto 52%;
-    width: 32rem;
-    height: 32rem;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(78, 223, 253, 0.14), transparent 65%);
-    filter: blur(10px);
-    pointer-events: none;
-  }
-
-  .hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(18rem, 0.92fr);
-    gap: 2rem;
-    align-items: center;
-  }
-
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.5rem 0.9rem;
-    border: 1px solid rgba(94, 231, 255, 0.18);
-    border-radius: 999px;
-    color: var(--accent);
-    background: rgba(94, 231, 255, 0.08);
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .eyebrow::before {
-    content: "";
-    width: 0.55rem;
-    height: 0.55rem;
-    border-radius: 50%;
-    background: currentColor;
-    box-shadow: 0 0 0 0.22rem rgba(94, 231, 255, 0.16);
-  }
-
-  .hero-copy {
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-copy h1 {
-    margin-top: 1.35rem;
-    font-family: var(--font-display);
-    font-size: clamp(2.8rem, 6vw, 5.35rem);
-    line-height: 0.97;
-    letter-spacing: -0.06em;
-    max-width: 12ch;
-  }
-
-  .hero-copy h1 span {
-    display: block;
-    color: transparent;
-    background: var(--grad-main);
-    background-clip: text;
-    -webkit-background-clip: text;
-  }
-
-  .hero-subhead {
-    margin-top: 1.25rem;
-    max-width: 43rem;
-    color: var(--text-soft);
-    font-size: 1.08rem;
-  }
-
-  .hero-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    margin-top: 1.5rem;
-    padding: 0.7rem 1rem;
-    max-width: 100%;
-    border-radius: 999px;
-    border: 1px solid rgba(151, 182, 255, 0.16);
-    background: rgba(10, 16, 33, 0.84);
-    color: var(--text);
-    font-weight: 700;
-    box-shadow: var(--shadow-soft);
-  }
-
-  .hero-pill::before {
-    content: "";
-    width: 0.75rem;
-    height: 0.75rem;
-    border-radius: 50%;
-    background: var(--success);
-    box-shadow: 0 0 0 0.25rem rgba(57, 217, 138, 0.12);
-    flex-shrink: 0;
-  }
-
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.95rem;
-    margin-top: 2rem;
-  }
-
-  .hero-points {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.85rem 1.35rem;
-    list-style: none;
-    margin-top: 1.55rem;
-    color: var(--text-soft);
-  }
-
-  .hero-points li {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-weight: 600;
-  }
-
-  .hero-points li::before {
-    content: "";
-    width: 0.85rem;
-    height: 0.85rem;
-    border-radius: 50%;
-    border: 2px solid var(--accent);
-    box-shadow: inset 0 0 0 0.22rem rgba(94, 231, 255, 0.16);
-  }
-
-  .hero-stats {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-    margin-top: 2.4rem;
-  }
-
-  .stat-card {
-    padding: 1.35rem 1.2rem;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border);
-    background: rgba(12, 19, 40, 0.76);
-    box-shadow: var(--shadow-soft);
-  }
-
-  .stat-value {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.08rem;
-    font-family: var(--font-display);
-    font-size: clamp(1.9rem, 4vw, 2.4rem);
-    font-weight: 700;
-    color: transparent;
-    background: var(--grad-main);
-    background-clip: text;
-    -webkit-background-clip: text;
-    letter-spacing: -0.05em;
-  }
-
-  .stat-card p {
-    margin-top: 0.35rem;
-    color: var(--text-muted);
-    font-size: 0.92rem;
-  }
-
-  .hero-visual {
-    position: relative;
-  }
-
-  .hero-frame,
-  .surface-card {
-    border: 1px solid rgba(151, 182, 255, 0.16);
-    background: var(--grad-surface);
-    box-shadow: var(--shadow);
-  }
-
-  .hero-frame {
-    position: relative;
-    overflow: hidden;
-    padding: 1.2rem;
-    border-radius: var(--radius-xl);
-  }
-
-  .hero-frame::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(78, 223, 253, 0.09), transparent 55%);
-    pointer-events: none;
-  }
-
-  .window-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid rgba(151, 182, 255, 0.12);
-  }
-
-  .window-dots {
-    display: flex;
-    gap: 0.45rem;
-  }
-
-  .window-dots span {
-    width: 0.65rem;
-    height: 0.65rem;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.38);
-  }
-
-  .window-pill {
-    min-width: 10rem;
-    padding: 0.45rem 0.8rem;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.06);
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    text-align: center;
-  }
-
-  .hero-panel-grid {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .mockup-main {
-    padding: 1.35rem;
-    border-radius: var(--radius-lg);
-    background: rgba(7, 13, 28, 0.88);
-    border: 1px solid rgba(151, 182, 255, 0.12);
-  }
-
-  .mockup-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.55rem;
-    padding: 0.45rem 0.7rem;
-    border-radius: 999px;
-    background: rgba(43, 79, 255, 0.16);
-    color: #9cc4ff;
-    font-size: 0.78rem;
-    font-weight: 700;
-  }
-
-  .mockup-badge::before {
-    content: "";
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    background: currentColor;
-  }
-
-  .mockup-main h2 {
-    margin-top: 0.95rem;
-    font-family: var(--font-display);
-    font-size: 1.55rem;
-    letter-spacing: -0.04em;
-  }
-
-  .mockup-main p {
-    margin-top: 0.6rem;
-    color: var(--text-soft);
-  }
-
-  .preview-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.9rem;
-    margin-top: 1.3rem;
-  }
-
-  .preview-card {
-    padding: 1rem;
-    border-radius: var(--radius-md);
-    background: rgba(255, 255, 255, 0.035);
-    border: 1px solid rgba(151, 182, 255, 0.1);
-  }
-
-  .preview-line {
-    height: 0.58rem;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.08);
-  }
-
-  .preview-line + .preview-line {
-    margin-top: 0.55rem;
-  }
-
-  .preview-line.accent {
-    background: var(--grad-main);
-  }
-
-  .preview-stack {
-    display: grid;
-    grid-template-columns: 1.3fr 0.95fr;
-    gap: 1rem;
-  }
-
-  .surface-card {
-    padding: 1.15rem;
-    border-radius: var(--radius-lg);
-  }
-
-  .surface-card h3 {
-    font-family: var(--font-display);
-    font-size: 1rem;
-    letter-spacing: -0.03em;
-  }
-
-  .surface-card p {
-    margin-top: 0.5rem;
-    color: var(--text-soft);
-    font-size: 0.93rem;
-  }
-
-  .mini-list {
-    display: grid;
-    gap: 0.7rem;
-    margin-top: 0.9rem;
-  }
-
-  .mini-list div {
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
-    color: var(--text-soft);
-    font-size: 0.92rem;
-  }
-
-  .mini-list span {
-    width: 0.75rem;
-    height: 0.75rem;
-    border-radius: 50%;
-    background: var(--grad-main);
-    flex-shrink: 0;
-  }
-
-  .trusted-strip {
-    padding: 1.5rem 0 0;
-  }
-
-  .trusted-grid {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .trusted-item {
-    padding: 1rem 1.15rem;
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(151, 182, 255, 0.12);
-    background: rgba(12, 19, 40, 0.62);
-    color: var(--text-soft);
-    font-size: 0.93rem;
-    text-align: center;
-    font-weight: 700;
-  }
-
-  .section {
-    padding: 5.75rem 0;
-  }
-
-  .section-head {
-    max-width: 40rem;
-    margin-bottom: 2.25rem;
-  }
-
-  .section-head h2 {
-    margin-top: 1rem;
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 3rem);
-    line-height: 1.05;
-    letter-spacing: -0.05em;
-  }
-
-  .section-head p {
-    margin-top: 0.9rem;
-    color: var(--text-soft);
-    font-size: 1rem;
-  }
-
-  .trust-grid,
-  .services-grid,
-  .portfolio-grid,
-  .process-grid,
-  .testimonials-grid,
-  .pricing-grid,
-  .faq-grid {
-    display: grid;
-    gap: 1.2rem;
-  }
-
-  .trust-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .trust-card,
-  .service-card,
-  .portfolio-card,
-  .process-card,
-  .testimonial-card,
-  .pricing-card,
-  .faq-card,
-  .contact-card,
-  .founder-card,
-  .cta-panel {
-    position: relative;
-    padding: 1.45rem;
-    border-radius: var(--radius-lg);
-    border: 1px solid rgba(151, 182, 255, 0.12);
-    background: rgba(10, 16, 33, 0.82);
-    box-shadow: var(--shadow-soft);
-  }
-
-  .trust-card::before,
-  .service-card::before,
-  .portfolio-card::before,
-  .pricing-card::before,
-  .founder-card::before,
-  .cta-panel::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(135deg, rgba(78, 223, 253, 0.08), transparent 50%);
-    pointer-events: none;
-  }
-
-  .card-icon {
-    width: 2.85rem;
-    height: 2.85rem;
-    display: grid;
-    place-items: center;
-    border-radius: 1rem;
-    background: rgba(43, 79, 255, 0.18);
-    color: var(--accent);
-    font-family: var(--font-display);
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-  }
-
-  .trust-card h3,
-  .service-card h3,
-  .portfolio-card h3,
-  .testimonial-card h3,
-  .contact-card h3,
-  .founder-card h3,
-  .cta-panel h3 {
-    margin-top: 1rem;
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    letter-spacing: -0.03em;
-  }
-
-  .trust-card p,
-  .service-card p,
-  .portfolio-card p,
-  .testimonial-card p,
-  .contact-card p,
-  .founder-card p,
-  .cta-panel p {
-    margin-top: 0.6rem;
-    color: var(--text-soft);
-  }
-
-  .trust-card:hover,
-  .service-card:hover,
-  .portfolio-card:hover,
-  .pricing-card:hover,
-  .testimonial-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(94, 231, 255, 0.22);
-    transition: transform 0.28s ease, border-color 0.28s ease;
-  }
-
-  .founder-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-    gap: 1.3rem;
-  }
-
-  .founder-card.quote {
-    background:
-      linear-gradient(180deg, rgba(18, 27, 52, 0.95), rgba(8, 12, 25, 0.92)),
-      var(--bg-alt);
-  }
-
-  .quote-mark {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    background: rgba(94, 231, 255, 0.14);
-    color: var(--accent);
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-
-  .quote-mark::before {
-    content: '"';
-  }
-
-  .founder-note {
-    margin-top: 1rem;
-    font-size: 1.08rem;
-    color: var(--text);
-  }
-
-  .founder-meta {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    margin-top: 1.35rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid rgba(151, 182, 255, 0.12);
-  }
-
-  .founder-avatar {
-    width: 3.4rem;
-    height: 3.4rem;
-    display: grid;
-    place-items: center;
-    border-radius: 1rem;
-    background: var(--grad-main);
-    color: #051221;
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 800;
-  }
-
-  .founder-meta strong {
-    display: block;
-    font-size: 1rem;
-  }
-
-  .founder-meta span {
-    color: var(--text-muted);
-    font-size: 0.92rem;
-  }
-
-  .founder-list {
-    list-style: none;
-    display: grid;
-    gap: 0.85rem;
-    margin-top: 1.2rem;
-  }
-
-  .founder-list li {
-    display: flex;
-    gap: 0.8rem;
-    color: var(--text-soft);
-  }
-
-  .founder-list li::before {
-    content: "";
-    width: 0.85rem;
-    height: 0.85rem;
-    margin-top: 0.4rem;
-    border-radius: 50%;
-    background: var(--grad-main);
-    flex-shrink: 0;
-  }
-
-  .services-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .service-card ul {
-    list-style: none;
-    display: grid;
-    gap: 0.6rem;
-    margin-top: 1rem;
-    color: var(--text-soft);
-    font-size: 0.92rem;
-  }
-
-  .service-card li {
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
-  }
-
-  .service-card li::before {
-    content: "";
-    width: 0.52rem;
-    height: 0.52rem;
-    border-radius: 50%;
-    background: var(--accent);
-    flex-shrink: 0;
-  }
-
-  .portfolio-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .portfolio-preview {
-    padding: 1rem;
-    border-radius: var(--radius-md);
-    background: rgba(4, 9, 21, 0.92);
-    border: 1px solid rgba(151, 182, 255, 0.12);
-  }
-
-  .portfolio-top {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    align-items: center;
-  }
-
-  .portfolio-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.38rem 0.7rem;
-    border-radius: 999px;
-    background: rgba(43, 79, 255, 0.16);
-    color: #9cc4ff;
-    font-size: 0.76rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .portfolio-tag::before {
-    content: "";
-    width: 0.48rem;
-    height: 0.48rem;
-    border-radius: 50%;
-    background: currentColor;
-  }
-
-  .portfolio-score {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    font-weight: 700;
-  }
-
-  .portfolio-wire {
-    display: grid;
-    gap: 0.72rem;
-    margin-top: 1rem;
-  }
-
-  .portfolio-wire .preview-line:nth-child(1) {
-    width: 68%;
-  }
-
-  .portfolio-wire .preview-line:nth-child(2) {
-    width: 96%;
-  }
-
-  .portfolio-wire .preview-line:nth-child(3) {
-    width: 82%;
-  }
-
-  .portfolio-boxes {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.7rem;
-    margin-top: 0.35rem;
-  }
-
-  .portfolio-boxes span {
-    height: 4.2rem;
-    border-radius: 1rem;
-    background: linear-gradient(180deg, rgba(43, 79, 255, 0.18), rgba(12, 19, 40, 0.4));
-    border: 1px solid rgba(151, 182, 255, 0.12);
-  }
-
-  .portfolio-actions {
-    display: flex;
-    gap: 0.8rem;
-    flex-wrap: wrap;
-    margin-top: 1.15rem;
-  }
-
-  .portfolio-actions .btn {
-    min-height: 2.95rem;
-    font-size: 0.9rem;
-    padding-inline: 1.2rem;
-  }
-
-  .portfolio-note {
-    margin-top: 1.35rem;
-    color: var(--text-muted);
-    font-size: 0.92rem;
-    text-align: center;
-  }
-
-  .process-grid {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-
-  .process-card {
-    padding: 1.4rem 1.1rem;
-    background: rgba(10, 16, 33, 0.72);
-    text-align: left;
-  }
-
-  .process-step {
-    display: inline-grid;
-    place-items: center;
-    width: 2.55rem;
-    height: 2.55rem;
-    border-radius: 50%;
-    background: var(--grad-main);
-    color: #06111f;
-    font-family: var(--font-display);
-    font-weight: 800;
-  }
-
-  .process-card h3 {
-    margin-top: 1rem;
-    font-family: var(--font-display);
-    font-size: 1.02rem;
-    letter-spacing: -0.03em;
-  }
-
-  .process-card p {
-    margin-top: 0.55rem;
-    color: var(--text-soft);
-    font-size: 0.92rem;
-  }
-
-  .testimonials-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .testimonial-card {
-    padding: 1.55rem;
-  }
-
-  .stars {
-    color: #ffd76a;
-    font-size: 0.95rem;
-    letter-spacing: 0.14em;
-  }
-
-  .testimonial-card blockquote {
-    margin-top: 1rem;
-    color: var(--text);
-    font-size: 1rem;
-  }
-
-  .testimonial-meta {
-    margin-top: 1.3rem;
-    padding-top: 1.1rem;
-    border-top: 1px solid rgba(151, 182, 255, 0.12);
-  }
-
-  .testimonial-meta strong {
-    display: block;
-    font-size: 0.98rem;
-  }
-
-  .testimonial-meta span {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-  }
-
-  .pricing-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-items: stretch;
-  }
-
-  .pricing-card {
-    padding: 1.7rem;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .pricing-card.featured {
-    border-color: rgba(94, 231, 255, 0.26);
-    transform: translateY(-0.35rem);
-    background:
-      linear-gradient(180deg, rgba(19, 32, 64, 0.98), rgba(10, 16, 33, 0.92)),
-      var(--bg-alt);
-  }
-
-  .pricing-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    align-self: flex-start;
-    padding: 0.42rem 0.72rem;
-    border-radius: 999px;
-    background: rgba(94, 231, 255, 0.12);
-    color: var(--accent);
-    font-size: 0.76rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .pricing-plan {
-    margin-top: 1rem;
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 0.11em;
-    text-transform: uppercase;
-  }
-
-  .pricing-card h3 {
-    margin-top: 0.75rem;
-    font-family: var(--font-display);
-    font-size: 1.35rem;
-    letter-spacing: -0.03em;
-  }
-
-  .pricing-price {
-    display: flex;
-    align-items: baseline;
-    gap: 0.25rem;
-    margin-top: 1rem;
-    font-family: var(--font-display);
-    font-size: clamp(2.2rem, 4vw, 3rem);
-    letter-spacing: -0.06em;
-  }
-
-  .pricing-price small {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    font-weight: 600;
-    letter-spacing: normal;
-  }
-
-  .pricing-card p {
-    margin-top: 0.8rem;
-    color: var(--text-soft);
-  }
-
-  .pricing-list {
-    list-style: none;
-    display: grid;
-    gap: 0.7rem;
-    margin-top: 1.25rem;
-    color: var(--text-soft);
-    font-size: 0.93rem;
-  }
-
-  .pricing-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.7rem;
-  }
-
-  .pricing-list li::before {
-    content: "";
-    width: 0.78rem;
-    height: 0.78rem;
-    margin-top: 0.36rem;
-    border-radius: 50%;
-    background: var(--grad-main);
-    flex-shrink: 0;
-  }
-
-  .pricing-card .btn {
-    margin-top: auto;
-    width: 100%;
-  }
-
-  .faq-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .faq-card {
-    padding: 0;
-    overflow: hidden;
-  }
-
-  .faq-card summary {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1.25rem 1.35rem;
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-  }
-
-  .faq-card summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .faq-card summary::after {
-    content: "+";
-    flex-shrink: 0;
-    width: 1.7rem;
-    height: 1.7rem;
-    display: grid;
-    place-items: center;
-    border-radius: 50%;
-    background: rgba(94, 231, 255, 0.12);
-    color: var(--accent);
-  }
-
-  .faq-card[open] summary::after {
-    content: "-";
-  }
-
-  .faq-card p {
-    padding: 0 1.35rem 1.25rem;
-    color: var(--text-soft);
-  }
-
-  .cta-panel {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 1.2rem;
-    align-items: center;
-    margin-top: 2.2rem;
-  }
-
-  .cta-panel h3 {
-    margin-top: 0;
-    font-size: 1.45rem;
-  }
-
-  .contact-shell {
-    display: grid;
-    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-    gap: 1.3rem;
-  }
-
-  .contact-stack {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .contact-card h4 {
-    margin-top: 0.95rem;
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .contact-card a,
-  .contact-card strong {
-    display: block;
-    margin-top: 0.35rem;
-    color: var(--text);
-    font-size: 1rem;
-  }
-
-  .contact-form {
-    padding: 1.6rem;
-  }
-
-  .form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .form-group {
-    display: grid;
-    gap: 0.5rem;
-  }
-
-  .form-group.full {
-    grid-column: 1 / -1;
-  }
-
-  .form-label {
-    color: var(--text-soft);
-    font-size: 0.86rem;
-    font-weight: 700;
-  }
-
-  .form-control {
-    width: 100%;
-    min-height: 3.3rem;
-    padding: 0.95rem 1rem;
-    border: 1px solid rgba(151, 182, 255, 0.16);
-    border-radius: 1rem;
-    background: rgba(4, 9, 21, 0.82);
-    color: var(--text);
-    outline: none;
-    transition: border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
-  }
-
-  .form-control:focus {
-    border-color: rgba(94, 231, 255, 0.36);
-    box-shadow: 0 0 0 4px rgba(94, 231, 255, 0.08);
-    background: rgba(6, 12, 27, 0.96);
-  }
-
-  textarea.form-control {
-    min-height: 8.8rem;
-    resize: vertical;
-  }
-
-  .form-foot {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-top: 1.25rem;
-    flex-wrap: wrap;
-  }
-
-  .form-note,
-  .form-status {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-  }
-
-  .form-status {
-    min-height: 1.4rem;
-  }
-
-  .site-footer {
-    padding: 2rem 0 2.7rem;
-    border-top: 1px solid rgba(151, 182, 255, 0.12);
-    background: rgba(3, 7, 18, 0.8);
-  }
-
-  .footer-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto auto;
-    gap: 2rem;
-    align-items: start;
-  }
-
-  .footer-brand p {
-    margin-top: 0.7rem;
-    max-width: 22rem;
-    color: var(--text-soft);
-  }
-
-  .footer-block h4 {
-    color: var(--text-muted);
-    font-size: 0.82rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .footer-block ul {
-    list-style: none;
-    display: grid;
-    gap: 0.55rem;
-    margin-top: 0.8rem;
-  }
-
-  .footer-block a,
-  .footer-block span {
-    color: var(--text-soft);
-    font-size: 0.94rem;
-  }
-
-  .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-top: 1.8rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid rgba(151, 182, 255, 0.1);
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    flex-wrap: wrap;
-  }
-
-  .whatsapp-float {
-    position: fixed;
-    right: 1.15rem;
-    bottom: 1.15rem;
-    z-index: 280;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.7rem;
-    padding: 0.95rem 1.05rem;
-    border-radius: 999px;
-    background: linear-gradient(135deg, #25d366, #18b857);
-    color: #04180d;
-    font-weight: 800;
-    box-shadow: 0 18px 38px rgba(37, 211, 102, 0.3);
-    transition: transform 0.22s ease, box-shadow 0.22s ease;
-  }
-
-  .whatsapp-float:hover,
-  .whatsapp-float:focus-visible {
-    transform: translateY(-3px);
-    box-shadow: 0 24px 48px rgba(37, 211, 102, 0.36);
-  }
-
-  .whatsapp-float::before {
-    content: "";
-    width: 1.35rem;
-    height: 1.35rem;
-    border-radius: 50%;
-    background: rgba(4, 24, 13, 0.16);
-    box-shadow: inset 0 0 0 0.22rem rgba(4, 24, 13, 0.18);
-  }
-
-  [data-reveal] {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-
-  [data-reveal].is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  [data-reveal-delay="1"] {
-    transition-delay: 0.08s;
-  }
-
-  [data-reveal-delay="2"] {
-    transition-delay: 0.16s;
-  }
-
-  [data-reveal-delay="3"] {
-    transition-delay: 0.24s;
-  }
-
-  @media (max-width: 1100px) {
-    .hero-grid,
-    .founder-grid,
-    .contact-shell,
-    .cta-panel {
-      grid-template-columns: 1fr;
-    }
-
-    .trusted-grid,
-    .process-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .services-grid,
-    .portfolio-grid,
-    .testimonials-grid,
-    .pricing-grid,
-    .trust-grid,
-    .faq-grid,
-    .footer-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .hero-copy h1 {
-      max-width: 11ch;
-    }
-  }
-
-  @media (max-width: 860px) {
-    .nav-shell {
-      flex-wrap: wrap;
-    }
-
-    .mobile-menu-btn {
-      display: inline-block;
-    }
-
-    .nav-menu {
-      width: 100%;
-      display: none;
-      border-top: 1px solid rgba(151, 182, 255, 0.12);
-      padding-top: 1rem;
-    }
-
-    .nav-menu.is-open {
-      display: block;
-    }
-
-    .nav-links,
-    .nav-actions {
-      width: 100%;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .nav-actions .btn {
-      width: 100%;
-    }
-
-    .hero {
-      padding-top: 8.5rem;
-    }
-
-    .hero-stats,
-    .trusted-grid,
-    .services-grid,
-    .portfolio-grid,
-    .process-grid,
-    .testimonials-grid,
-    .pricing-grid,
-    .trust-grid,
-    .faq-grid,
-    .footer-grid,
-    .preview-stack {
-      grid-template-columns: 1fr;
-    }
-
-    .form-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .portfolio-actions .btn {
-      width: 100%;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .container {
-      width: min(var(--container), calc(100% - 1.2rem));
-    }
-
-    .hero-copy h1 {
-      font-size: clamp(2.45rem, 11vw, 4rem);
-    }
-
-    .hero-actions {
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    .hero-actions .btn,
-    .cta-panel .btn,
-    .form-foot .btn {
-      width: 100%;
-    }
-
-    .form-foot {
-      align-items: stretch;
-    }
-
-    .whatsapp-float {
-      right: 0.8rem;
-      bottom: 0.8rem;
-      padding: 0.88rem 0.95rem;
-      font-size: 0.9rem;
-    }
-  }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#080812;
+  --bg2:#0D0D1A;
+  --bg3:#121226;
+  --border:rgba(255,255,255,0.06);
+  --border2:rgba(124,58,237,0.3);
+  --violet:#7C3AED;
+  --cyan:#06B6D4;
+  --grad:linear-gradient(135deg,#7C3AED,#06B6D4);
+  --grad2:linear-gradient(135deg,#9333EA,#22D3EE);
+  --text:#F8F8FF;
+  --text2:#A0A0C0;
+  --text3:#5A5A7A;
+  --font:'Outfit',sans-serif;
+  --body:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:hidden;line-height:1.6;}
+ 
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--violet);border-radius:2px;}
+ 
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 5%;
+  background:rgba(8,8,18,0.8);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  transition:all 0.3s;
+}
+.logo{
+  font-family:var(--font);font-size:1.4rem;font-weight:800;
+  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;letter-spacing:-0.03em;text-decoration:none;
+}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
+.nav-links a{font-size:0.875rem;color:var(--text2);text-decoration:none;transition:color 0.2s;font-family:var(--font);font-weight:500;}
+.nav-links a:hover{color:var(--text);}
+.nav-btn{
+  font-family:var(--font);font-size:0.85rem;font-weight:600;
+  background:var(--grad);color:#fff;border:none;
+  padding:0.55rem 1.3rem;border-radius:50px;cursor:pointer;
+  text-decoration:none;transition:opacity 0.2s,transform 0.15s;
+  box-shadow:0 0 20px rgba(124,58,237,0.3);
+}
+.nav-btn:hover{opacity:0.88;transform:translateY(-1px);}
+ 
+/* HERO */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:9rem 5% 5rem;position:relative;overflow:hidden;
+}
+ 
+/* animated bg orbs */
+.orb{
+  position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;
+  animation:float 8s ease-in-out infinite alternate;
+}
+.orb1{width:500px;height:500px;top:-10%;left:-10%;background:rgba(124,58,237,0.12);animation-delay:0s;}
+.orb2{width:400px;height:400px;bottom:-10%;right:-5%;background:rgba(6,182,212,0.1);animation-delay:-4s;}
+.orb3{width:300px;height:300px;top:40%;left:50%;transform:translateX(-50%);background:rgba(147,51,234,0.07);animation-delay:-2s;}
+@keyframes float{from{transform:translateY(0) scale(1);}to{transform:translateY(-30px) scale(1.05);}}
+ 
+/* grid bg */
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(124,58,237,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(124,58,237,0.04) 1px,transparent 1px);
+  background-size:50px 50px;
+  mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 0%,transparent 100%);
+}
+ 
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font);font-size:0.78rem;font-weight:600;
+  color:var(--cyan);background:rgba(6,182,212,0.08);
+  border:1px solid rgba(6,182,212,0.2);
+  padding:0.4rem 1rem;border-radius:50px;
+  margin-bottom:1.8rem;letter-spacing:0.08em;text-transform:uppercase;
+  animation:fadeUp 0.6s ease 0.2s both;
+}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(0.8);}}
+ 
+.hero h1{
+  font-family:var(--font);font-size:clamp(2.8rem,6vw,5.5rem);
+  font-weight:900;line-height:1.02;letter-spacing:-0.04em;
+  margin-bottom:1rem;
+  animation:fadeUp 0.7s ease 0.35s both;
+}
+.grad-text{
+  background:var(--grad2);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text;
+}
+ 
+.hero-price{
+  font-family:var(--font);font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:600;
+  margin-bottom:1.2rem;color:var(--text);
+  animation:fadeUp 0.7s ease 0.5s both;
+}
+.price-num{
+  font-size:clamp(2rem,4vw,3rem);font-weight:900;
+  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+ 
+.hero-sub{
+  font-size:1.05rem;color:var(--text2);max-width:520px;margin:0 auto 2.5rem;
+  font-weight:300;line-height:1.8;animation:fadeUp 0.7s ease 0.65s both;
+}
+ 
+.hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp 0.7s ease 0.8s both;}
+.btn-main{
+  font-family:var(--font);font-size:1rem;font-weight:700;
+  background:var(--grad);color:#fff;
+  padding:0.9rem 2.2rem;border-radius:50px;text-decoration:none;
+  box-shadow:0 8px 32px rgba(124,58,237,0.35);
+  transition:transform 0.2s,box-shadow 0.2s;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(124,58,237,0.5);}
+.btn-outline{
+  font-family:var(--font);font-size:1rem;font-weight:600;
+  color:var(--text);border:1px solid rgba(255,255,255,0.15);
+  padding:0.9rem 2.2rem;border-radius:50px;text-decoration:none;
+  backdrop-filter:blur(8px);transition:border-color 0.2s,background 0.2s;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn-outline:hover{border-color:rgba(124,58,237,0.5);background:rgba(124,58,237,0.08);}
+ 
+/* trust row */
+.trust-row{
+  display:flex;align-items:center;justify-content:center;gap:2rem;
+  margin-top:3.5rem;flex-wrap:wrap;
+  animation:fadeUp 0.7s ease 1s both;
+}
+.trust-item{
+  display:flex;align-items:center;gap:8px;
+  font-family:var(--font);font-size:0.82rem;color:var(--text3);font-weight:500;
+}
+.trust-icon{color:var(--violet);font-size:1rem;}
+ 
+/* scroll indicator */
+.scroll-ind{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  animation:fadeIn 1s ease 1.5s both;
+}
+.scroll-line{width:1px;height:40px;background:linear-gradient(var(--violet),transparent);animation:scrollDown 1.5s ease-in-out infinite;}
+@keyframes scrollDown{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform:scaleY(1);transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+.scroll-txt{font-family:var(--font);font-size:0.65rem;color:var(--text3);letter-spacing:0.15em;text-transform:uppercase;}
+ 
+/* STATS */
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+.stat{
+  padding:2.5rem 2rem;text-align:center;
+  border-right:1px solid var(--border);transition:background 0.3s;
+}
+.stat:last-child{border-right:none;}
+.stat:hover{background:var(--bg2);}
+.stat-n{
+  font-family:var(--font);font-size:2.5rem;font-weight:900;
+  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  letter-spacing:-0.04em;line-height:1;
+}
+.stat-l{font-size:0.82rem;color:var(--text3);margin-top:0.3rem;font-weight:500;font-family:var(--font);}
+ 
+/* SECTION COMMONS */
+.sec{padding:6rem 5%;}
+.sec-inner{max-width:1200px;margin:0 auto;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font);font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--violet);margin-bottom:1rem;
+}
+.eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--violet);}
+.sec-title{
+  font-family:var(--font);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:800;
+  letter-spacing:-0.03em;line-height:1.1;color:var(--text);margin-bottom:0.8rem;
+}
+.sec-sub{font-size:1rem;color:var(--text2);max-width:480px;font-weight:300;line-height:1.8;margin-bottom:3rem;}
+ 
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.about-visual{
+  position:relative;display:flex;align-items:center;justify-content:center;
+}
+.about-card-main{
+  width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:16px;
+  padding:2rem;position:relative;overflow:hidden;
+}
+.about-card-main::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(124,58,237,0.05),transparent);pointer-events:none;
+}
+.about-card-glow{
+  position:absolute;top:-1px;left:0;right:0;height:2px;
+  background:var(--grad);border-radius:16px 16px 0 0;
+}
+.mini-browser{background:var(--bg3);border-radius:10px;overflow:hidden;}
+.mini-bar{
+  display:flex;align-items:center;gap:5px;padding:8px 12px;
+  background:rgba(255,255,255,0.03);border-bottom:1px solid var(--border);
+}
+.mini-dot{width:8px;height:8px;border-radius:50%;}
+.mini-addr{
+  flex:1;background:rgba(255,255,255,0.04);border-radius:4px;
+  height:16px;margin-left:8px;font-family:monospace;font-size:0.6rem;
+  color:var(--text3);display:flex;align-items:center;padding:0 8px;
+}
+.mini-content{padding:16px 14px;display:flex;flex-direction:column;gap:8px;}
+.mc-h{height:7px;border-radius:3px;background:rgba(255,255,255,0.15);}
+.mc-p{height:4px;border-radius:3px;background:rgba(255,255,255,0.06);}
+.mc-grad{height:4px;border-radius:3px;background:var(--grad);opacity:0.6;}
+.mc-row{display:flex;gap:8px;}
+.mc-block{flex:1;height:40px;background:rgba(124,58,237,0.08);border-radius:6px;border:1px solid rgba(124,58,237,0.15);}
+.about-floating{
+  position:absolute;bottom:-1rem;right:-1rem;
+  background:var(--bg2);border:1px solid var(--border2);border-radius:12px;
+  padding:0.75rem 1rem;display:flex;align-items:center;gap:10px;
+  backdrop-filter:blur(10px);animation:floatCard 4s ease-in-out infinite alternate;
+}
+@keyframes floatCard{from{transform:translateY(0);}to{transform:translateY(-8px);}}
+.floating-icon{width:32px;height:32px;border-radius:8px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:1rem;}
+.floating-txt{font-family:var(--font);font-size:0.78rem;font-weight:600;color:var(--text);}
+.floating-sub{font-size:0.68rem;color:var(--text3);}
+.about-list{display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem;}
+.about-item{display:flex;align-items:flex-start;gap:12px;}
+.about-check{
+  width:22px;height:22px;border-radius:6px;background:rgba(124,58,237,0.15);
+  border:1px solid rgba(124,58,237,0.3);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--violet);margin-top:2px;
+}
+.about-item-txt{font-size:0.9rem;color:var(--text2);line-height:1.6;}
+.about-item-txt strong{color:var(--text);font-weight:600;}
+ 
+/* SERVICES */
+.services-bg{background:var(--bg2);}
+.services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem;}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.svc-card{
+  background:var(--bg3);border:1px solid var(--border);border-radius:16px;
+  padding:2rem;position:relative;overflow:hidden;cursor:pointer;
+  transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;
+}
+.svc-card:hover{border-color:rgba(124,58,237,0.4);transform:translateY(-4px);box-shadow:0 20px 60px rgba(124,58,237,0.1);}
+.svc-card::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(124,58,237,0.04),transparent);
+  opacity:0;transition:opacity 0.3s;pointer-events:none;
+}
+.svc-card:hover::after{opacity:1;}
+.svc-top-line{
+  position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--grad);transform:scaleX(0);transform-origin:left;
+  transition:transform 0.4s ease;border-radius:16px 16px 0 0;
+}
+.svc-card:hover .svc-top-line{transform:scaleX(1);}
+.svc-icon{
+  width:48px;height:48px;border-radius:12px;
+  background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.2);
+  display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;font-size:1.4rem;
+  transition:background 0.3s;
+}
+.svc-card:hover .svc-icon{background:rgba(124,58,237,0.2);}
+.svc-name{font-family:var(--font);font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:0.5rem;letter-spacing:-0.01em;}
+.svc-desc{font-size:0.875rem;color:var(--text2);line-height:1.75;font-weight:300;}
+.svc-link{
+  display:inline-flex;align-items:center;gap:5px;margin-top:1.2rem;
+  font-family:var(--font);font-size:0.8rem;font-weight:600;
+  color:var(--violet);text-decoration:none;transition:gap 0.2s;
+}
+.svc-card:hover .svc-link{gap:8px;}
+ 
+/* PORTFOLIO */
+.port-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.port-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;
+  transition:border-color 0.3s,transform 0.3s;cursor:pointer;
+}
+.port-card:hover{border-color:rgba(6,182,212,0.3);transform:translateY(-4px);}
+.port-img{
+  height:200px;background:var(--bg3);position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.port-img::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(124,58,237,0.08),rgba(6,182,212,0.05));
+}
+.port-mockup{
+  width:75%;background:var(--bg);border-radius:8px;overflow:hidden;
+  border:1px solid var(--border);box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  transition:transform 0.4s ease;
+}
+.port-card:hover .port-mockup{transform:translateY(-6px);}
+.port-mbar{height:20px;background:rgba(255,255,255,0.03);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 8px;gap:4px;}
+.pm-dot{width:5px;height:5px;border-radius:50%;}
+.pm-r{background:#FF5F57;}.pm-y{background:#FFBD2E;}.pm-g{background:#28CA41;}
+.port-mbody{padding:12px 10px;display:flex;flex-direction:column;gap:6px;}
+.pm-h{height:5px;border-radius:2px;background:rgba(255,255,255,0.15);}
+.pm-p{height:3px;border-radius:2px;background:rgba(255,255,255,0.05);}
+.pm-a{height:3px;border-radius:2px;background:var(--grad);opacity:0.5;}
+.pm-row{display:flex;gap:5px;margin-top:4px;}
+.pm-block{flex:1;height:28px;background:rgba(124,58,237,0.06);border-radius:4px;border:1px solid rgba(124,58,237,0.1);}
+.port-tag{
+  position:absolute;top:12px;right:12px;
+  font-family:var(--font);font-size:0.65rem;font-weight:700;letter-spacing:0.08em;
+  text-transform:uppercase;color:#fff;background:var(--grad);
+  padding:3px 10px;border-radius:50px;
+}
+.port-info{padding:1.5rem;}
+.port-cat{font-family:var(--font);font-size:0.72rem;color:var(--cyan);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.3rem;}
+.port-name{font-family:var(--font);font-size:1rem;font-weight:700;color:var(--text);letter-spacing:-0.01em;margin-bottom:0.4rem;}
+.port-desc{font-size:0.82rem;color:var(--text2);font-weight:300;}
+ 
+/* PRICING */
+.pricing-bg{background:var(--bg2);}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1rem;}
+.price-card{
+  background:var(--bg3);border:1px solid var(--border);border-radius:20px;
+  padding:2.5rem 2rem;position:relative;overflow:hidden;transition:transform 0.3s;
+}
+.price-card:hover{transform:translateY(-4px);}
+.price-card.featured{
+  border-color:rgba(124,58,237,0.5);background:linear-gradient(135deg,rgba(124,58,237,0.08),rgba(6,182,212,0.04));
+  box-shadow:0 0 60px rgba(124,58,237,0.12);
+}
+.price-badge{
+  position:absolute;top:1.5rem;right:1.5rem;
+  font-family:var(--font);font-size:0.65rem;font-weight:800;letter-spacing:0.1em;
+  text-transform:uppercase;background:var(--grad);color:#fff;
+  padding:3px 10px;border-radius:50px;
+}
+.plan-name{font-family:var(--font);font-size:0.8rem;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.8rem;}
+.plan-price{
+  font-family:var(--font);font-size:2.8rem;font-weight:900;color:var(--text);
+  letter-spacing:-0.04em;line-height:1;margin-bottom:0.3rem;display:flex;align-items:baseline;gap:4px;
+}
+.plan-price .curr{font-size:1.2rem;font-weight:600;color:var(--text2);}
+.plan-price .period{font-size:0.85rem;font-weight:400;color:var(--text3);}
+.plan-tag{font-size:0.78rem;color:var(--text3);margin-bottom:1.8rem;font-weight:300;}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:0.7rem;margin-bottom:2rem;}
+.plan-features li{display:flex;align-items:center;gap:10px;font-size:0.875rem;color:var(--text2);}
+.feat-check{color:var(--violet);font-size:0.8rem;flex-shrink:0;}
+.plan-btn{
+  display:block;text-align:center;font-family:var(--font);font-size:0.9rem;font-weight:700;
+  padding:0.85rem;border-radius:50px;text-decoration:none;transition:all 0.2s;
+  border:1px solid var(--border);color:var(--text);
+}
+.plan-btn:hover{border-color:var(--violet);background:rgba(124,58,237,0.1);}
+.plan-btn.grad{background:var(--grad);border:none;color:#fff;box-shadow:0 8px 24px rgba(124,58,237,0.35);}
+.plan-btn.grad:hover{opacity:0.88;transform:translateY(-1px);}
+ 
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:start;}
+.contact-info{display:flex;flex-direction:column;gap:1.5rem;}
+.contact-detail{
+  display:flex;align-items:flex-start;gap:14px;padding:1.2rem;
+  background:var(--bg2);border:1px solid var(--border);border-radius:12px;
+  transition:border-color 0.2s;
+}
+.contact-detail:hover{border-color:rgba(124,58,237,0.3);}
+.cd-icon{
+  width:38px;height:38px;border-radius:10px;background:rgba(124,58,237,0.12);
+  border:1px solid rgba(124,58,237,0.2);display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0;
+}
+.cd-label{font-family:var(--font);font-size:0.72rem;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;}
+.cd-val{font-family:var(--font);font-size:0.9rem;color:var(--text);font-weight:600;}
+.contact-form-wrap{
+  background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:2.5rem;
+}
+.form-title{font-family:var(--font);font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:0.4rem;letter-spacing:-0.02em;}
+.form-sub{font-size:0.85rem;color:var(--text2);margin-bottom:2rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+.form-group{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;}
+.form-label{font-family:var(--font);font-size:0.78rem;font-weight:600;color:var(--text2);letter-spacing:0.03em;}
+.form-input,.form-select,.form-textarea{
+  width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:10px;
+  padding:0.75rem 1rem;color:var(--text);font-family:var(--body);font-size:0.9rem;
+  outline:none;transition:border-color 0.2s,box-shadow 0.2s;
+}
+.form-input:focus,.form-select:focus,.form-textarea:focus{
+  border-color:rgba(124,58,237,0.5);box-shadow:0 0 0 3px rgba(124,58,237,0.08);
+}
+.form-select{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235A5A7A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
+.form-select option{background:var(--bg3);}
+.form-textarea{resize:vertical;min-height:100px;}
+.form-submit{
+  width:100%;font-family:var(--font);font-size:1rem;font-weight:700;
+  background:var(--grad);color:#fff;border:none;padding:1rem;border-radius:50px;cursor:pointer;
+  box-shadow:0 8px 24px rgba(124,58,237,0.35);transition:opacity 0.2s,transform 0.15s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.form-submit:hover{opacity:0.88;transform:translateY(-1px);}
+ 
+/* FOOTER */
+footer{
+  background:var(--bg);border-top:1px solid var(--border);
+  padding:3rem 5% 2rem;
+}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2.5rem;flex-wrap:wrap;gap:2rem;}
+.footer-brand .logo{font-size:1.6rem;}
+.footer-brand p{font-size:0.85rem;color:var(--text3);margin-top:0.5rem;max-width:280px;line-height:1.7;}
+.footer-links-col h4{font-family:var(--font);font-size:0.78rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.8rem;}
+.footer-links-col ul{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
+.footer-links-col a{font-size:0.875rem;color:var(--text2);text-decoration:none;transition:color 0.2s;}
+.footer-links-col a:hover{color:var(--text);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-copy{font-size:0.8rem;color:var(--text3);}
+.footer-social{display:flex;gap:0.8rem;}
+.social-btn{
+  width:36px;height:36px;border-radius:9px;background:var(--bg2);
+  border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+  font-size:0.85rem;text-decoration:none;color:var(--text2);transition:all 0.2s;
+}
+.social-btn:hover{border-color:rgba(124,58,237,0.4);color:var(--text);background:rgba(124,58,237,0.08);}
+ 
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:0.1s;}
+.reveal-delay-2{transition-delay:0.2s;}
+.reveal-delay-3{transition-delay:0.3s;}
+.reveal-delay-4{transition-delay:0.4s;}
+ 
+@media(max-width:900px){
+  nav{padding:1rem 5%;flex-wrap:wrap;gap:0.75rem;}
+  .nav-links{
+    display:flex;order:3;width:100%;gap:0.75rem;
+    overflow-x:auto;padding-top:0.35rem;
+    scrollbar-width:none;
+  }
+  .nav-links::-webkit-scrollbar{display:none;}
+  .nav-links a{white-space:nowrap;font-size:0.78rem;}
+  .about-grid,.contact-grid{grid-template-columns:1fr;}
+  .svc-grid,.price-grid,.port-grid{grid-template-columns:1fr;}
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .form-row{grid-template-columns:1fr;}
+  .footer-top{flex-direction:column;}
+  .about-floating{display:none;}
+  .services-header{flex-direction:column;align-items:flex-start;}
+}
+@media(max-width:640px){
+  .hero{padding:8rem 5% 4rem;}
+  .hero-actions{flex-direction:column;width:100%;}
+  .hero-actions .btn-main,.hero-actions .btn-outline{width:100%;justify-content:center;}
+  .nav-btn{margin-left:auto;padding:0.5rem 1rem;}
+}
 </style>
 </head>
 <body>
-<header class="site-header" id="top">
-  <div class="container nav-shell">
-    <a class="brand" href="#home" aria-label="NexoraWeb home">
-      <span class="brand-mark" aria-hidden="true"></span>
-      <span>NexoraWeb</span>
+ 
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">NexoraWeb</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-btn">Get a Free Quote</a>
+</nav>
+ 
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+ 
+  <div class="hero-badge">
+    <span class="badge-dot"></span>
+    Now accepting new clients
+  </div>
+ 
+  <h1>
+    Professional Websites<br>
+    for <span class="grad-text">Any Business</span>
+  </h1>
+ 
+  <div class="hero-price">
+    Starting from just <span class="price-num">₹<span id="priceCounter">0</span></span>
+  </div>
+ 
+  <p class="hero-sub">
+    NexoraWeb builds fast, stunning, and conversion-focused websites for small and growing businesses — at prices that won't break the bank.
+  </p>
+ 
+  <div class="hero-actions">
+    <a href="#contact" class="btn-main">
+      Start My Website
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
     </a>
-
-    <button
-      class="mobile-menu-btn"
-      id="mobileMenuBtn"
-      type="button"
-      aria-expanded="false"
-      aria-controls="navMenu"
-      aria-label="Toggle navigation"
-    >
-      <span></span>
-    </button>
-
-    <div class="nav-menu" id="navMenu">
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div class="nav-actions">
-        <a class="btn btn-secondary" href="#portfolio">View Portfolio</a>
-        <a class="btn btn-primary" href="#contact">Get Free Consultation</a>
+    <a href="#portfolio" class="btn-outline">
+      See Our Work
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+    </a>
+  </div>
+ 
+  <div class="trust-row">
+    <div class="trust-item"><span class="trust-icon">✓</span> No hidden fees</div>
+    <div class="trust-item"><span class="trust-icon">✓</span> Delivered in 7–14 days</div>
+    <div class="trust-item"><span class="trust-icon">✓</span> Mobile-first design</div>
+    <div class="trust-item"><span class="trust-icon">✓</span> Free revisions included</div>
+  </div>
+ 
+  <div class="scroll-ind">
+    <div class="scroll-txt">scroll</div>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+ 
+<!-- STATS -->
+<div class="stats">
+  <div class="stat reveal"><div class="stat-n">120+</div><div class="stat-l">Websites Delivered</div></div>
+  <div class="stat reveal reveal-delay-1"><div class="stat-n">98%</div><div class="stat-l">Client Satisfaction</div></div>
+  <div class="stat reveal reveal-delay-2"><div class="stat-n">7 Days</div><div class="stat-l">Avg. Delivery Time</div></div>
+  <div class="stat reveal reveal-delay-3"><div class="stat-n">50%</div><div class="stat-l">Below Market Price</div></div>
+</div>
+ 
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="sec-inner">
+    <div class="about-grid">
+      <div>
+        <div class="eyebrow reveal">Who We Are</div>
+        <h2 class="sec-title reveal">We make businesses<br>look <span class="grad-text">credible online.</span></h2>
+        <p class="sec-sub reveal">NexoraWeb was born from a simple belief: every business deserves a great website — not just the ones with big budgets. We combine sharp design with technical excellence to deliver results at unbeatable prices.</p>
+        <div class="about-list reveal">
+          <div class="about-item">
+            <div class="about-check">✓</div>
+            <div class="about-item-txt"><strong>Affordable pricing</strong> — Professional quality at 50% of what agencies charge</div>
+          </div>
+          <div class="about-item">
+            <div class="about-check">✓</div>
+            <div class="about-item-txt"><strong>Fast turnaround</strong> — Most sites live in 7–14 business days</div>
+          </div>
+          <div class="about-item">
+            <div class="about-check">✓</div>
+            <div class="about-item-txt"><strong>Built to perform</strong> — SEO-ready, mobile-first, and lightning fast</div>
+          </div>
+          <div class="about-item">
+            <div class="about-check">✓</div>
+            <div class="about-item-txt"><strong>Dedicated support</strong> — We're with you after launch, always</div>
+          </div>
+        </div>
+        <div style="margin-top:2rem;" class="reveal">
+          <a href="#contact" class="btn-main">Work with us →</a>
+        </div>
+      </div>
+      <div class="about-visual reveal">
+        <div class="about-card-main">
+          <div class="about-card-glow"></div>
+          <div class="mini-browser">
+            <div class="mini-bar">
+              <div class="mini-dot" style="background:#FF5F57"></div>
+              <div class="mini-dot" style="background:#FFBD2E"></div>
+              <div class="mini-dot" style="background:#28CA41"></div>
+              <div class="mini-addr">nexoraweb.com/your-business</div>
+            </div>
+            <div class="mini-content">
+              <div class="mc-h" style="width:60%"></div>
+              <div class="mc-p" style="width:90%"></div>
+              <div class="mc-p" style="width:75%"></div>
+              <div class="mc-grad" style="width:35%;margin-top:6px;"></div>
+              <div class="mc-row" style="margin-top:10px;">
+                <div class="mc-block"></div>
+                <div class="mc-block"></div>
+                <div class="mc-block"></div>
+              </div>
+              <div class="mc-p" style="width:85%;margin-top:8px;"></div>
+              <div class="mc-p" style="width:70%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="about-floating">
+          <div class="floating-icon">🚀</div>
+          <div>
+            <div class="floating-txt">Live in 7 days</div>
+            <div class="floating-sub">Your site, delivered fast</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</header>
-
-<main>
-  <section class="hero" id="home">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <div class="eyebrow" data-reveal>Premium websites for serious business growth</div>
-        <h1 data-reveal data-reveal-delay="1">
-          Professional Websites That Help Your
-          <span>Business Grow Online</span>
-        </h1>
-        <p class="hero-subhead" data-reveal data-reveal-delay="2">
-          NexoraWeb builds fast, modern, mobile-friendly websites for businesses, stores, offices, startups, and professionals &mdash; designed to attract customers and increase trust.
-        </p>
-        <div class="hero-pill" data-reveal data-reveal-delay="2">
-          Free Consultation &bull; Websites Starting from &#8377;4,999
+</section>
+ 
+<!-- SERVICES -->
+<section class="sec services-bg" id="services">
+  <div class="sec-inner">
+    <div class="services-header">
+      <div>
+        <div class="eyebrow reveal">What We Build</div>
+        <h2 class="sec-title reveal" style="margin-bottom:0;">Everything your<br>business needs online.</h2>
+      </div>
+      <a href="#contact" class="btn-outline reveal" style="flex-shrink:0;">Get a free quote →</a>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal">
+        <div class="svc-top-line"></div>
+        <div class="svc-icon">🎨</div>
+        <div class="svc-name">Business Websites</div>
+        <p class="svc-desc">Clean, professional multi-page websites that build trust and bring in leads. Perfect for local businesses, consultants, and startups.</p>
+        <a href="#contact" class="svc-link">Start yours →</a>
+      </div>
+      <div class="svc-card reveal reveal-delay-1">
+        <div class="svc-top-line"></div>
+        <div class="svc-icon">🛒</div>
+        <div class="svc-name">E-Commerce Stores</div>
+        <p class="svc-desc">Fully functional online stores with product pages, cart, and payment integration. Start selling online from day one.</p>
+        <a href="#contact" class="svc-link">Start yours →</a>
+      </div>
+      <div class="svc-card reveal reveal-delay-2">
+        <div class="svc-top-line"></div>
+        <div class="svc-icon">💼</div>
+        <div class="svc-name">Portfolio Sites</div>
+        <p class="svc-desc">Showcase your work beautifully. Designed for freelancers, designers, photographers, and creative professionals.</p>
+        <a href="#contact" class="svc-link">Start yours →</a>
+      </div>
+      <div class="svc-card reveal reveal-delay-1">
+        <div class="svc-top-line"></div>
+        <div class="svc-icon">📱</div>
+        <div class="svc-name">Landing Pages</div>
+        <p class="svc-desc">High-converting single-page sites for your product, service, or campaign. Built to turn visitors into customers.</p>
+        <a href="#contact" class="svc-link">Start yours →</a>
+      </div>
+      <div class="svc-card reveal reveal-delay-2">
+        <div class="svc-top-line"></div>
+        <div class="svc-icon">🔍</div>
+        <div class="svc-name">SEO Optimization</div>
+        <p class="svc-desc">Get found on Google. We build every site with on-page SEO, fast load times, and structured data baked in from the start.</p>
+        <a href="#contact" class="svc-link">Start yours →</a>
+      </div>
+      <div class="svc-card reveal reveal-delay-3">
+        <div class="svc-top-line"></div>
+        <div class="svc-icon">🛠️</div>
+        <div class="svc-name">Website Redesigns</div>
+        <p class="svc-desc">Got an outdated site? We'll give it a modern makeover — faster, better-looking, and ready to grow your business.</p>
+        <a href="#contact" class="svc-link">Start yours →</a>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- PORTFOLIO -->
+<section class="sec" id="portfolio">
+  <div class="sec-inner">
+    <div class="eyebrow reveal">Our Work</div>
+    <h2 class="sec-title reveal">Sites built by <span class="grad-text">NexoraWeb.</span></h2>
+    <p class="sec-sub reveal">A selection of recent projects across different industries.</p>
+    <div class="port-grid">
+      <div class="port-card reveal">
+        <div class="port-img">
+          <div class="port-mockup">
+            <div class="port-mbar"><div class="pm-dot pm-r"></div><div class="pm-dot pm-y"></div><div class="pm-dot pm-g"></div></div>
+            <div class="port-mbody">
+              <div class="pm-h" style="width:55%"></div>
+              <div class="pm-p" style="width:85%"></div>
+              <div class="pm-a" style="width:30%;margin-top:4px;"></div>
+              <div class="pm-row"><div class="pm-block"></div><div class="pm-block"></div><div class="pm-block"></div></div>
+            </div>
+          </div>
+          <div class="port-tag">E-Commerce</div>
         </div>
-        <div class="hero-actions" data-reveal data-reveal-delay="3">
-          <a class="btn btn-primary" href="#contact">Get Free Consultation</a>
-          <a class="btn btn-secondary" href="#portfolio">View Portfolio</a>
+        <div class="port-info">
+          <div class="port-cat">Retail</div>
+          <div class="port-name">Craft Kart — Online Handicraft Store</div>
+          <p class="port-desc">Full e-commerce site with product catalogue, cart, and Razorpay integration. Traffic up 3× in 60 days.</p>
         </div>
-        <ul class="hero-points" data-reveal data-reveal-delay="3">
-          <li>Fast delivery</li>
-          <li>Mobile responsive</li>
-          <li>SEO friendly</li>
-          <li>Ongoing support</li>
+      </div>
+      <div class="port-card reveal reveal-delay-1">
+        <div class="port-img">
+          <div class="port-mockup">
+            <div class="port-mbar"><div class="pm-dot pm-r"></div><div class="pm-dot pm-y"></div><div class="pm-dot pm-g"></div></div>
+            <div class="port-mbody">
+              <div class="pm-h" style="width:70%"></div>
+              <div class="pm-p" style="width:90%"></div>
+              <div class="pm-p" style="width:60%"></div>
+              <div class="pm-a" style="width:40%;margin-top:4px;"></div>
+              <div class="pm-row"><div class="pm-block"></div><div class="pm-block"></div></div>
+            </div>
+          </div>
+          <div class="port-tag">Business</div>
+        </div>
+        <div class="port-info">
+          <div class="port-cat">Real Estate</div>
+          <div class="port-name">Horizon Realty — Property Listings Site</div>
+          <p class="port-desc">Lead-generating property website with search filters and WhatsApp inquiry integration.</p>
+        </div>
+      </div>
+      <div class="port-card reveal reveal-delay-2">
+        <div class="port-img">
+          <div class="port-mockup">
+            <div class="port-mbar"><div class="pm-dot pm-r"></div><div class="pm-dot pm-y"></div><div class="pm-dot pm-g"></div></div>
+            <div class="port-mbody">
+              <div class="pm-h" style="width:45%"></div>
+              <div class="pm-row" style="margin-top:4px;"><div class="pm-block"></div><div class="pm-block"></div><div class="pm-block"></div></div>
+              <div class="pm-p" style="width:80%;margin-top:6px;"></div>
+              <div class="pm-a" style="width:35%;"></div>
+            </div>
+          </div>
+          <div class="port-tag">Portfolio</div>
+        </div>
+        <div class="port-info">
+          <div class="port-cat">Photography</div>
+          <div class="port-name">Priya Lens — Photography Portfolio</div>
+          <p class="port-desc">Stunning visual portfolio with gallery pages and online booking system for shoots.</p>
+        </div>
+      </div>
+      <div class="port-card reveal reveal-delay-3">
+        <div class="port-img">
+          <div class="port-mockup">
+            <div class="port-mbar"><div class="pm-dot pm-r"></div><div class="pm-dot pm-y"></div><div class="pm-dot pm-g"></div></div>
+            <div class="port-mbody">
+              <div class="pm-h" style="width:65%"></div>
+              <div class="pm-p" style="width:90%"></div>
+              <div class="pm-a" style="width:28%;margin-top:4px;"></div>
+              <div class="pm-row"><div class="pm-block"></div><div class="pm-block"></div></div>
+            </div>
+          </div>
+          <div class="port-tag">Landing Page</div>
+        </div>
+        <div class="port-info">
+          <div class="port-cat">Coaching</div>
+          <div class="port-name">FitPro Coach — Fitness Landing Page</div>
+          <p class="port-desc">High-converting landing page for a fitness coach. 40% enquiry rate from paid ads traffic.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- PRICING -->
+<section class="sec pricing-bg" id="pricing">
+  <div class="sec-inner">
+    <div style="text-align:center;">
+      <div class="eyebrow reveal" style="justify-content:center;">Pricing</div>
+      <h2 class="sec-title reveal">Simple, honest <span class="grad-text">pricing.</span></h2>
+      <p class="sec-sub reveal" style="margin:0 auto 3rem;text-align:center;">No surprises, no hidden costs. Pick a plan and get online.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card reveal">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price"><span class="curr">₹</span>4,999<span class="period">&nbsp;one-time</span></div>
+        <div class="plan-tag">Perfect for small businesses getting started</div>
+        <ul class="plan-features">
+          <li><span class="feat-check">✦</span> Up to 3 pages</li>
+          <li><span class="feat-check">✦</span> Mobile responsive design</li>
+          <li><span class="feat-check">✦</span> Contact form</li>
+          <li><span class="feat-check">✦</span> Basic SEO setup</li>
+          <li><span class="feat-check">✦</span> 2 free revisions</li>
+          <li><span class="feat-check">✦</span> Delivered in 7 days</li>
         </ul>
-        <div class="hero-stats">
-          <article class="stat-card" data-reveal>
-            <div class="stat-value"><span data-counter="120">0</span><span>+</span></div>
-            <p>Demo-ready concepts and client-focused launch systems.</p>
-          </article>
-          <article class="stat-card" data-reveal data-reveal-delay="1">
-            <div class="stat-value"><span data-counter="7">0</span><span>-14</span></div>
-            <p>Typical delivery window for business websites.</p>
-          </article>
-          <article class="stat-card" data-reveal data-reveal-delay="2">
-            <div class="stat-value"><span data-counter="24">0</span><span>h</span></div>
-            <p>Fast communication for new enquiries and support.</p>
-          </article>
-        </div>
+        <a href="#contact" class="plan-btn">Get Started</a>
       </div>
-
-      <div class="hero-visual" data-reveal data-reveal-delay="2">
-        <div class="hero-frame">
-          <div class="window-bar">
-            <div class="window-dots" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <div class="window-pill">nexoraweb.com / client-preview</div>
-          </div>
-
-          <div class="hero-panel-grid">
-            <div class="mockup-main">
-              <span class="mockup-badge">Client-focused build system</span>
-              <h2>Premium presentation. Clear messaging. Better conversion flow.</h2>
-              <p>
-                Every NexoraWeb project is built to make your brand look trustworthy, modern, and ready to win customers online.
-              </p>
-              <div class="preview-grid" aria-hidden="true">
-                <div class="preview-card">
-                  <div class="preview-line accent"></div>
-                  <div class="preview-line"></div>
-                  <div class="preview-line" style="width: 76%;"></div>
-                </div>
-                <div class="preview-card">
-                  <div class="preview-line" style="width: 62%;"></div>
-                  <div class="preview-line"></div>
-                  <div class="preview-line accent" style="width: 48%;"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="preview-stack">
-              <div class="surface-card">
-                <h3>What you get</h3>
-                <div class="mini-list">
-                  <div><span></span>Custom layout for your business niche</div>
-                  <div><span></span>Speed-focused, mobile-first pages</div>
-                  <div><span></span>Conversion-ready sections and contact flow</div>
-                </div>
-              </div>
-              <div class="surface-card">
-                <h3>Founder-led process</h3>
-                <p>Work directly with Zubair for clear communication, fast decisions, and practical support after launch.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="price-card featured reveal reveal-delay-1">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-name">Business</div>
+        <div class="plan-price"><span class="curr">₹</span>9,999<span class="period">&nbsp;one-time</span></div>
+        <div class="plan-tag">Best for growing businesses &amp; professionals</div>
+        <ul class="plan-features">
+          <li><span class="feat-check">✦</span> Up to 7 pages</li>
+          <li><span class="feat-check">✦</span> Premium custom design</li>
+          <li><span class="feat-check">✦</span> Animations &amp; interactions</li>
+          <li><span class="feat-check">✦</span> Full SEO optimization</li>
+          <li><span class="feat-check">✦</span> WhatsApp &amp; social integration</li>
+          <li><span class="feat-check">✦</span> 5 free revisions</li>
+          <li><span class="feat-check">✦</span> Delivered in 10 days</li>
+        </ul>
+        <a href="#contact" class="plan-btn grad">Get Started</a>
+      </div>
+      <div class="price-card reveal reveal-delay-2">
+        <div class="plan-name">E-Commerce</div>
+        <div class="plan-price"><span class="curr">₹</span>19,999<span class="period">&nbsp;one-time</span></div>
+        <div class="plan-tag">Full online store with payment integration</div>
+        <ul class="plan-features">
+          <li><span class="feat-check">✦</span> Unlimited products</li>
+          <li><span class="feat-check">✦</span> Razorpay / UPI payments</li>
+          <li><span class="feat-check">✦</span> Cart &amp; checkout flow</li>
+          <li><span class="feat-check">✦</span> Order management</li>
+          <li><span class="feat-check">✦</span> Full SEO + performance</li>
+          <li><span class="feat-check">✦</span> Unlimited revisions</li>
+          <li><span class="feat-check">✦</span> Delivered in 14 days</li>
+        </ul>
+        <a href="#contact" class="plan-btn">Get Started</a>
       </div>
     </div>
-
-    <div class="container trusted-strip">
-      <div class="trusted-grid">
-        <div class="trusted-item" data-reveal>Stores</div>
-        <div class="trusted-item" data-reveal data-reveal-delay="1">Offices</div>
-        <div class="trusted-item" data-reveal data-reveal-delay="2">Startups</div>
-        <div class="trusted-item" data-reveal>Local Businesses</div>
-        <div class="trusted-item" data-reveal data-reveal-delay="1">Portfolios</div>
-        <div class="trusted-item" data-reveal data-reveal-delay="2">E-Commerce</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="trust">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow" data-reveal>Why NexoraWeb</div>
-        <h2 data-reveal data-reveal-delay="1">Built to help clients trust your business faster.</h2>
-        <p data-reveal data-reveal-delay="2">
-          Your website should not just look good. It should explain what you do clearly, make your business feel credible, and guide visitors toward contacting you.
-        </p>
-      </div>
-
-      <div class="trust-grid">
-        <article class="trust-card" data-reveal>
-          <div class="card-icon">FD</div>
-          <h3>Fast Delivery</h3>
-          <p>Focused workflows that move from consultation to launch without dragging out the project.</p>
-        </article>
-        <article class="trust-card" data-reveal data-reveal-delay="1">
-          <div class="card-icon">MR</div>
-          <h3>Mobile Responsive</h3>
-          <p>Layouts that look polished on phones, tablets, and desktops from day one.</p>
-        </article>
-        <article class="trust-card" data-reveal data-reveal-delay="2">
-          <div class="card-icon">SF</div>
-          <h3>SEO Friendly</h3>
-          <p>Clean structure, strong headings, and performance-aware builds for better discoverability.</p>
-        </article>
-        <article class="trust-card" data-reveal>
-          <div class="card-icon">AP</div>
-          <h3>Affordable Pricing</h3>
-          <p>Premium presentation and practical features without agency-level overhead.</p>
-        </article>
-        <article class="trust-card" data-reveal data-reveal-delay="1">
-          <div class="card-icon">UX</div>
-          <h3>Clean UI/UX</h3>
-          <p>Clear sections, better spacing, readable copy, and stronger calls-to-action.</p>
-        </article>
-        <article class="trust-card" data-reveal data-reveal-delay="2">
-          <div class="card-icon">OS</div>
-          <h3>Ongoing Support</h3>
-          <p>Help after launch for updates, improvements, and practical website guidance.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="founder">
-    <div class="container founder-grid">
-      <article class="founder-card quote" data-reveal>
-        <div class="quote-mark" aria-hidden="true"></div>
-        <p class="founder-note">
-          Hi, I&rsquo;m Zubair, founder of NexoraWeb. I help businesses build modern, affordable, and high-performing websites that create a strong online presence.
-        </p>
-        <div class="founder-meta">
-          <div class="founder-avatar" aria-hidden="true">ZZ</div>
+    <p style="text-align:center;margin-top:1.5rem;font-size:0.82rem;color:var(--text3);">All plans include free domain setup assistance &amp; hosting guidance. Custom projects? <a href="#contact" style="color:var(--violet);text-decoration:none;">Let's talk →</a></p>
+  </div>
+</section>
+ 
+<!-- CONTACT -->
+<section class="sec" id="contact">
+  <div class="sec-inner">
+    <div class="eyebrow reveal">Get In Touch</div>
+    <h2 class="sec-title reveal">Let's build your<br><span class="grad-text">website today.</span></h2>
+    <p class="sec-sub reveal">Tell us about your project and we'll get back to you within 24 hours with a free quote.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-detail reveal">
+          <div class="cd-icon">📧</div>
           <div>
-            <strong>Zubair</strong>
-            <span>Founder, NexoraWeb</span>
+            <div class="cd-label">Email Us</div>
+            <div class="cd-val">hello@nexoraweb.com</div>
           </div>
         </div>
-      </article>
-
-      <article class="founder-card" data-reveal data-reveal-delay="1">
-        <div class="eyebrow">Founder-led experience</div>
-        <h3>Clear communication, practical advice, and a website that feels ready for real clients.</h3>
-        <p>
-          Whether you run a store, office, startup, local business, portfolio, or e-commerce brand, the goal is simple: give you a website that looks premium, builds trust, and helps more people take action.
-        </p>
-        <ul class="founder-list">
-          <li>Strategy-first guidance on the pages, sections, and flow your business actually needs.</li>
-          <li>Design decisions focused on professionalism, trust, and conversion &mdash; not visual clutter.</li>
-          <li>Support with hosting, domain setup, and post-launch improvements when you need them.</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="section" id="services">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow" data-reveal>Services</div>
-        <h2 data-reveal data-reveal-delay="1">Modern website solutions for growing businesses.</h2>
-        <p data-reveal data-reveal-delay="2">
-          From simple lead-generation websites to premium business pages and e-commerce experiences, NexoraWeb builds what your business needs to look stronger online.
-        </p>
-      </div>
-
-      <div class="services-grid">
-        <article class="service-card" data-reveal>
-          <div class="card-icon">BW</div>
-          <h3>Business Websites</h3>
-          <p>Professional websites for consultants, offices, service brands, and local businesses that need credibility online.</p>
-          <ul>
-            <li>Clear service pages and calls-to-action</li>
-            <li>Trust-building layout and messaging</li>
-            <li>Mobile-first responsive design</li>
-          </ul>
-        </article>
-        <article class="service-card" data-reveal data-reveal-delay="1">
-          <div class="card-icon">EC</div>
-          <h3>E-Commerce Stores</h3>
-          <p>Online stores designed to present products clearly and help visitors buy with more confidence.</p>
-          <ul>
-            <li>Product-focused layouts and collections</li>
-            <li>Checkout-ready structure</li>
-            <li>Storefront design for trust and sales</li>
-          </ul>
-        </article>
-        <article class="service-card" data-reveal data-reveal-delay="2">
-          <div class="card-icon">LP</div>
-          <h3>Landing Pages</h3>
-          <p>High-converting pages for offers, campaigns, new launches, and professional services.</p>
-          <ul>
-            <li>Strong headline and benefit structure</li>
-            <li>Better CTA placement and spacing</li>
-            <li>Focused enquiry flow</li>
-          </ul>
-        </article>
-        <article class="service-card" data-reveal>
-          <div class="card-icon">ST</div>
-          <h3>Startup Websites</h3>
-          <p>Modern product and startup websites that explain your idea clearly and feel investor- and client-ready.</p>
-          <ul>
-            <li>Clean product storytelling</li>
-            <li>Modern visuals and trust sections</li>
-            <li>Scalable layout structure</li>
-          </ul>
-        </article>
-        <article class="service-card" data-reveal data-reveal-delay="1">
-          <div class="card-icon">PF</div>
-          <h3>Portfolio Websites</h3>
-          <p>Showcase your work with a polished and minimal presentation that makes your expertise easy to trust.</p>
-          <ul>
-            <li>Project gallery sections</li>
-            <li>Personal brand presentation</li>
-            <li>Lead-ready contact flow</li>
-          </ul>
-        </article>
-        <article class="service-card" data-reveal data-reveal-delay="2">
-          <div class="card-icon">RD</div>
-          <h3>Website Redesigns</h3>
-          <p>Upgrade an outdated site into something faster, cleaner, and more premium without losing your business identity.</p>
-          <ul>
-            <li>Stronger structure and navigation</li>
-            <li>Improved typography and spacing</li>
-            <li>Modern UI with better responsiveness</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="portfolio">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow" data-reveal>Portfolio &amp; Demo</div>
-        <h2 data-reveal data-reveal-delay="1">Premium demo directions your business can build on.</h2>
-        <p data-reveal data-reveal-delay="2">
-          These examples show the type of structure, presentation, and user flow NexoraWeb can build for different industries and business goals.
-        </p>
-      </div>
-
-      <div class="portfolio-grid">
-        <article class="portfolio-card" data-reveal>
-          <div class="portfolio-preview">
-            <div class="portfolio-top">
-              <span class="portfolio-tag">Storefront</span>
-              <span class="portfolio-score">Fashion Retail</span>
-            </div>
-            <div class="portfolio-wire" aria-hidden="true">
-              <div class="preview-line accent"></div>
-              <div class="preview-line"></div>
-              <div class="preview-line"></div>
-            </div>
-            <div class="portfolio-boxes" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
+        <div class="contact-detail reveal reveal-delay-1">
+          <div class="cd-icon">💬</div>
+          <div>
+            <div class="cd-label">WhatsApp</div>
+            <div class="cd-val">+91 98765 43210</div>
           </div>
-          <h3>Urban Cart Store</h3>
-          <p>Modern product-led homepage for a store that needs clean categories, featured products, and stronger trust signals.</p>
-          <div class="portfolio-actions">
-            <a class="btn btn-secondary" href="#contact">View Live Demo</a>
-            <a class="btn btn-primary" href="#contact">Request Similar Site</a>
-          </div>
-        </article>
-
-        <article class="portfolio-card" data-reveal data-reveal-delay="1">
-          <div class="portfolio-preview">
-            <div class="portfolio-top">
-              <span class="portfolio-tag">Office</span>
-              <span class="portfolio-score">Professional Services</span>
-            </div>
-            <div class="portfolio-wire" aria-hidden="true">
-              <div class="preview-line accent" style="width: 61%;"></div>
-              <div class="preview-line"></div>
-              <div class="preview-line" style="width: 75%;"></div>
-            </div>
-            <div class="portfolio-boxes" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-          <h3>Prime Office Solutions</h3>
-          <p>Corporate-style website with service clarity, strong team positioning, and enquiry-ready contact flow.</p>
-          <div class="portfolio-actions">
-            <a class="btn btn-secondary" href="#contact">View Live Demo</a>
-            <a class="btn btn-primary" href="#contact">Request Similar Site</a>
-          </div>
-        </article>
-
-        <article class="portfolio-card" data-reveal data-reveal-delay="2">
-          <div class="portfolio-preview">
-            <div class="portfolio-top">
-              <span class="portfolio-tag">Startup</span>
-              <span class="portfolio-score">SaaS Launch</span>
-            </div>
-            <div class="portfolio-wire" aria-hidden="true">
-              <div class="preview-line accent" style="width: 73%;"></div>
-              <div class="preview-line"></div>
-              <div class="preview-line" style="width: 67%;"></div>
-            </div>
-            <div class="portfolio-boxes" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-          <h3>LaunchPad Startup Page</h3>
-          <p>Sharp landing page concept for startups that need modern product storytelling and lead capture sections.</p>
-          <div class="portfolio-actions">
-            <a class="btn btn-secondary" href="#contact">View Live Demo</a>
-            <a class="btn btn-primary" href="#contact">Request Similar Site</a>
-          </div>
-        </article>
-      </div>
-
-      <p class="portfolio-note">
-        Want private demo links or a custom style direction for your industry? Ask during your free consultation.
-      </p>
-    </div>
-  </section>
-
-  <section class="section" id="process">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow" data-reveal>Process</div>
-        <h2 data-reveal data-reveal-delay="1">Simple workflow, smoother delivery.</h2>
-        <p data-reveal data-reveal-delay="2">
-          A premium website does not need a confusing process. NexoraWeb keeps things clear from the first consultation to post-launch support.
-        </p>
-      </div>
-
-      <div class="process-grid">
-        <article class="process-card" data-reveal>
-          <div class="process-step">1</div>
-          <h3>Consultation</h3>
-          <p>Understand your business, goals, audience, and what the website should achieve.</p>
-        </article>
-        <article class="process-card" data-reveal data-reveal-delay="1">
-          <div class="process-step">2</div>
-          <h3>Design</h3>
-          <p>Plan a premium layout, messaging structure, and visual direction that fits your brand.</p>
-        </article>
-        <article class="process-card" data-reveal data-reveal-delay="2">
-          <div class="process-step">3</div>
-          <h3>Development</h3>
-          <p>Build the website with responsive sections, polished UI, and fast-loading structure.</p>
-        </article>
-        <article class="process-card" data-reveal>
-          <div class="process-step">4</div>
-          <h3>Launch</h3>
-          <p>Review, finalize, and publish your website with practical setup guidance if needed.</p>
-        </article>
-        <article class="process-card" data-reveal data-reveal-delay="1">
-          <div class="process-step">5</div>
-          <h3>Support</h3>
-          <p>Get help after launch for updates, improvements, and keeping your site moving forward.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="testimonials">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow" data-reveal>Testimonials</div>
-        <h2 data-reveal data-reveal-delay="1">What clients should feel after working with NexoraWeb.</h2>
-        <p data-reveal data-reveal-delay="2">
-          Sample testimonials below show the kind of clarity, speed, and professionalism NexoraWeb aims to deliver on every project.
-        </p>
-      </div>
-
-      <div class="testimonials-grid">
-        <article class="testimonial-card" data-reveal>
-          <div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <blockquote>
-            &ldquo;NexoraWeb made our business look far more professional online. The layout felt premium, the site was easy to navigate, and enquiries became more serious.&rdquo;
-          </blockquote>
-          <div class="testimonial-meta">
-            <strong>Rahul Mehta</strong>
-            <span>Owner, Local Service Business</span>
-          </div>
-        </article>
-        <article class="testimonial-card" data-reveal data-reveal-delay="1">
-          <div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <blockquote>
-            &ldquo;The process was simple, communication was fast, and the final website looked much better than the generic templates we had tried before.&rdquo;
-          </blockquote>
-          <div class="testimonial-meta">
-            <strong>Ayesha Khan</strong>
-            <span>Founder, Startup Brand</span>
-          </div>
-        </article>
-        <article class="testimonial-card" data-reveal data-reveal-delay="2">
-          <div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <blockquote>
-            &ldquo;Our store needed a cleaner, more trustworthy website. NexoraWeb gave us a layout that felt modern and customer-friendly right away.&rdquo;
-          </blockquote>
-          <div class="testimonial-meta">
-            <strong>Priya Sharma</strong>
-            <span>Manager, E-Commerce Store</span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="pricing">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow" data-reveal>Pricing</div>
-        <h2 data-reveal data-reveal-delay="1">Clear pricing with room to grow.</h2>
-        <p data-reveal data-reveal-delay="2">
-          Start with what your business needs today, then scale the website as your brand, products, and traffic grow.
-        </p>
-      </div>
-
-      <div class="pricing-grid">
-        <article class="pricing-card" data-reveal>
-          <div class="pricing-plan">Starter</div>
-          <h3>Professional Launch</h3>
-          <div class="pricing-price">&#8377;4,999 <small>starting</small></div>
-          <p>Ideal for local businesses and professionals who need a clean online presence quickly.</p>
-          <ul class="pricing-list">
-            <li>Up to 3 focused pages</li>
-            <li>Mobile responsive layout</li>
-            <li>Strong hero and contact flow</li>
-            <li>Basic SEO-friendly structure</li>
-            <li>Domain and hosting guidance</li>
-          </ul>
-          <a class="btn btn-secondary" href="#contact">Get Free Consultation</a>
-        </article>
-
-        <article class="pricing-card featured" data-reveal data-reveal-delay="1">
-          <div class="pricing-badge">Most Popular</div>
-          <div class="pricing-plan">Growth</div>
-          <h3>Business Presence</h3>
-          <div class="pricing-price">&#8377;9,999 <small>starting</small></div>
-          <p>Best for offices, established businesses, and startups that need a stronger premium presentation.</p>
-          <ul class="pricing-list">
-            <li>Up to 7 pages with custom sections</li>
-            <li>Premium UI with smoother interactions</li>
-            <li>Testimonials, trust blocks, and FAQ</li>
-            <li>Improved enquiry and conversion flow</li>
-            <li>Post-launch support guidance</li>
-          </ul>
-          <a class="btn btn-primary" href="#contact">Get Free Consultation</a>
-        </article>
-
-        <article class="pricing-card" data-reveal data-reveal-delay="2">
-          <div class="pricing-plan">Commerce</div>
-          <h3>Storefront Build</h3>
-          <div class="pricing-price">&#8377;19,999 <small>starting</small></div>
-          <p>For brands that need a stronger e-commerce experience, product presentation, and buyer trust.</p>
-          <ul class="pricing-list">
-            <li>Store-style homepage and product flow</li>
-            <li>Advanced sections for offers and trust</li>
-            <li>Scalable structure for more products</li>
-            <li>Conversion-ready layout guidance</li>
-            <li>Launch support and future roadmap</li>
-          </ul>
-          <a class="btn btn-secondary" href="#contact">Get Free Consultation</a>
-        </article>
-      </div>
-
-      <div class="cta-panel" data-reveal>
-        <div>
-          <h3>Need something custom for your business?</h3>
-          <p>Tell NexoraWeb what you need, and get a clearer recommendation before spending on the wrong solution.</p>
         </div>
-        <a class="btn btn-primary" href="#contact">Request Custom Quote</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="faq">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow" data-reveal>FAQ</div>
-        <h2 data-reveal data-reveal-delay="1">Common questions before getting started.</h2>
-        <p data-reveal data-reveal-delay="2">
-          If you need something more specific, you can always reach out directly for a free consultation.
-        </p>
-      </div>
-
-      <div class="faq-grid">
-        <details class="faq-card" data-reveal>
-          <summary>How long does it take?</summary>
-          <p>Most business websites are delivered in about 7 to 14 business days, depending on the pages, content, and revision needs.</p>
-        </details>
-        <details class="faq-card" data-reveal data-reveal-delay="1">
-          <summary>What is the starting price?</summary>
-          <p>NexoraWeb starts with free consultation and websites from &#8377;4,999, with pricing scaling based on scope and feature needs.</p>
-        </details>
-        <details class="faq-card" data-reveal data-reveal-delay="2">
-          <summary>Do you provide domain/hosting help?</summary>
-          <p>Yes. You can get guidance on domain purchase, hosting setup, and the practical steps needed to launch smoothly.</p>
-        </details>
-        <details class="faq-card" data-reveal>
-          <summary>Can you redesign an existing website?</summary>
-          <p>Yes. Existing websites can be modernized with better design, clearer structure, improved responsiveness, and stronger trust flow.</p>
-        </details>
-        <details class="faq-card" data-reveal data-reveal-delay="1">
-          <summary>Do you provide support after launch?</summary>
-          <p>Yes. NexoraWeb can help with follow-up updates, improvements, and guidance after the site goes live.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow" data-reveal>Contact</div>
-        <h2 data-reveal data-reveal-delay="1">Let&rsquo;s build a website that feels premium and wins trust.</h2>
-        <p data-reveal data-reveal-delay="2">
-          Share your business, what you need, and where you want to improve. NexoraWeb will help you plan the right website direction first.
-        </p>
-      </div>
-
-      <div class="contact-shell">
-        <div class="contact-stack">
-          <article class="contact-card" data-reveal>
-            <div class="card-icon">EM</div>
-            <h3>Email</h3>
-            <h4>Primary contact</h4>
-            <a href="mailto:zubair428kg@gmail.com">zubair428kg@gmail.com</a>
-          </article>
-          <article class="contact-card" data-reveal data-reveal-delay="1">
-            <div class="card-icon">WA</div>
-            <h3>WhatsApp</h3>
-            <h4>Quick discussion</h4>
-            <a href="https://wa.me/910000000000" target="_blank" rel="noreferrer">+91XXXXXXXXXX</a>
-          </article>
-          <article class="contact-card" data-reveal data-reveal-delay="2">
-            <div class="card-icon">IN</div>
-            <h3>Location</h3>
-            <h4>Based in</h4>
-            <strong>India</strong>
-            <p>Serving stores, offices, startups, professionals, and businesses worldwide.</p>
-          </article>
+        <div class="contact-detail reveal reveal-delay-2">
+          <div class="cd-icon">🕐</div>
+          <div>
+            <div class="cd-label">Response Time</div>
+            <div class="cd-val">Within 24 hours</div>
+          </div>
         </div>
-
-        <form class="contact-card contact-form" id="contactForm">
-          <div class="eyebrow">Free consultation form</div>
-          <h3>Tell NexoraWeb about your project.</h3>
-          <p>This clean form UI is ready for backend integration whenever you want to connect real form handling.</p>
-
-          <div class="form-grid">
-            <div class="form-group">
-              <label class="form-label" for="name">Your name</label>
-              <input class="form-control" id="name" name="name" type="text" placeholder="Zubair Ali" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="email">Email address</label>
-              <input class="form-control" id="email" name="email" type="email" placeholder="name@business.com" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="businessType">Business type</label>
-              <select class="form-control" id="businessType" name="businessType" required>
-                <option value="">Select a website type</option>
-                <option>Business / Office Website</option>
-                <option>Store / E-Commerce Website</option>
-                <option>Startup Website</option>
-                <option>Portfolio Website</option>
-                <option>Landing Page</option>
-                <option>Website Redesign</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="timeline">Preferred timeline</label>
-              <input class="form-control" id="timeline" name="timeline" type="text" placeholder="Example: within 2 weeks" />
-            </div>
-            <div class="form-group full">
-              <label class="form-label" for="details">Project details</label>
-              <textarea class="form-control" id="details" name="details" placeholder="Tell me what your business does, the pages you need, and the style you want."></textarea>
-            </div>
+        <div class="contact-detail reveal reveal-delay-3">
+          <div class="cd-icon">📍</div>
+          <div>
+            <div class="cd-label">Based In</div>
+            <div class="cd-val">India — serving clients worldwide</div>
           </div>
-
-          <div class="form-foot">
-            <div>
-              <div class="form-note">Need a faster reply? Email or WhatsApp also works.</div>
-              <div class="form-status" id="formStatus" aria-live="polite"></div>
-            </div>
-            <button class="btn btn-primary" id="submitButton" type="submit">Get Free Consultation</button>
+        </div>
+      </div>
+      <div class="contact-form-wrap reveal">
+        <div class="form-title">Get a Free Quote</div>
+        <div class="form-sub">Fill in the details below and we'll send you a custom quote within 24 hours.</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input class="form-input" type="text" placeholder="Rahul Sharma" />
           </div>
-        </form>
+          <div class="form-group">
+            <label class="form-label">Phone / WhatsApp</label>
+            <input class="form-input" type="tel" placeholder="+91 98765 43210" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input class="form-input" type="email" placeholder="rahul@yourbusiness.com" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Type of Website</label>
+          <select class="form-select form-input">
+            <option value="">Select a website type...</option>
+            <option>Business / Company Website</option>
+            <option>E-Commerce Store</option>
+            <option>Portfolio / Personal Site</option>
+            <option>Landing Page</option>
+            <option>Website Redesign</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tell us about your project</label>
+          <textarea class="form-textarea" placeholder="What does your business do? Any specific features or pages you need?"></textarea>
+        </div>
+        <button class="form-submit">
+          Send My Request
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 5l4 4-4 4"/></svg>
+        </button>
       </div>
     </div>
-  </section>
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a class="brand" href="#home" aria-label="NexoraWeb home">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <span>NexoraWeb</span>
-        </a>
-        <p>Turning ideas into powerful websites.</p>
-      </div>
-
-      <div class="footer-block">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-block">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:zubair428kg@gmail.com">zubair428kg@gmail.com</a></li>
-          <li><span>India</span></li>
-          <li><a href="https://wa.me/910000000000" target="_blank" rel="noreferrer">+91XXXXXXXXXX</a></li>
-        </ul>
-      </div>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="logo">NexoraWeb</a>
+      <p>Professional websites for businesses of all sizes — at prices that make sense.</p>
     </div>
-
-    <div class="footer-bottom">
-      <span>&copy; 2026 NexoraWeb. All rights reserved.</span>
-      <span>Founder: Zubair</span>
+    <div class="footer-links-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Business Websites</a></li>
+        <li><a href="#services">E-Commerce</a></li>
+        <li><a href="#services">Portfolio Sites</a></li>
+        <li><a href="#services">Landing Pages</a></li>
+      </ul>
+    </div>
+    <div class="footer-links-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#portfolio">Our Work</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 NexoraWeb. All rights reserved.</div>
+    <div class="footer-social">
+      <a class="social-btn" href="#">in</a>
+      <a class="social-btn" href="#">tw</a>
+      <a class="social-btn" href="#">ig</a>
     </div>
   </div>
 </footer>
-
-<a
-  class="whatsapp-float"
-  href="https://wa.me/910000000000?text=Hi%20NexoraWeb%2C%20I%20want%20a%20website."
-  target="_blank"
-  rel="noreferrer"
-  aria-label="Chat on WhatsApp"
->
-  WhatsApp
-</a>
-
+ 
 <script>
-  const header = document.querySelector(".site-header");
-  const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-  const navMenu = document.getElementById("navMenu");
-  const navAnchors = document.querySelectorAll(".nav-links a, .nav-actions a");
-  const revealItems = document.querySelectorAll("[data-reveal]");
-  const counters = document.querySelectorAll("[data-counter]");
-  const contactForm = document.getElementById("contactForm");
-  const submitButton = document.getElementById("submitButton");
-  const formStatus = document.getElementById("formStatus");
-
-  function syncHeader() {
-    header.classList.toggle("scrolled", window.scrollY > 24);
-  }
-
-  syncHeader();
-  window.addEventListener("scroll", syncHeader);
-
-  mobileMenuBtn.addEventListener("click", () => {
-    const isOpen = navMenu.classList.toggle("is-open");
-    mobileMenuBtn.setAttribute("aria-expanded", String(isOpen));
+// Price counter animation
+function animateCounter(el, target, duration) {
+  let start = 0, step = target / (duration / 16);
+  const timer = setInterval(() => {
+    start += step;
+    if (start >= target) { start = target; clearInterval(timer); }
+    el.textContent = Math.floor(start).toLocaleString('en-IN');
+  }, 16);
+}
+window.addEventListener('load', () => {
+  setTimeout(() => animateCounter(document.getElementById('priceCounter'), 4999, 1800), 600);
+});
+ 
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.12 });
+reveals.forEach(el => obs.observe(el));
+ 
+// Stagger children of grid on reveal
+document.querySelectorAll('.svc-grid, .port-grid, .price-grid').forEach(grid => {
+  Array.from(grid.children).forEach((child, i) => {
+    child.style.transitionDelay = (i * 0.08) + 's';
   });
-
-  navAnchors.forEach((anchor) => {
-    anchor.addEventListener("click", () => {
-      navMenu.classList.remove("is-open");
-      mobileMenuBtn.setAttribute("aria-expanded", "false");
-    });
-  });
-
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.14 }
-  );
-
-  revealItems.forEach((item) => revealObserver.observe(item));
-
-  function animateCounter(element, target) {
-    const duration = 1600;
-    const startTime = performance.now();
-
-    function update(now) {
-      const progress = Math.min((now - startTime) / duration, 1);
-      element.textContent = Math.floor(progress * target).toLocaleString("en-IN");
-      if (progress < 1) {
-        requestAnimationFrame(update);
-      } else {
-        element.textContent = target.toLocaleString("en-IN");
-      }
-    }
-
-    requestAnimationFrame(update);
-  }
-
-  const counterObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
-        const target = Number(entry.target.getAttribute("data-counter"));
-        if (!entry.target.dataset.counted && Number.isFinite(target)) {
-          entry.target.dataset.counted = "true";
-          animateCounter(entry.target, target);
-        }
-        counterObserver.unobserve(entry.target);
-      });
-    },
-    { threshold: 0.7 }
-  );
-
-  counters.forEach((counter) => counterObserver.observe(counter));
-
-  contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    submitButton.textContent = "Consultation Requested";
-    submitButton.disabled = true;
-    formStatus.textContent = "Thanks! Your message UI is working and ready for backend integration.";
-
-    setTimeout(() => {
-      submitButton.textContent = "Get Free Consultation";
-      submitButton.disabled = false;
-    }, 2600);
-  });
+});
+ 
+// Nav scroll effect
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.boxShadow =
+    window.scrollY > 40 ? '0 4px 30px rgba(0,0,0,0.4)' : 'none';
+});
+ 
+// Form submit feedback
+document.querySelector('.form-submit').addEventListener('click', function(e) {
+  e.preventDefault();
+  this.textContent = '✓ Request sent! We\'ll be in touch soon.';
+  this.style.background = 'linear-gradient(135deg,#059669,#10B981)';
+  setTimeout(() => {
+    this.innerHTML = 'Send My Request <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 5l4 4-4 4"/></svg>';
+    this.style.background = '';
+  }, 3000);
+});
 </script>
 </body>
 </html>
+ 
