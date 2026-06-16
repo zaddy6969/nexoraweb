@@ -22,8 +22,11 @@
   --text3:#5A5A7A;
   --font:'Outfit',sans-serif;
   --body:'Inter',sans-serif;
+  --hero-pointer-x:50%;
+  --hero-pointer-y:35%;
 }
 html{scroll-behavior:smooth;}
+section[id]{scroll-margin-top:110px;}
 body{
   background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:hidden;line-height:1.6;
   position:relative;min-height:100vh;isolation:isolate;
@@ -35,6 +38,7 @@ body::before{
     linear-gradient(180deg,rgba(8,8,18,0.36),rgba(8,8,18,0.74)),
     url('assets/hex-background.png') center top / cover no-repeat;
   transform:scale(1.03);
+  animation:driftBackground 22s ease-in-out infinite alternate;
 }
 body::after{
   content:'';
@@ -43,6 +47,15 @@ body::after{
     radial-gradient(circle at 18% 18%,rgba(6,182,212,0.16),transparent 24%),
     radial-gradient(circle at 82% 16%,rgba(124,58,237,0.14),transparent 22%),
     linear-gradient(180deg,rgba(8,8,18,0.2) 0%,rgba(8,8,18,0.56) 38%,rgba(8,8,18,0.9) 100%);
+  animation:overlayPulse 14s ease-in-out infinite alternate;
+}
+@keyframes driftBackground{
+  from{transform:scale(1.03) translate3d(0,0,0);}
+  to{transform:scale(1.08) translate3d(0,-18px,0);}
+}
+@keyframes overlayPulse{
+  from{opacity:0.92;}
+  to{opacity:1;}
 }
  
 /* SCROLLBAR */
@@ -66,8 +79,21 @@ nav{
   background-clip:text;letter-spacing:-0.03em;text-decoration:none;
 }
 .nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
-.nav-links a{font-size:0.875rem;color:var(--text2);text-decoration:none;transition:color 0.2s;font-family:var(--font);font-weight:500;}
+.nav-links a{
+  position:relative;font-size:0.875rem;color:var(--text2);text-decoration:none;transition:color 0.2s;
+  font-family:var(--font);font-weight:500;
+}
 .nav-links a:hover{color:var(--text);}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:-0.45rem;width:100%;height:2px;border-radius:999px;
+  background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform 0.22s ease;
+}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+.nav-links a.active{color:var(--text);}
+.nav-scrolled{
+  background:rgba(8,8,18,0.92);
+  border-bottom-color:rgba(255,255,255,0.08);
+}
 .nav-btn{
   font-family:var(--font);font-size:0.85rem;font-weight:600;
   background:var(--grad);color:#fff;border:none;
@@ -82,6 +108,15 @@ nav{
   min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
   text-align:center;padding:9rem 5% 5rem;position:relative;overflow:hidden;
 }
+.hero::before{
+  content:'';
+  position:absolute;inset:-12%;
+  background:
+    radial-gradient(circle at var(--hero-pointer-x) var(--hero-pointer-y),rgba(6,182,212,0.18),transparent 18%),
+    radial-gradient(circle at 50% 18%,rgba(124,58,237,0.15),transparent 28%);
+  pointer-events:none;opacity:0.95;
+}
+.hero > *{position:relative;z-index:1;}
  
 /* animated bg orbs */
 .orb{
@@ -101,6 +136,7 @@ nav{
   background-size:50px 50px;
   mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 0%,transparent 100%);
   opacity:0.55;
+  transition:transform 0.35s ease;
 }
  
 .hero-badge{
@@ -272,6 +308,18 @@ nav{
 .services-bg{background:var(--bg2);}
 .services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem;}
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.tilt-card{
+  position:relative;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.tilt-card::before{
+  content:'';
+  position:absolute;inset:0;pointer-events:none;opacity:0;
+  background:radial-gradient(circle at var(--glow-x,50%) var(--glow-y,50%),rgba(6,182,212,0.14),transparent 34%);
+  transition:opacity 0.25s ease;
+}
+.tilt-card:hover::before{opacity:1;}
 .svc-card{
   background:var(--bg3);border:1px solid var(--border);border-radius:16px;
   padding:2rem;position:relative;overflow:hidden;cursor:pointer;
@@ -346,6 +394,15 @@ nav{
 .port-cat{font-family:var(--font);font-size:0.72rem;color:var(--cyan);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.3rem;}
 .port-name{font-family:var(--font);font-size:1rem;font-weight:700;color:var(--text);letter-spacing:-0.01em;margin-bottom:0.4rem;}
 .port-desc{font-size:0.82rem;color:var(--text2);font-weight:300;}
+.port-actions{display:flex;gap:0.8rem;flex-wrap:wrap;margin-top:1rem;}
+.port-link{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:40px;padding:0.7rem 1rem;border-radius:999px;
+  border:1px solid rgba(6,182,212,0.25);color:var(--text);text-decoration:none;
+  font-family:var(--font);font-size:0.8rem;font-weight:600;
+  background:rgba(6,182,212,0.06);transition:transform 0.2s,border-color 0.2s,background 0.2s;
+}
+.port-link:hover{transform:translateY(-2px);border-color:rgba(6,182,212,0.45);background:rgba(6,182,212,0.1);}
  
 /* PRICING */
 .pricing-bg{background:var(--bg2);}
@@ -359,7 +416,7 @@ nav{
   border-color:rgba(124,58,237,0.5);background:linear-gradient(135deg,rgba(124,58,237,0.08),rgba(6,182,212,0.04));
   box-shadow:0 0 60px rgba(124,58,237,0.12);
 }
-.price-badge{
+.price-badge,.plan-badge{
   position:absolute;top:1.5rem;right:1.5rem;
   font-family:var(--font);font-size:0.65rem;font-weight:800;letter-spacing:0.1em;
   text-transform:uppercase;background:var(--grad);color:#fff;
@@ -422,6 +479,7 @@ nav{
 .form-select{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235A5A7A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
 .form-select option{background:var(--bg3);}
 .form-textarea{resize:vertical;min-height:100px;}
+.is-invalid{border-color:#F87171 !important;box-shadow:0 0 0 3px rgba(248,113,113,0.12) !important;}
 .form-submit{
   width:100%;font-family:var(--font);font-size:1rem;font-weight:700;
   background:var(--grad);color:#fff;border:none;padding:1rem;border-radius:50px;cursor:pointer;
@@ -429,7 +487,32 @@ nav{
   display:flex;align-items:center;justify-content:center;gap:8px;
 }
 .form-submit:hover{opacity:0.88;transform:translateY(-1px);}
+.form-submit:disabled{opacity:0.7;cursor:wait;}
+.form-status{min-height:1.3rem;margin-top:0.85rem;font-size:0.82rem;color:var(--text2);}
+.form-status.error{color:#FCA5A5;}
+.form-status.success{color:#86EFAC;}
 .form-note{margin-top:0.9rem;font-size:0.8rem;color:var(--text3);}
+
+.floating-wa{
+  position:fixed;right:1.2rem;bottom:1.2rem;z-index:220;
+  display:inline-flex;align-items:center;gap:0.7rem;
+  padding:0.85rem 1rem;border-radius:999px;
+  background:linear-gradient(135deg,#0F9D58,#25D366);
+  color:#fff;text-decoration:none;font-family:var(--font);font-size:0.9rem;font-weight:700;
+  box-shadow:0 16px 36px rgba(15,157,88,0.28);
+  transition:transform 0.2s ease,box-shadow 0.2s ease;
+  animation:waPulse 2.4s ease-in-out infinite;
+}
+.floating-wa:hover{transform:translateY(-3px);box-shadow:0 20px 42px rgba(15,157,88,0.36);}
+.floating-wa-dot{
+  width:11px;height:11px;border-radius:50%;background:#D1FAE5;box-shadow:0 0 0 6px rgba(255,255,255,0.12);
+}
+.floating-wa-text{white-space:nowrap;}
+.floating-wa-sub{display:block;font-size:0.68rem;font-weight:500;opacity:0.82;}
+@keyframes waPulse{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-2px);}
+}
  
 /* FOOTER */
 footer{
@@ -489,14 +572,17 @@ footer{
   .hero-actions{flex-direction:column;width:100%;}
   .hero-actions .btn-main,.hero-actions .btn-outline{width:100%;justify-content:center;}
   .nav-btn{margin-left:auto;padding:0.5rem 1rem;}
+  .floating-wa{
+    right:0.9rem;left:0.9rem;bottom:0.9rem;justify-content:center;
+  }
 }
 </style>
 </head>
-<body>
+<body id="top">
  
 <!-- NAV -->
 <nav>
-  <a href="#" class="logo">NexoraWeb</a>
+  <a href="#top" class="logo">NexoraWeb</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
@@ -504,7 +590,7 @@ footer{
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-btn">Get a Free Quote</a>
+  <a href="#contact" class="nav-btn" data-prefill-message="I would like a free consultation for my website project.">Get a Free Quote</a>
 </nav>
  
 <!-- HERO -->
@@ -533,7 +619,7 @@ footer{
   </p>
  
   <div class="hero-actions">
-    <a href="#contact" class="btn-main">
+    <a href="#contact" class="btn-main" data-prefill-message="I want NexoraWeb to build a modern website for my business.">
       Start My Website
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
     </a>
@@ -591,7 +677,7 @@ footer{
           </div>
         </div>
         <div style="margin-top:2rem;" class="reveal">
-          <a href="#contact" class="btn-main">Work with us →</a>
+          <a href="#contact" class="btn-main" data-prefill-message="I want to work with NexoraWeb on a new website project.">Work with us →</a>
         </div>
       </div>
       <div class="about-visual reveal">
@@ -639,50 +725,50 @@ footer{
         <div class="eyebrow reveal">What We Build</div>
         <h2 class="sec-title reveal" style="margin-bottom:0;">Everything your<br>business needs online.</h2>
       </div>
-      <a href="#contact" class="btn-outline reveal" style="flex-shrink:0;">Get a free quote →</a>
+      <a href="#contact" class="btn-outline reveal" style="flex-shrink:0;" data-prefill-message="I would like a free quote for my website project.">Get a free quote →</a>
     </div>
     <div class="svc-grid">
-      <div class="svc-card reveal">
+      <div class="svc-card tilt-card reveal">
         <div class="svc-top-line"></div>
         <div class="svc-icon">🎨</div>
         <div class="svc-name">Business Websites</div>
         <p class="svc-desc">Clean, professional multi-page websites that build trust and bring in leads. Perfect for local businesses, consultants, and startups.</p>
-        <a href="#contact" class="svc-link">Start yours →</a>
+        <a href="#contact" class="svc-link" data-prefill-type="Business / Company Website" data-prefill-message="I need a business website for my company.">Start yours →</a>
       </div>
-      <div class="svc-card reveal reveal-delay-1">
+      <div class="svc-card tilt-card reveal reveal-delay-1">
         <div class="svc-top-line"></div>
         <div class="svc-icon">🛒</div>
         <div class="svc-name">E-Commerce Stores</div>
         <p class="svc-desc">Fully functional online stores with product pages, cart, and payment integration. Start selling online from day one.</p>
-        <a href="#contact" class="svc-link">Start yours →</a>
+        <a href="#contact" class="svc-link" data-prefill-type="E-Commerce Store" data-prefill-message="I want an e-commerce store with products, cart, and payments.">Start yours →</a>
       </div>
-      <div class="svc-card reveal reveal-delay-2">
+      <div class="svc-card tilt-card reveal reveal-delay-2">
         <div class="svc-top-line"></div>
         <div class="svc-icon">💼</div>
         <div class="svc-name">Portfolio Sites</div>
         <p class="svc-desc">Showcase your work beautifully. Designed for freelancers, designers, photographers, and creative professionals.</p>
-        <a href="#contact" class="svc-link">Start yours →</a>
+        <a href="#contact" class="svc-link" data-prefill-type="Portfolio / Personal Site" data-prefill-message="I want a portfolio website to showcase my work.">Start yours →</a>
       </div>
-      <div class="svc-card reveal reveal-delay-1">
+      <div class="svc-card tilt-card reveal reveal-delay-1">
         <div class="svc-top-line"></div>
         <div class="svc-icon">📱</div>
         <div class="svc-name">Landing Pages</div>
         <p class="svc-desc">High-converting single-page sites for your product, service, or campaign. Built to turn visitors into customers.</p>
-        <a href="#contact" class="svc-link">Start yours →</a>
+        <a href="#contact" class="svc-link" data-prefill-type="Landing Page" data-prefill-message="I need a landing page focused on conversions.">Start yours →</a>
       </div>
-      <div class="svc-card reveal reveal-delay-2">
+      <div class="svc-card tilt-card reveal reveal-delay-2">
         <div class="svc-top-line"></div>
         <div class="svc-icon">🔍</div>
         <div class="svc-name">SEO Optimization</div>
         <p class="svc-desc">Get found on Google. We build every site with on-page SEO, fast load times, and structured data baked in from the start.</p>
-        <a href="#contact" class="svc-link">Start yours →</a>
+        <a href="#contact" class="svc-link" data-prefill-type="Other" data-prefill-message="I want SEO-focused improvements for my website.">Start yours →</a>
       </div>
-      <div class="svc-card reveal reveal-delay-3">
+      <div class="svc-card tilt-card reveal reveal-delay-3">
         <div class="svc-top-line"></div>
         <div class="svc-icon">🛠️</div>
         <div class="svc-name">Website Redesigns</div>
         <p class="svc-desc">Got an outdated site? We'll give it a modern makeover — faster, better-looking, and ready to grow your business.</p>
-        <a href="#contact" class="svc-link">Start yours →</a>
+        <a href="#contact" class="svc-link" data-prefill-type="Website Redesign" data-prefill-message="I want NexoraWeb to redesign my existing website.">Start yours →</a>
       </div>
     </div>
   </div>
@@ -695,7 +781,7 @@ footer{
     <h2 class="sec-title reveal">Sites built by <span class="grad-text">NexoraWeb.</span></h2>
     <p class="sec-sub reveal">A selection of recent projects across different industries.</p>
     <div class="port-grid">
-      <div class="port-card reveal">
+      <div class="port-card tilt-card reveal">
         <div class="port-img">
           <div class="port-mockup">
             <div class="port-mbar"><div class="pm-dot pm-r"></div><div class="pm-dot pm-y"></div><div class="pm-dot pm-g"></div></div>
@@ -712,9 +798,12 @@ footer{
           <div class="port-cat">Retail</div>
           <div class="port-name">Craft Kart — Online Handicraft Store</div>
           <p class="port-desc">Full e-commerce site with product catalogue, cart, and Razorpay integration. Traffic up 3× in 60 days.</p>
+          <div class="port-actions">
+            <a href="#contact" class="port-link" data-prefill-type="E-Commerce Store" data-prefill-message="I want an online store similar to Craft Kart with products, cart, and payment integration.">Build Similar</a>
+          </div>
         </div>
       </div>
-      <div class="port-card reveal reveal-delay-1">
+      <div class="port-card tilt-card reveal reveal-delay-1">
         <div class="port-img">
           <div class="port-mockup">
             <div class="port-mbar"><div class="pm-dot pm-r"></div><div class="pm-dot pm-y"></div><div class="pm-dot pm-g"></div></div>
@@ -732,9 +821,12 @@ footer{
           <div class="port-cat">Real Estate</div>
           <div class="port-name">Horizon Realty — Property Listings Site</div>
           <p class="port-desc">Lead-generating property website with search filters and WhatsApp inquiry integration.</p>
+          <div class="port-actions">
+            <a href="#contact" class="port-link" data-prefill-type="Business / Company Website" data-prefill-message="I want a property or real-estate website similar to Horizon Realty.">Build Similar</a>
+          </div>
         </div>
       </div>
-      <div class="port-card reveal reveal-delay-2">
+      <div class="port-card tilt-card reveal reveal-delay-2">
         <div class="port-img">
           <div class="port-mockup">
             <div class="port-mbar"><div class="pm-dot pm-r"></div><div class="pm-dot pm-y"></div><div class="pm-dot pm-g"></div></div>
@@ -751,9 +843,12 @@ footer{
           <div class="port-cat">Photography</div>
           <div class="port-name">Priya Lens — Photography Portfolio</div>
           <p class="port-desc">Stunning visual portfolio with gallery pages and online booking system for shoots.</p>
+          <div class="port-actions">
+            <a href="#contact" class="port-link" data-prefill-type="Portfolio / Personal Site" data-prefill-message="I want a portfolio website similar to Priya Lens with galleries and booking.">Build Similar</a>
+          </div>
         </div>
       </div>
-      <div class="port-card reveal reveal-delay-3">
+      <div class="port-card tilt-card reveal reveal-delay-3">
         <div class="port-img">
           <div class="port-mockup">
             <div class="port-mbar"><div class="pm-dot pm-r"></div><div class="pm-dot pm-y"></div><div class="pm-dot pm-g"></div></div>
@@ -770,6 +865,9 @@ footer{
           <div class="port-cat">Coaching</div>
           <div class="port-name">FitPro Coach — Fitness Landing Page</div>
           <p class="port-desc">High-converting landing page for a fitness coach. 40% enquiry rate from paid ads traffic.</p>
+          <div class="port-actions">
+            <a href="#contact" class="port-link" data-prefill-type="Landing Page" data-prefill-message="I want a landing page similar to FitPro Coach for lead generation.">Build Similar</a>
+          </div>
         </div>
       </div>
     </div>
@@ -785,7 +883,7 @@ footer{
       <p class="sec-sub reveal" style="margin:0 auto 3rem;text-align:center;">No surprises, no hidden costs. Pick a plan and get online.</p>
     </div>
     <div class="price-grid">
-      <div class="price-card reveal">
+      <div class="price-card tilt-card reveal">
         <div class="plan-name">Starter</div>
         <div class="plan-price"><span class="curr">₹</span>4,999<span class="period">&nbsp;one-time</span></div>
         <div class="plan-tag">Perfect for small businesses getting started</div>
@@ -797,9 +895,9 @@ footer{
           <li><span class="feat-check">✦</span> 2 free revisions</li>
           <li><span class="feat-check">✦</span> Delivered in 7 days</li>
         </ul>
-        <a href="#contact" class="plan-btn">Get Started</a>
+        <a href="#contact" class="plan-btn" data-prefill-type="Business / Company Website" data-prefill-message="I am interested in the Starter plan for a small business website.">Get Started</a>
       </div>
-      <div class="price-card featured reveal reveal-delay-1">
+      <div class="price-card tilt-card featured reveal reveal-delay-1">
         <div class="plan-badge">Most Popular</div>
         <div class="plan-name">Business</div>
         <div class="plan-price"><span class="curr">₹</span>9,999<span class="period">&nbsp;one-time</span></div>
@@ -813,9 +911,9 @@ footer{
           <li><span class="feat-check">✦</span> 5 free revisions</li>
           <li><span class="feat-check">✦</span> Delivered in 10 days</li>
         </ul>
-        <a href="#contact" class="plan-btn grad">Get Started</a>
+        <a href="#contact" class="plan-btn grad" data-prefill-type="Business / Company Website" data-prefill-message="I am interested in the Business plan with premium design and animations.">Get Started</a>
       </div>
-      <div class="price-card reveal reveal-delay-2">
+      <div class="price-card tilt-card reveal reveal-delay-2">
         <div class="plan-name">E-Commerce</div>
         <div class="plan-price"><span class="curr">₹</span>19,999<span class="period">&nbsp;one-time</span></div>
         <div class="plan-tag">Full online store with payment integration</div>
@@ -828,7 +926,7 @@ footer{
           <li><span class="feat-check">✦</span> Unlimited revisions</li>
           <li><span class="feat-check">✦</span> Delivered in 14 days</li>
         </ul>
-        <a href="#contact" class="plan-btn">Get Started</a>
+        <a href="#contact" class="plan-btn" data-prefill-type="E-Commerce Store" data-prefill-message="I am interested in the E-Commerce plan with products and payments.">Get Started</a>
       </div>
     </div>
     <p style="text-align:center;margin-top:1.5rem;font-size:0.82rem;color:var(--text3);">All plans include free domain setup assistance &amp; hosting guidance. Custom projects? <a href="#contact" style="color:var(--violet);text-decoration:none;">Let's talk →</a></p>
@@ -872,26 +970,27 @@ footer{
           </div>
         </div>
       </div>
-      <div class="contact-form-wrap reveal">
+      <div class="contact-form-wrap tilt-card reveal">
         <div class="form-title">Get a Free Quote</div>
         <div class="form-sub">Fill in the details below and tap the button to send your inquiry straight to WhatsApp.</div>
+        <form id="quoteForm" novalidate>
         <div class="form-row">
           <div class="form-group">
             <label class="form-label" for="contactName">Your Name</label>
-            <input class="form-input" id="contactName" type="text" placeholder="Rahul Sharma" />
+            <input class="form-input" id="contactName" name="name" type="text" placeholder="Rahul Sharma" required />
           </div>
           <div class="form-group">
             <label class="form-label" for="contactPhone">Phone / WhatsApp</label>
-            <input class="form-input" id="contactPhone" type="tel" placeholder="Your WhatsApp number" />
+            <input class="form-input" id="contactPhone" name="phone" type="tel" placeholder="Your WhatsApp number" required />
           </div>
         </div>
         <div class="form-group">
           <label class="form-label" for="contactEmail">Email Address</label>
-          <input class="form-input" id="contactEmail" type="email" placeholder="rahul@yourbusiness.com" />
+          <input class="form-input" id="contactEmail" name="email" type="email" placeholder="rahul@yourbusiness.com" />
         </div>
         <div class="form-group">
           <label class="form-label" for="contactType">Type of Website</label>
-          <select class="form-select form-input" id="contactType">
+          <select class="form-select form-input" id="contactType" name="websiteType" required>
             <option value="">Select a website type...</option>
             <option>Business / Company Website</option>
             <option>E-Commerce Store</option>
@@ -903,23 +1002,30 @@ footer{
         </div>
         <div class="form-group">
           <label class="form-label" for="contactMessage">Tell us about your project</label>
-          <textarea class="form-textarea" id="contactMessage" placeholder="What does your business do? Any specific features or pages you need?"></textarea>
+          <textarea class="form-textarea" id="contactMessage" name="message" placeholder="What does your business do? Any specific features or pages you need?"></textarea>
         </div>
-        <button class="form-submit">
+        <button class="form-submit" type="submit">
           Send Inquiry on WhatsApp
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 5l4 4-4 4"/></svg>
         </button>
+        <div class="form-status" role="status" aria-live="polite"></div>
         <p class="form-note">Your inquiry will open in WhatsApp and go directly to +91 7259449945.</p>
+        </form>
       </div>
     </div>
   </div>
 </section>
+
+<a class="floating-wa" href="https://wa.me/917259449945" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp with NexoraWeb">
+  <span class="floating-wa-dot"></span>
+  <span class="floating-wa-text">Chat on WhatsApp<span class="floating-wa-sub">Fast replies from Zubair</span></span>
+</a>
  
 <!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <a href="#" class="logo">NexoraWeb</a>
+      <a href="#top" class="logo">NexoraWeb</a>
       <p>Professional websites for businesses of all sizes — at prices that make sense.</p>
     </div>
     <div class="footer-links-col">
@@ -977,49 +1083,216 @@ const obs = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
 }, { threshold: 0.12 });
 reveals.forEach(el => obs.observe(el));
- 
+
+const nav = document.querySelector('nav');
+const hero = document.querySelector('.hero');
+const heroGrid = document.querySelector('.hero-grid');
+const quoteForm = document.getElementById('quoteForm');
+const formStatus = document.querySelector('.form-status');
+const submitButton = quoteForm.querySelector('.form-submit');
+const nameField = document.getElementById('contactName');
+const phoneField = document.getElementById('contactPhone');
+const emailField = document.getElementById('contactEmail');
+const typeField = document.getElementById('contactType');
+const messageField = document.getElementById('contactMessage');
+const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+const sectionLinks = navLinks
+  .map((link) => ({ link, section: document.querySelector(link.getAttribute('href')) }))
+  .filter((item) => item.section);
+
+function setFormStatus(message, tone) {
+  formStatus.textContent = message;
+  formStatus.className = 'form-status' + (tone ? ' ' + tone : '');
+}
+
+function clearFieldState(field) {
+  field.classList.remove('is-invalid');
+}
+
+function validateForm() {
+  let isValid = true;
+  const emailValue = emailField.value.trim();
+  const phoneValue = phoneField.value.trim();
+
+  [nameField, phoneField, typeField].forEach((field) => {
+    if (!field.value.trim()) {
+      field.classList.add('is-invalid');
+      isValid = false;
+    }
+  });
+
+  if (phoneValue && phoneValue.replace(/[^\d+]/g, '').length < 8) {
+    phoneField.classList.add('is-invalid');
+    isValid = false;
+  }
+
+  if (emailValue && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+    emailField.classList.add('is-invalid');
+    isValid = false;
+  }
+
+  if (!isValid) {
+    setFormStatus('Please complete the highlighted fields before sending your inquiry.', 'error');
+  } else {
+    setFormStatus('', '');
+  }
+
+  return isValid;
+}
+
+function prefillInquiry(type, message) {
+  if (type) {
+    const matchingOption = Array.from(typeField.options).find((option) => option.value === type);
+    typeField.value = matchingOption ? matchingOption.value : 'Other';
+  }
+
+  if (message && !messageField.value.trim()) {
+    messageField.value = message;
+  }
+
+  document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  window.setTimeout(() => {
+    if (!nameField.value.trim()) {
+      nameField.focus();
+    } else if (!messageField.value.trim()) {
+      messageField.focus();
+    }
+  }, 450);
+}
+
+document.querySelectorAll('[data-prefill-type], [data-prefill-message]').forEach((trigger) => {
+  trigger.addEventListener('click', (event) => {
+    const href = trigger.getAttribute('href');
+    if (href === '#contact') {
+      event.preventDefault();
+    }
+    prefillInquiry(trigger.dataset.prefillType || '', trigger.dataset.prefillMessage || '');
+  });
+});
+
+[nameField, phoneField, emailField, typeField, messageField].forEach((field) => {
+  const eventName = field.tagName === 'SELECT' ? 'change' : 'input';
+  field.addEventListener(eventName, () => {
+    clearFieldState(field);
+    if (formStatus.textContent) {
+      setFormStatus('', '');
+    }
+  });
+});
+
+quoteForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  if (!validateForm()) {
+    return;
+  }
+
+  const whatsappText = [
+    'Hello Zubair, I would like a website quote from NexoraWeb.',
+    '',
+    'Name: ' + nameField.value.trim(),
+    'Phone / WhatsApp: ' + phoneField.value.trim(),
+    'Email: ' + (emailField.value.trim() || 'Not provided'),
+    'Website Type: ' + typeField.value.trim(),
+    'Project Details: ' + (messageField.value.trim() || 'No project details shared yet.')
+  ].join('\n');
+
+  submitButton.disabled = true;
+  submitButton.innerHTML = 'Opening WhatsApp...';
+  setFormStatus('Opening WhatsApp with your inquiry...', 'success');
+
+  window.open('https://wa.me/917259449945?text=' + encodeURIComponent(whatsappText), '_blank', 'noopener');
+
+  window.setTimeout(() => {
+    submitButton.disabled = false;
+    submitButton.innerHTML = 'Send Inquiry on WhatsApp <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 5l4 4-4 4"/></svg>';
+  }, 1600);
+});
+
 // Stagger children of grid on reveal
-document.querySelectorAll('.svc-grid, .port-grid, .price-grid').forEach(grid => {
+document.querySelectorAll('.svc-grid, .port-grid, .price-grid').forEach((grid) => {
   Array.from(grid.children).forEach((child, i) => {
     child.style.transitionDelay = (i * 0.08) + 's';
   });
 });
- 
-// Nav scroll effect
+
+document.querySelectorAll('.svc-card, .port-card, .price-card').forEach((card) => {
+  const primaryLink = card.querySelector('a[href]');
+  if (!primaryLink) {
+    return;
+  }
+
+  card.addEventListener('click', (event) => {
+    if (event.target.closest('a, button, input, select, textarea')) {
+      return;
+    }
+    primaryLink.click();
+  });
+});
+
+function updateNavState() {
+  const scrollPosition = window.scrollY + 140;
+  let activeSectionId = '#about';
+
+  sectionLinks.forEach((item) => {
+    if (scrollPosition >= item.section.offsetTop) {
+      activeSectionId = '#' + item.section.id;
+    }
+  });
+
+  navLinks.forEach((link) => {
+    link.classList.toggle('active', link.getAttribute('href') === activeSectionId);
+  });
+
+  nav.classList.toggle('nav-scrolled', window.scrollY > 40);
+  nav.style.boxShadow = window.scrollY > 40 ? '0 10px 34px rgba(0,0,0,0.26)' : 'none';
+}
+
 window.addEventListener('scroll', () => {
-  document.querySelector('nav').style.boxShadow =
-    window.scrollY > 40 ? '0 4px 30px rgba(0,0,0,0.4)' : 'none';
+  updateNavState();
+
+  const scrollShift = Math.min(window.scrollY * 0.08, 26);
+  if (heroGrid) {
+    heroGrid.style.transform = 'translateY(' + scrollShift + 'px)';
+  }
 });
- 
-// Send quote inquiries to WhatsApp
-document.querySelector('.form-submit').addEventListener('click', function(e) {
-  e.preventDefault();
 
-  const name = document.getElementById('contactName').value.trim() || 'Not provided';
-  const phone = document.getElementById('contactPhone').value.trim() || 'Not provided';
-  const email = document.getElementById('contactEmail').value.trim() || 'Not provided';
-  const type = document.getElementById('contactType').value.trim() || 'Not selected';
-  const message = document.getElementById('contactMessage').value.trim() || 'No project details shared yet.';
-  const whatsappText = [
-    'Hello Zubair, I would like a website quote from NexoraWeb.',
-    '',
-    'Name: ' + name,
-    'Phone / WhatsApp: ' + phone,
-    'Email: ' + email,
-    'Website Type: ' + type,
-    'Project Details: ' + message
-  ].join('\n');
+updateNavState();
 
-  this.innerHTML = 'Opening WhatsApp...';
-  this.style.background = 'linear-gradient(135deg,#059669,#10B981)';
+if (window.matchMedia('(pointer:fine)').matches) {
+  if (hero) {
+    hero.addEventListener('pointermove', (event) => {
+      const rect = hero.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+      document.documentElement.style.setProperty('--hero-pointer-x', x.toFixed(2) + '%');
+      document.documentElement.style.setProperty('--hero-pointer-y', y.toFixed(2) + '%');
+    });
 
-  window.open('https://wa.me/917259449945?text=' + encodeURIComponent(whatsappText), '_blank', 'noopener');
+    hero.addEventListener('pointerleave', () => {
+      document.documentElement.style.setProperty('--hero-pointer-x', '50%');
+      document.documentElement.style.setProperty('--hero-pointer-y', '35%');
+    });
+  }
 
-  setTimeout(() => {
-    this.innerHTML = 'Send Inquiry on WhatsApp <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 5l4 4-4 4"/></svg>';
-    this.style.background = '';
-  }, 2000);
-});
+  document.querySelectorAll('.tilt-card').forEach((card) => {
+    card.addEventListener('pointermove', (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      const rotateX = ((y / rect.height) - 0.5) * -8;
+      const rotateY = ((x / rect.width) - 0.5) * 10;
+
+      card.style.setProperty('--glow-x', ((x / rect.width) * 100).toFixed(2) + '%');
+      card.style.setProperty('--glow-y', ((y / rect.height) * 100).toFixed(2) + '%');
+      card.style.transform = 'perspective(1000px) rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' + rotateY.toFixed(2) + 'deg) translateY(-6px)';
+    });
+
+    card.addEventListener('pointerleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
 </script>
 </body>
 </html>
