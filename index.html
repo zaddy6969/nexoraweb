@@ -1,2355 +1,973 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NexoraWeb | Modern Websites For Growing Businesses</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NexoraWeb — Professional Websites for Businesses</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-:root {
-  --bg: #03050b;
-  --bg-soft: #090d17;
-  --panel: rgba(10, 13, 24, 0.86);
-  --panel-strong: rgba(12, 16, 29, 0.96);
-  --line: rgba(255, 255, 255, 0.08);
-  --line-strong: rgba(255, 255, 255, 0.14);
-  --text: #f7f8fd;
-  --muted: #9ba7be;
-  --dim: #69748d;
-  --cyan: #5ee6ff;
-  --violet: #7a71ff;
-  --gradient: linear-gradient(135deg, #7a71ff 0%, #50dcff 100%);
-  --heading: "Space Grotesk", sans-serif;
-  --body: "Manrope", sans-serif;
-  --container: 1180px;
-  --shadow: 0 30px 80px rgba(0, 0, 0, 0.42);
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  min-height: 100vh;
-  font-family: var(--body);
-  color: var(--text);
-  background:
-    radial-gradient(circle at 14% 16%, rgba(94, 230, 255, 0.1), transparent 18%),
-    radial-gradient(circle at 82% 12%, rgba(122, 113, 255, 0.12), transparent 22%),
-    linear-gradient(180deg, #020309 0%, #04060d 32%, #080b14 100%);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-}
-
-body::before {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: 70px 70px;
-  mask-image: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.7) 18%, black 50%, rgba(0, 0, 0, 0.6) 82%, transparent);
-}
-
-body::after {
-  background:
-    radial-gradient(circle at center, rgba(255, 255, 255, 0.22) 0 1px, transparent 1px),
-    radial-gradient(circle at center, rgba(94, 230, 255, 0.18) 0 1px, transparent 1px);
-  background-size: 140px 140px, 220px 220px;
-  background-position: 0 0, 44px 36px;
-  opacity: 0.14;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button,
-input,
-select,
-textarea {
-  font: inherit;
-}
-
-button {
-  border: 0;
-  background: none;
-}
-
-canvas {
-  display: block;
-}
-
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background: #04060d;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #7a71ff, #50dcff);
-  border-radius: 999px;
-}
-
-section[id] {
-  scroll-margin-top: 90px;
-}
-
-.wrap {
-  width: min(100% - 2rem, var(--container));
-  margin: 0 auto;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.reveal.in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  min-height: 34px;
-  padding: 0.38rem 0.9rem;
-  border-radius: 999px;
-  border: 1px solid rgba(94, 230, 255, 0.18);
-  background: rgba(94, 230, 255, 0.06);
-  color: var(--cyan);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.eyebrow::before {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: currentColor;
-  box-shadow: 0 0 0 6px rgba(94, 230, 255, 0.08);
-}
-
-.site-nav {
-  position: fixed;
-  inset: 0 0 auto;
-  z-index: 20;
-  padding-top: 1rem;
-}
-
-.nav-shell {
-  width: min(100% - 2rem, calc(var(--container) + 0.6rem));
-  margin: 0 auto;
-  min-height: 70px;
-  padding: 0.85rem 1rem 0.85rem 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(7, 10, 18, 0.58);
-  backdrop-filter: blur(18px);
-  transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
-}
-
-.site-nav.scrolled .nav-shell {
-  background: rgba(7, 10, 18, 0.86);
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.3);
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-family: var(--heading);
-  font-size: 1.04rem;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-}
-
-.brand-mark {
-  width: 32px;
-  height: 32px;
-  border-radius: 10px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--gradient);
-  color: #03131d;
-  box-shadow: 0 10px 30px rgba(80, 220, 255, 0.18);
-}
-
-.brand em {
-  font-style: normal;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.nav-links a {
-  color: var(--muted);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: var(--text);
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.talk-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  min-height: 42px;
-  padding: 0.72rem 1.05rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: var(--text);
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: border-color 0.2s, background 0.2s, transform 0.2s;
-}
-
-.talk-link:hover {
-  transform: translateY(-2px);
-  border-color: rgba(94, 230, 255, 0.22);
-  background: rgba(94, 230, 255, 0.05);
-}
-
-.menu-btn {
-  width: 42px;
-  height: 42px;
-  border-radius: 14px;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
-  cursor: pointer;
-}
-
-.menu-btn span,
-.menu-btn span::before,
-.menu-btn span::after {
-  display: block;
-  width: 16px;
-  height: 1.5px;
-  border-radius: 999px;
-  background: var(--text);
-  content: "";
-  transition: transform 0.2s, opacity 0.2s;
-}
-
-.menu-btn span {
-  position: relative;
-}
-
-.menu-btn span::before {
-  position: absolute;
-  top: -5px;
-}
-
-.menu-btn span::after {
-  position: absolute;
-  top: 5px;
-}
-
-.menu-btn.open span {
-  background: transparent;
-}
-
-.menu-btn.open span::before {
-  transform: translateY(5px) rotate(45deg);
-}
-
-.menu-btn.open span::after {
-  transform: translateY(-5px) rotate(-45deg);
-}
-
-.mobile-menu {
-  display: none;
-  width: min(100% - 2rem, calc(var(--container) + 0.6rem));
-  margin: 0.7rem auto 0;
-  padding: 1rem;
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(7, 10, 18, 0.96);
-  box-shadow: var(--shadow);
-}
-
-.mobile-menu.open {
-  display: block;
-}
-
-.mobile-menu ul {
-  list-style: none;
-  display: grid;
-  gap: 0.55rem;
-}
-
-.mobile-menu a {
-  display: block;
-  padding: 0.85rem 0.95rem;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--muted);
-}
-
-.mobile-menu a:hover {
-  color: var(--text);
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.hero {
-  min-height: 100vh;
-  padding: 8.6rem 0 4.5rem;
-  display: flex;
-  align-items: center;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.02fr 0.98fr;
-  gap: 2rem;
-  align-items: center;
-}
-
-.hero-copy .eyebrow {
-  margin-bottom: 1.35rem;
-}
-
-.hero-title {
-  max-width: 9.2ch;
-  font-family: var(--heading);
-  font-size: clamp(3.3rem, 8vw, 6.7rem);
-  line-height: 0.88;
-  letter-spacing: -0.09em;
-}
-
-.hero-title .outline {
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.42);
-}
-
-.hero-sub {
-  margin-top: 1.35rem;
-  max-width: 600px;
-  color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.92;
-}
-
-.hero-actions {
-  margin-top: 1.9rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-  min-height: 50px;
-  padding: 0.95rem 1.28rem;
-  border-radius: 999px;
-  font-size: 0.84rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, background 0.2s;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-}
-
-.btn-primary {
-  background: var(--gradient);
-  color: #04111b;
-  box-shadow: 0 14px 34px rgba(80, 220, 255, 0.16);
-}
-
-.btn-secondary {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--text);
-}
-
-.btn-secondary:hover {
-  border-color: rgba(94, 230, 255, 0.22);
-  background: rgba(94, 230, 255, 0.05);
-}
-
-.hero-note {
-  margin-top: 1.6rem;
-  padding-left: 1rem;
-  border-left: 2px solid rgba(94, 230, 255, 0.24);
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.85;
-  max-width: 560px;
-}
-
-.hero-note strong {
-  color: var(--text);
-}
-
-.hero-trust {
-  margin-top: 1.7rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-}
-
-.hero-trust span {
-  min-height: 36px;
-  padding: 0.5rem 0.8rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--muted);
-  font-size: 0.76rem;
-  font-weight: 700;
-}
-
-.hero-visual {
-  position: relative;
-  min-height: 640px;
-  border-radius: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(180deg, rgba(8, 11, 21, 0.96), rgba(5, 8, 16, 0.99));
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-
-.hero-visual::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 62% 28%, rgba(80, 220, 255, 0.16), transparent 18%),
-    radial-gradient(circle at 44% 56%, rgba(122, 113, 255, 0.18), transparent 28%);
-}
-
-.visual-top {
-  position: absolute;
-  top: 1.2rem;
-  left: 1.2rem;
-  right: 1.2rem;
-  z-index: 2;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.visual-logo {
-  font-family: var(--heading);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(247, 248, 253, 0.72);
-}
-
-.visual-links {
-  display: flex;
-  gap: 0.7rem;
-  color: var(--muted);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.visual-links span:last-child {
-  color: var(--text);
-}
-
-.visual-copy {
-  position: absolute;
-  left: 1.5rem;
-  bottom: 1.5rem;
-  z-index: 2;
-  max-width: 320px;
-}
-
-.visual-copy .small {
-  color: var(--cyan);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.visual-copy h2 {
-  margin-top: 0.6rem;
-  font-family: var(--heading);
-  font-size: clamp(2.2rem, 4vw, 4rem);
-  line-height: 0.9;
-  letter-spacing: -0.08em;
-}
-
-.visual-copy h2 span {
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.34);
-}
-
-.visual-copy p {
-  margin-top: 0.9rem;
-  color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.8;
-}
-
-.visual-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.visual-pill {
-  position: absolute;
-  z-index: 2;
-  min-width: 170px;
-  padding: 0.8rem 0.95rem;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(8, 11, 20, 0.76);
-  backdrop-filter: blur(14px);
-}
-
-.visual-pill strong {
-  display: block;
-  font-size: 0.95rem;
-  margin-bottom: 0.2rem;
-}
-
-.visual-pill span {
-  color: var(--muted);
-  font-size: 0.77rem;
-  line-height: 1.6;
-}
-
-.pill-one {
-  top: 5.2rem;
-  right: 1.1rem;
-}
-
-.pill-two {
-  left: 1.1rem;
-  top: 8.2rem;
-}
-
-.section {
-  padding: 5rem 0;
-}
-
-.section-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.section-copy {
-  max-width: 580px;
-}
-
-.section-copy .eyebrow {
-  margin-bottom: 1rem;
-}
-
-.section-title {
-  font-family: var(--heading);
-  font-size: clamp(2rem, 4vw, 3.4rem);
-  line-height: 0.94;
-  letter-spacing: -0.08em;
-}
-
-.section-text {
-  margin-top: 0.9rem;
-  color: var(--muted);
-  font-size: 0.98rem;
-  line-height: 1.86;
-}
-
-.section-action {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  padding: 0.78rem 1rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: var(--text);
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.section-action:hover {
-  border-color: rgba(94, 230, 255, 0.22);
-  background: rgba(94, 230, 255, 0.05);
-}
-
-.split-block {
-  display: grid;
-  grid-template-columns: 0.92fr 1.08fr;
-  gap: 1rem;
-}
-
-.statement {
-  min-height: 420px;
-  padding: 1.6rem;
-  border-radius: 28px;
-  border: 1px solid var(--line);
-  background: var(--panel);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: var(--shadow);
-}
-
-.statement small {
-  color: var(--dim);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.statement h3 {
-  margin-top: 1rem;
-  font-family: var(--heading);
-  font-size: clamp(2.3rem, 5vw, 4.2rem);
-  line-height: 0.9;
-  letter-spacing: -0.09em;
-}
-
-.statement h3 span {
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.34);
-}
-
-.statement p {
-  max-width: 34ch;
-  color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.86;
-}
-
-.signals {
-  display: grid;
-  gap: 1rem;
-}
-
-.signal {
-  padding: 1.3rem 1.35rem;
-  border-radius: 24px;
-  border: 1px solid var(--line);
-  background: var(--panel);
-}
-
-.signal strong {
-  display: block;
-  font-size: 1rem;
-  margin-bottom: 0.4rem;
-}
-
-.signal p {
-  color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.8;
-}
-
-.services {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.service {
-  position: relative;
-  min-height: 300px;
-  padding: 1.4rem;
-  border-radius: 28px;
-  border: 1px solid var(--line);
-  background: var(--panel);
-  overflow: hidden;
-  transition: transform 0.25s, border-color 0.25s;
-}
-
-.service::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(94, 230, 255, 0.13), transparent 28%);
-  opacity: 0;
-  transition: opacity 0.25s;
-}
-
-.service:hover {
-  transform: translateY(-6px);
-  border-color: rgba(94, 230, 255, 0.18);
-}
-
-.service:hover::before {
-  opacity: 1;
-}
-
-.service > * {
-  position: relative;
-  z-index: 1;
-}
-
-.service-no {
-  color: var(--dim);
-  font-size: 0.74rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.service h3 {
-  margin-top: 0.95rem;
-  font-family: var(--heading);
-  font-size: 1.5rem;
-  line-height: 0.96;
-  letter-spacing: -0.05em;
-}
-
-.service p {
-  margin-top: 0.95rem;
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.82;
-  max-width: 28ch;
-}
-
-.service a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  margin-top: 1.35rem;
-  color: var(--cyan);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.portfolio {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.project {
-  border-radius: 28px;
-  border: 1px solid var(--line);
-  background: var(--panel);
-  overflow: hidden;
-  transition: transform 0.25s, border-color 0.25s;
-}
-
-.project:hover {
-  transform: translateY(-6px);
-  border-color: rgba(94, 230, 255, 0.18);
-}
-
-.project-visual {
-  position: relative;
-  height: 270px;
-  padding: 1.1rem;
-  background:
-    radial-gradient(circle at 64% 24%, rgba(80, 220, 255, 0.18), transparent 18%),
-    radial-gradient(circle at 36% 72%, rgba(122, 113, 255, 0.26), transparent 30%),
-    linear-gradient(180deg, #09101a, #070a13);
-}
-
-.project-badge {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  min-height: 30px;
-  padding: 0.35rem 0.7rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--text);
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.project-frame {
-  height: 100%;
-  border-radius: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(7, 10, 18, 0.94);
-  overflow: hidden;
-}
-
-.project-bar {
-  height: 32px;
-  display: flex;
-  align-items: center;
-  gap: 0.38rem;
-  padding: 0 0.85rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.project-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.project-body {
-  height: calc(100% - 32px);
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.project-big {
-  font-family: var(--heading);
-  font-size: clamp(2rem, 4vw, 3.4rem);
-  line-height: 0.9;
-  letter-spacing: -0.08em;
-}
-
-.project-big span {
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.34);
-}
-
-.project-mini {
-  max-width: 78%;
-  color: var(--muted);
-  font-size: 0.8rem;
-  line-height: 1.74;
-}
-
-.project-info {
-  padding: 1.3rem;
-}
-
-.project-info h3 {
-  font-size: 0.98rem;
-  margin-bottom: 0.35rem;
-}
-
-.project-info p {
-  color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.8;
-}
-
-.project-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-  margin-top: 1rem;
-}
-
-.project-actions a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 42px;
-  padding: 0.72rem 0.95rem;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.project-actions a:first-child {
-  background: rgba(94, 230, 255, 0.07);
-  border: 1px solid rgba(94, 230, 255, 0.14);
-}
-
-.project-actions a:last-child {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: var(--muted);
-}
-
-.process {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
-}
-
-.step {
-  padding: 1.25rem;
-  border-radius: 24px;
-  border: 1px solid var(--line);
-  background: var(--panel);
-}
-
-.step-no {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--cyan);
-  font-size: 0.8rem;
-  font-weight: 800;
-}
-
-.step h3 {
-  margin-top: 0.85rem;
-  font-size: 0.96rem;
-}
-
-.step p {
-  margin-top: 0.45rem;
-  color: var(--muted);
-  font-size: 0.88rem;
-  line-height: 1.76;
-}
-
-.pricing {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.plan {
-  position: relative;
-  padding: 1.45rem;
-  border-radius: 28px;
-  border: 1px solid var(--line);
-  background: var(--panel);
-}
-
-.plan.featured {
-  border-color: rgba(94, 230, 255, 0.18);
-  background: linear-gradient(180deg, rgba(10, 15, 27, 0.98), rgba(8, 11, 19, 0.98));
-}
-
-.plan-badge {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  min-height: 28px;
-  padding: 0.28rem 0.7rem;
-  border-radius: 999px;
-  background: var(--gradient);
-  color: #04121b;
-  font-size: 0.67rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.plan small {
-  color: var(--dim);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.plan-price {
-  margin-top: 0.9rem;
-  font-family: var(--heading);
-  font-size: clamp(2.4rem, 4vw, 3.7rem);
-  line-height: 0.92;
-  letter-spacing: -0.09em;
-}
-
-.plan-price span {
-  font-family: var(--body);
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--dim);
-  letter-spacing: 0;
-}
-
-.plan p {
-  margin-top: 0.8rem;
-  color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.82;
-}
-
-.plan ul {
-  list-style: none;
-  margin-top: 1.1rem;
-  display: grid;
-  gap: 0.72rem;
-}
-
-.plan li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
-  color: var(--muted);
-  font-size: 0.87rem;
-  line-height: 1.7;
-}
-
-.plan li::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  margin-top: 0.42rem;
-  border-radius: 50%;
-  background: var(--cyan);
-  box-shadow: 0 0 0 6px rgba(94, 230, 255, 0.08);
-  flex-shrink: 0;
-}
-
-.plan .btn {
-  width: 100%;
-  margin-top: 1.25rem;
-}
-
-.contact-shell {
-  display: grid;
-  grid-template-columns: 0.92fr 1.08fr;
-  gap: 1rem;
-  padding: 1rem;
-  border-radius: 32px;
-  border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(9, 12, 21, 0.98), rgba(7, 10, 18, 0.98));
-  box-shadow: var(--shadow);
-}
-
-.contact-side,
-.contact-form {
-  border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.contact-side {
-  padding: 1.5rem;
-}
-
-.contact-side h3 {
-  margin-top: 0.95rem;
-  font-family: var(--heading);
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 0.92;
-  letter-spacing: -0.08em;
-}
-
-.contact-side p {
-  margin-top: 0.9rem;
-  color: var(--muted);
-  font-size: 0.94rem;
-  line-height: 1.86;
-}
-
-.contact-items {
-  margin-top: 1.45rem;
-  display: grid;
-  gap: 0.85rem;
-}
-
-.contact-item {
-  display: flex;
-  gap: 0.9rem;
-  align-items: flex-start;
-  padding: 1rem;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  background: rgba(255, 255, 255, 0.03);
-  transition: transform 0.2s, border-color 0.2s, background 0.2s;
-}
-
-.contact-item:hover {
-  transform: translateY(-2px);
-  border-color: rgba(94, 230, 255, 0.18);
-  background: rgba(94, 230, 255, 0.05);
-}
-
-.contact-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: var(--cyan);
-  font-size: 1rem;
-}
-
-.contact-label {
-  color: var(--dim);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.contact-item strong {
-  display: block;
-  margin-top: 0.2rem;
-  font-size: 0.96rem;
-}
-
-.contact-form {
-  padding: 1.45rem;
-}
-
-.contact-form h3 {
-  font-size: 1.05rem;
-  font-weight: 800;
-}
-
-.contact-form p {
-  margin-top: 0.35rem;
-  color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.8;
-}
-
-.form-grid {
-  margin-top: 1.2rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.9rem;
-}
-
-.field,
-.field-wide {
-  display: flex;
-  flex-direction: column;
-  gap: 0.38rem;
-}
-
-.field-wide {
-  grid-column: 1 / -1;
-}
-
-.field label,
-.field-wide label {
-  color: var(--muted);
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.input,
-.select,
-.textarea {
-  width: 100%;
-  min-height: 52px;
-  padding: 0.95rem 1rem;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(4, 6, 13, 0.88);
-  color: var(--text);
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-}
-
-.input::placeholder,
-.textarea::placeholder {
-  color: var(--dim);
-}
-
-.input:focus,
-.select:focus,
-.textarea:focus {
-  border-color: rgba(94, 230, 255, 0.22);
-  box-shadow: 0 0 0 4px rgba(94, 230, 255, 0.08);
-  transform: translateY(-1px);
-}
-
-.select {
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2369748D' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-}
-
-.textarea {
-  min-height: 130px;
-  resize: vertical;
-}
-
-.invalid {
-  border-color: rgba(248, 113, 113, 0.7) !important;
-  box-shadow: 0 0 0 4px rgba(248, 113, 113, 0.08) !important;
-}
-
-.form-actions {
-  margin-top: 1.1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  align-items: center;
-}
-
-.submit-btn {
-  min-width: 255px;
-}
-
-.form-status {
-  min-height: 1.2rem;
-  color: var(--dim);
-  font-size: 0.82rem;
-}
-
-.form-status.success {
-  color: #7bf0b0;
-}
-
-.form-status.error {
-  color: #ff9b9b;
-}
-
-.form-note {
-  margin-top: 0.6rem;
-  color: var(--dim);
-  font-size: 0.8rem;
-  line-height: 1.7;
-}
-
-.faq {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.faq-item {
-  padding: 1.2rem;
-  border-radius: 24px;
-  border: 1px solid var(--line);
-  background: var(--panel);
-}
-
-.faq-item h3 {
-  font-size: 0.94rem;
-  margin-bottom: 0.45rem;
-}
-
-.faq-item p {
-  color: var(--muted);
-  font-size: 0.88rem;
-  line-height: 1.78;
-}
-
-.footer {
-  padding: 2.6rem 0 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(3, 5, 10, 0.86);
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr 0.85fr 0.95fr;
-  gap: 1.1rem;
-}
-
-.footer-brand p {
-  margin-top: 0.85rem;
-  max-width: 320px;
-  color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.8;
-}
-
-.footer-col h4 {
-  color: var(--dim);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  margin-bottom: 0.85rem;
-}
-
-.footer-col ul {
-  list-style: none;
-  display: grid;
-  gap: 0.58rem;
-}
-
-.footer-col a,
-.footer-col li {
-  color: var(--muted);
-  font-size: 0.87rem;
-}
-
-.footer-col a:hover {
-  color: var(--text);
-}
-
-.footer-bottom {
-  margin-top: 1.8rem;
-  padding-top: 1.2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-  color: var(--dim);
-  font-size: 0.8rem;
-}
-
-.footer-socials {
-  display: flex;
-  gap: 0.7rem;
-}
-
-.footer-socials a {
-  width: 36px;
-  height: 36px;
-  border-radius: 12px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--muted);
-  font-size: 0.8rem;
-  font-weight: 800;
-}
-
-.footer-socials a:hover {
-  color: var(--text);
-  border-color: rgba(94, 230, 255, 0.2);
-}
-
-.whatsapp-float {
-  position: fixed;
-  right: 1rem;
-  bottom: 1rem;
-  z-index: 18;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  min-height: 56px;
-  padding: 0.85rem 1rem;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #12c55e, #31da86);
-  color: #062613;
-  font-size: 0.84rem;
-  font-weight: 800;
-  box-shadow: 0 18px 40px rgba(18, 197, 94, 0.28);
-}
-
-.whatsapp-float span:first-child {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.18);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.toast {
-  position: fixed;
-  left: 50%;
-  bottom: 1.2rem;
-  transform: translate(-50%, 110px);
-  z-index: 24;
-  min-width: min(90vw, 340px);
-  padding: 0.9rem 1.1rem;
-  border-radius: 16px;
-  border: 1px solid rgba(94, 230, 255, 0.14);
-  background: rgba(7, 10, 18, 0.96);
-  box-shadow: var(--shadow);
-  text-align: center;
-  font-size: 0.88rem;
-  opacity: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.toast.show {
-  transform: translate(-50%, 0);
-  opacity: 1;
-}
-
-@media (max-width: 1120px) {
-  .hero-grid,
-  .split-block,
-  .contact-shell,
-  .footer-grid {
-    grid-template-columns: 1fr;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#080812;
+  --bg2:#0D0D1A;
+  --bg3:#121226;
+  --border:rgba(255,255,255,0.06);
+  --border2:rgba(124,58,237,0.3);
+  --violet:#7C3AED;
+  --cyan:#06B6D4;
+  --grad:linear-gradient(135deg,#7C3AED,#06B6D4);
+  --grad2:linear-gradient(135deg,#9333EA,#22D3EE);
+  --text:#F8F8FF;
+  --text2:#A0A0C0;
+  --text3:#5A5A7A;
+  --font:'Outfit',sans-serif;
+  --body:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:hidden;line-height:1.6;}
+ 
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--violet);border-radius:2px;}
+ 
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 5%;
+  background:rgba(8,8,18,0.8);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  transition:all 0.3s;
+}
+.logo{
+  font-family:var(--font);font-size:1.4rem;font-weight:800;
+  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;letter-spacing:-0.03em;text-decoration:none;
+}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
+.nav-links a{font-size:0.875rem;color:var(--text2);text-decoration:none;transition:color 0.2s;font-family:var(--font);font-weight:500;}
+.nav-links a:hover{color:var(--text);}
+.nav-btn{
+  font-family:var(--font);font-size:0.85rem;font-weight:600;
+  background:var(--grad);color:#fff;border:none;
+  padding:0.55rem 1.3rem;border-radius:50px;cursor:pointer;
+  text-decoration:none;transition:opacity 0.2s,transform 0.15s;
+  box-shadow:0 0 20px rgba(124,58,237,0.3);
+}
+.nav-btn:hover{opacity:0.88;transform:translateY(-1px);}
+ 
+/* HERO */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:9rem 5% 5rem;position:relative;overflow:hidden;
+}
+ 
+/* animated bg orbs */
+.orb{
+  position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;
+  animation:float 8s ease-in-out infinite alternate;
+}
+.orb1{width:500px;height:500px;top:-10%;left:-10%;background:rgba(124,58,237,0.12);animation-delay:0s;}
+.orb2{width:400px;height:400px;bottom:-10%;right:-5%;background:rgba(6,182,212,0.1);animation-delay:-4s;}
+.orb3{width:300px;height:300px;top:40%;left:50%;transform:translateX(-50%);background:rgba(147,51,234,0.07);animation-delay:-2s;}
+@keyframes float{from{transform:translateY(0) scale(1);}to{transform:translateY(-30px) scale(1.05);}}
+ 
+/* grid bg */
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(124,58,237,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(124,58,237,0.04) 1px,transparent 1px);
+  background-size:50px 50px;
+  mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 0%,transparent 100%);
+}
+ 
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font);font-size:0.78rem;font-weight:600;
+  color:var(--cyan);background:rgba(6,182,212,0.08);
+  border:1px solid rgba(6,182,212,0.2);
+  padding:0.4rem 1rem;border-radius:50px;
+  margin-bottom:1.8rem;letter-spacing:0.08em;text-transform:uppercase;
+  animation:fadeUp 0.6s ease 0.2s both;
+}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(0.8);}}
+ 
+.hero h1{
+  font-family:var(--font);font-size:clamp(2.8rem,6vw,5.5rem);
+  font-weight:900;line-height:1.02;letter-spacing:-0.04em;
+  margin-bottom:1rem;
+  animation:fadeUp 0.7s ease 0.35s both;
+}
+.grad-text{
+  background:var(--grad2);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text;
+}
+ 
+.hero-price{
+  font-family:var(--font);font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:600;
+  margin-bottom:1.2rem;color:var(--text);
+  animation:fadeUp 0.7s ease 0.5s both;
+}
+.price-num{
+  font-size:clamp(2rem,4vw,3rem);font-weight:900;
+  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+ 
+.hero-sub{
+  font-size:1.05rem;color:var(--text2);max-width:520px;margin:0 auto 2.5rem;
+  font-weight:300;line-height:1.8;animation:fadeUp 0.7s ease 0.65s both;
+}
+ 
+.hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp 0.7s ease 0.8s both;}
+.btn-main{
+  font-family:var(--font);font-size:1rem;font-weight:700;
+  background:var(--grad);color:#fff;
+  padding:0.9rem 2.2rem;border-radius:50px;text-decoration:none;
+  box-shadow:0 8px 32px rgba(124,58,237,0.35);
+  transition:transform 0.2s,box-shadow 0.2s;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(124,58,237,0.5);}
+.btn-outline{
+  font-family:var(--font);font-size:1rem;font-weight:600;
+  color:var(--text);border:1px solid rgba(255,255,255,0.15);
+  padding:0.9rem 2.2rem;border-radius:50px;text-decoration:none;
+  backdrop-filter:blur(8px);transition:border-color 0.2s,background 0.2s;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn-outline:hover{border-color:rgba(124,58,237,0.5);background:rgba(124,58,237,0.08);}
+ 
+/* trust row */
+.trust-row{
+  display:flex;align-items:center;justify-content:center;gap:2rem;
+  margin-top:3.5rem;flex-wrap:wrap;
+  animation:fadeUp 0.7s ease 1s both;
+}
+.trust-item{
+  display:flex;align-items:center;gap:8px;
+  font-family:var(--font);font-size:0.82rem;color:var(--text3);font-weight:500;
+}
+.trust-icon{color:var(--violet);font-size:1rem;}
+ 
+/* scroll indicator */
+.scroll-ind{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  animation:fadeIn 1s ease 1.5s both;
+}
+.scroll-line{width:1px;height:40px;background:linear-gradient(var(--violet),transparent);animation:scrollDown 1.5s ease-in-out infinite;}
+@keyframes scrollDown{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform:scaleY(1);transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+.scroll-txt{font-family:var(--font);font-size:0.65rem;color:var(--text3);letter-spacing:0.15em;text-transform:uppercase;}
+ 
+/* STATS */
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+.stat{
+  padding:2.5rem 2rem;text-align:center;
+  border-right:1px solid var(--border);transition:background 0.3s;
+}
+.stat:last-child{border-right:none;}
+.stat:hover{background:var(--bg2);}
+.stat-n{
+  font-family:var(--font);font-size:2.5rem;font-weight:900;
+  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  letter-spacing:-0.04em;line-height:1;
+}
+.stat-l{font-size:0.82rem;color:var(--text3);margin-top:0.3rem;font-weight:500;font-family:var(--font);}
+ 
+/* SECTION COMMONS */
+.sec{padding:6rem 5%;}
+.sec-inner{max-width:1200px;margin:0 auto;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font);font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--violet);margin-bottom:1rem;
+}
+.eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--violet);}
+.sec-title{
+  font-family:var(--font);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:800;
+  letter-spacing:-0.03em;line-height:1.1;color:var(--text);margin-bottom:0.8rem;
+}
+.sec-sub{font-size:1rem;color:var(--text2);max-width:480px;font-weight:300;line-height:1.8;margin-bottom:3rem;}
+ 
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.about-visual{
+  position:relative;display:flex;align-items:center;justify-content:center;
+}
+.about-card-main{
+  width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:16px;
+  padding:2rem;position:relative;overflow:hidden;
+}
+.about-card-main::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(124,58,237,0.05),transparent);pointer-events:none;
+}
+.about-card-glow{
+  position:absolute;top:-1px;left:0;right:0;height:2px;
+  background:var(--grad);border-radius:16px 16px 0 0;
+}
+.mini-browser{background:var(--bg3);border-radius:10px;overflow:hidden;}
+.mini-bar{
+  display:flex;align-items:center;gap:5px;padding:8px 12px;
+  background:rgba(255,255,255,0.03);border-bottom:1px solid var(--border);
+}
+.mini-dot{width:8px;height:8px;border-radius:50%;}
+.mini-addr{
+  flex:1;background:rgba(255,255,255,0.04);border-radius:4px;
+  height:16px;margin-left:8px;font-family:monospace;font-size:0.6rem;
+  color:var(--text3);display:flex;align-items:center;padding:0 8px;
+}
+.mini-content{padding:16px 14px;display:flex;flex-direction:column;gap:8px;}
+.mc-h{height:7px;border-radius:3px;background:rgba(255,255,255,0.15);}
+.mc-p{height:4px;border-radius:3px;background:rgba(255,255,255,0.06);}
+.mc-grad{height:4px;border-radius:3px;background:var(--grad);opacity:0.6;}
+.mc-row{display:flex;gap:8px;}
+.mc-block{flex:1;height:40px;background:rgba(124,58,237,0.08);border-radius:6px;border:1px solid rgba(124,58,237,0.15);}
+.about-floating{
+  position:absolute;bottom:-1rem;right:-1rem;
+  background:var(--bg2);border:1px solid var(--border2);border-radius:12px;
+  padding:0.75rem 1rem;display:flex;align-items:center;gap:10px;
+  backdrop-filter:blur(10px);animation:floatCard 4s ease-in-out infinite alternate;
+}
+@keyframes floatCard{from{transform:translateY(0);}to{transform:translateY(-8px);}}
+.floating-icon{width:32px;height:32px;border-radius:8px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:1rem;}
+.floating-txt{font-family:var(--font);font-size:0.78rem;font-weight:600;color:var(--text);}
+.floating-sub{font-size:0.68rem;color:var(--text3);}
+.about-list{display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem;}
+.about-item{display:flex;align-items:flex-start;gap:12px;}
+.about-check{
+  width:22px;height:22px;border-radius:6px;background:rgba(124,58,237,0.15);
+  border:1px solid rgba(124,58,237,0.3);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--violet);margin-top:2px;
+}
+.about-item-txt{font-size:0.9rem;color:var(--text2);line-height:1.6;}
+.about-item-txt strong{color:var(--text);font-weight:600;}
+ 
+/* SERVICES */
+.services-bg{background:var(--bg2);}
+.services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem;}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.svc-card{
+  background:var(--bg3);border:1px solid var(--border);border-radius:16px;
+  padding:2rem;position:relative;overflow:hidden;cursor:pointer;
+  transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;
+}
+.svc-card:hover{border-color:rgba(124,58,237,0.4);transform:translateY(-4px);box-shadow:0 20px 60px rgba(124,58,237,0.1);}
+.svc-card::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(124,58,237,0.04),transparent);
+  opacity:0;transition:opacity 0.3s;pointer-events:none;
+}
+.svc-card:hover::after{opacity:1;}
+.svc-top-line{
+  position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--grad);transform:scaleX(0);transform-origin:left;
+  transition:transform 0.4s ease;border-radius:16px 16px 0 0;
+}
+.svc-card:hover .svc-top-line{transform:scaleX(1);}
+.svc-icon{
+  width:48px;height:48px;border-radius:12px;
+  background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.2);
+  display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;font-size:1.4rem;
+  transition:background 0.3s;
+}
+.svc-card:hover .svc-icon{background:rgba(124,58,237,0.2);}
+.svc-name{font-family:var(--font);font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:0.5rem;letter-spacing:-0.01em;}
+.svc-desc{font-size:0.875rem;color:var(--text2);line-height:1.75;font-weight:300;}
+.svc-link{
+  display:inline-flex;align-items:center;gap:5px;margin-top:1.2rem;
+  font-family:var(--font);font-size:0.8rem;font-weight:600;
+  color:var(--violet);text-decoration:none;transition:gap 0.2s;
+}
+.svc-card:hover .svc-link{gap:8px;}
+ 
+/* PORTFOLIO */
+.port-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.port-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;
+  transition:border-color 0.3s,transform 0.3s;cursor:pointer;
+}
+.port-card:hover{border-color:rgba(6,182,212,0.3);transform:translateY(-4px);}
+.port-img{
+  height:200px;background:var(--bg3);position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.port-img::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(124,58,237,0.08),rgba(6,182,212,0.05));
+}
+.port-mockup{
+  width:75%;background:var(--bg);border-radius:8px;overflow:hidden;
+  border:1px solid var(--border);box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  transition:transform 0.4s ease;
+}
+.port-card:hover .port-mockup{transform:translateY(-6px);}
+.port-mbar{height:20px;background:rgba(255,255,255,0.03);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 8px;gap:4px;}
+.pm-dot{width:5px;height:5px;border-radius:50%;}
+.pm-r{background:#FF5F57;}.pm-y{background:#FFBD2E;}.pm-g{background:#28CA41;}
+.port-mbody{padding:12px 10px;display:flex;flex-direction:column;gap:6px;}
+.pm-h{height:5px;border-radius:2px;background:rgba(255,255,255,0.15);}
+.pm-p{height:3px;border-radius:2px;background:rgba(255,255,255,0.05);}
+.pm-a{height:3px;border-radius:2px;background:var(--grad);opacity:0.5;}
+.pm-row{display:flex;gap:5px;margin-top:4px;}
+.pm-block{flex:1;height:28px;background:rgba(124,58,237,0.06);border-radius:4px;border:1px solid rgba(124,58,237,0.1);}
+.port-tag{
+  position:absolute;top:12px;right:12px;
+  font-family:var(--font);font-size:0.65rem;font-weight:700;letter-spacing:0.08em;
+  text-transform:uppercase;color:#fff;background:var(--grad);
+  padding:3px 10px;border-radius:50px;
+}
+.port-info{padding:1.5rem;}
+.port-cat{font-family:var(--font);font-size:0.72rem;color:var(--cyan);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.3rem;}
+.port-name{font-family:var(--font);font-size:1rem;font-weight:700;color:var(--text);letter-spacing:-0.01em;margin-bottom:0.4rem;}
+.port-desc{font-size:0.82rem;color:var(--text2);font-weight:300;}
+ 
+/* PRICING */
+.pricing-bg{background:var(--bg2);}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1rem;}
+.price-card{
+  background:var(--bg3);border:1px solid var(--border);border-radius:20px;
+  padding:2.5rem 2rem;position:relative;overflow:hidden;transition:transform 0.3s;
+}
+.price-card:hover{transform:translateY(-4px);}
+.price-card.featured{
+  border-color:rgba(124,58,237,0.5);background:linear-gradient(135deg,rgba(124,58,237,0.08),rgba(6,182,212,0.04));
+  box-shadow:0 0 60px rgba(124,58,237,0.12);
+}
+.price-badge{
+  position:absolute;top:1.5rem;right:1.5rem;
+  font-family:var(--font);font-size:0.65rem;font-weight:800;letter-spacing:0.1em;
+  text-transform:uppercase;background:var(--grad);color:#fff;
+  padding:3px 10px;border-radius:50px;
+}
+.plan-name{font-family:var(--font);font-size:0.8rem;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.8rem;}
+.plan-price{
+  font-family:var(--font);font-size:2.8rem;font-weight:900;color:var(--text);
+  letter-spacing:-0.04em;line-height:1;margin-bottom:0.3rem;display:flex;align-items:baseline;gap:4px;
+}
+.plan-price .curr{font-size:1.2rem;font-weight:600;color:var(--text2);}
+.plan-price .period{font-size:0.85rem;font-weight:400;color:var(--text3);}
+.plan-tag{font-size:0.78rem;color:var(--text3);margin-bottom:1.8rem;font-weight:300;}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:0.7rem;margin-bottom:2rem;}
+.plan-features li{display:flex;align-items:center;gap:10px;font-size:0.875rem;color:var(--text2);}
+.feat-check{color:var(--violet);font-size:0.8rem;flex-shrink:0;}
+.plan-btn{
+  display:block;text-align:center;font-family:var(--font);font-size:0.9rem;font-weight:700;
+  padding:0.85rem;border-radius:50px;text-decoration:none;transition:all 0.2s;
+  border:1px solid var(--border);color:var(--text);
+}
+.plan-btn:hover{border-color:var(--violet);background:rgba(124,58,237,0.1);}
+.plan-btn.grad{background:var(--grad);border:none;color:#fff;box-shadow:0 8px 24px rgba(124,58,237,0.35);}
+.plan-btn.grad:hover{opacity:0.88;transform:translateY(-1px);}
+ 
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:start;}
+.contact-info{display:flex;flex-direction:column;gap:1.5rem;}
+.contact-detail{
+  display:flex;align-items:flex-start;gap:14px;padding:1.2rem;
+  background:var(--bg2);border:1px solid var(--border);border-radius:12px;
+  transition:border-color 0.2s;
+}
+.contact-detail:hover{border-color:rgba(124,58,237,0.3);}
+.cd-icon{
+  width:38px;height:38px;border-radius:10px;background:rgba(124,58,237,0.12);
+  border:1px solid rgba(124,58,237,0.2);display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0;
+}
+.cd-label{font-family:var(--font);font-size:0.72rem;color:var(--text3);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;}
+.cd-val{font-family:var(--font);font-size:0.9rem;color:var(--text);font-weight:600;}
+.contact-form-wrap{
+  background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:2.5rem;
+}
+.form-title{font-family:var(--font);font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:0.4rem;letter-spacing:-0.02em;}
+.form-sub{font-size:0.85rem;color:var(--text2);margin-bottom:2rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+.form-group{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;}
+.form-label{font-family:var(--font);font-size:0.78rem;font-weight:600;color:var(--text2);letter-spacing:0.03em;}
+.form-input,.form-select,.form-textarea{
+  width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:10px;
+  padding:0.75rem 1rem;color:var(--text);font-family:var(--body);font-size:0.9rem;
+  outline:none;transition:border-color 0.2s,box-shadow 0.2s;
+}
+.form-input:focus,.form-select:focus,.form-textarea:focus{
+  border-color:rgba(124,58,237,0.5);box-shadow:0 0 0 3px rgba(124,58,237,0.08);
+}
+.form-select{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235A5A7A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
+.form-select option{background:var(--bg3);}
+.form-textarea{resize:vertical;min-height:100px;}
+.form-submit{
+  width:100%;font-family:var(--font);font-size:1rem;font-weight:700;
+  background:var(--grad);color:#fff;border:none;padding:1rem;border-radius:50px;cursor:pointer;
+  box-shadow:0 8px 24px rgba(124,58,237,0.35);transition:opacity 0.2s,transform 0.15s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.form-submit:hover{opacity:0.88;transform:translateY(-1px);}
+ 
+/* FOOTER */
+footer{
+  background:var(--bg);border-top:1px solid var(--border);
+  padding:3rem 5% 2rem;
+}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:2.5rem;flex-wrap:wrap;gap:2rem;}
+.footer-brand .logo{font-size:1.6rem;}
+.footer-brand p{font-size:0.85rem;color:var(--text3);margin-top:0.5rem;max-width:280px;line-height:1.7;}
+.footer-links-col h4{font-family:var(--font);font-size:0.78rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.8rem;}
+.footer-links-col ul{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
+.footer-links-col a{font-size:0.875rem;color:var(--text2);text-decoration:none;transition:color 0.2s;}
+.footer-links-col a:hover{color:var(--text);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-copy{font-size:0.8rem;color:var(--text3);}
+.footer-social{display:flex;gap:0.8rem;}
+.social-btn{
+  width:36px;height:36px;border-radius:9px;background:var(--bg2);
+  border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+  font-size:0.85rem;text-decoration:none;color:var(--text2);transition:all 0.2s;
+}
+.social-btn:hover{border-color:rgba(124,58,237,0.4);color:var(--text);background:rgba(124,58,237,0.08);}
+ 
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:0.1s;}
+.reveal-delay-2{transition-delay:0.2s;}
+.reveal-delay-3{transition-delay:0.3s;}
+.reveal-delay-4{transition-delay:0.4s;}
+ 
+@media(max-width:900px){
+  nav{padding:1rem 5%;flex-wrap:wrap;gap:0.75rem;}
+  .nav-links{
+    display:flex;order:3;width:100%;gap:0.75rem;
+    overflow-x:auto;padding-top:0.35rem;
+    scrollbar-width:none;
   }
-
-  .services,
-  .portfolio,
-  .pricing,
-  .process {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .hero-visual {
-    min-height: 560px;
-  }
+  .nav-links::-webkit-scrollbar{display:none;}
+  .nav-links a{white-space:nowrap;font-size:0.78rem;}
+  .about-grid,.contact-grid{grid-template-columns:1fr;}
+  .svc-grid,.price-grid,.port-grid{grid-template-columns:1fr;}
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .form-row{grid-template-columns:1fr;}
+  .footer-top{flex-direction:column;}
+  .about-floating{display:none;}
+  .services-header{flex-direction:column;align-items:flex-start;}
 }
-
-@media (max-width: 860px) {
-  .nav-links,
-  .talk-link {
-    display: none;
-  }
-
-  .menu-btn {
-    display: inline-flex;
-  }
-
-  .section-head {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .hero {
-    padding-top: 7.6rem;
-  }
-
-  .hero-visual {
-    min-height: 500px;
-  }
-
-  .faq,
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 640px) {
-  .wrap {
-    width: min(100% - 1rem, var(--container));
-  }
-
-  .nav-shell,
-  .mobile-menu {
-    width: min(100% - 1rem, calc(var(--container) + 0.6rem));
-  }
-
-  .hero-title {
-    font-size: clamp(2.6rem, 14vw, 4.8rem);
-  }
-
-  .hero-actions,
-  .form-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .services,
-  .portfolio,
-  .pricing,
-  .process,
-  .faq {
-    grid-template-columns: 1fr;
-  }
-
-  .btn,
-  .submit-btn {
-    width: 100%;
-  }
-
-  .hero-trust {
-    gap: 0.55rem;
-  }
-
-  .hero-visual {
-    min-height: 440px;
-  }
-
-  .visual-copy {
-    left: 1rem;
-    right: 1rem;
-    max-width: none;
-  }
-
-  .pill-one {
-    top: 4.6rem;
-    right: 0.9rem;
-  }
-
-  .pill-two {
-    top: auto;
-    left: 0.9rem;
-    bottom: 8rem;
-  }
-
-  .statement,
-  .service,
-  .project-info,
-  .step,
-  .plan,
-  .faq-item,
-  .contact-side,
-  .contact-form {
-    padding: 1.15rem;
-  }
-
-  .whatsapp-float {
-    right: 0.8rem;
-    left: 0.8rem;
-    justify-content: center;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+@media(max-width:640px){
+  .hero{padding:8rem 5% 4rem;}
+  .hero-actions{flex-direction:column;width:100%;}
+  .hero-actions .btn-main,.hero-actions .btn-outline{width:100%;justify-content:center;}
+  .nav-btn{margin-left:auto;padding:0.5rem 1rem;}
 }
 </style>
 </head>
 <body>
-<header class="site-nav" id="siteNav">
-  <div class="nav-shell">
-    <a class="brand" href="#home">
-      <span class="brand-mark">N</span>
-      <span>Nexora<em>Web</em></span>
+ 
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">NexoraWeb</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-btn">Get a Free Quote</a>
+</nav>
+ 
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+ 
+  <div class="hero-badge">
+    <span class="badge-dot"></span>
+    Now accepting new clients
+  </div>
+ 
+  <h1>
+    Professional Websites<br>
+    for <span class="grad-text">Any Business</span>
+  </h1>
+ 
+  <div class="hero-price">
+    Starting from just <span class="price-num">₹<span id="priceCounter">0</span></span>
+  </div>
+ 
+  <p class="hero-sub">
+    NexoraWeb builds fast, stunning, and conversion-focused websites for small and growing businesses — at prices that won't break the bank.
+  </p>
+ 
+  <div class="hero-actions">
+    <a href="#contact" class="btn-main">
+      Start My Website
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
     </a>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="nav-actions">
-      <a class="talk-link" href="#contact" data-prefill-message="I want a premium website for my business and would like to discuss the project.">Let's Talk</a>
-      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu"><span></span></button>
-    </div>
+    <a href="#portfolio" class="btn-outline">
+      See Our Work
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+    </a>
   </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <ul>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+ 
+  <div class="trust-row">
+    <div class="trust-item"><span class="trust-icon">✓</span> No hidden fees</div>
+    <div class="trust-item"><span class="trust-icon">✓</span> Delivered in 7–14 days</div>
+    <div class="trust-item"><span class="trust-icon">✓</span> Mobile-first design</div>
+    <div class="trust-item"><span class="trust-icon">✓</span> Free revisions included</div>
   </div>
-</header>
-
-<main id="home">
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-grid">
-        <div class="hero-copy reveal">
-          <div class="eyebrow">NexoraWeb premium website studio</div>
-          <h1 class="hero-title">Professional <span class="outline">websites</span> that help your business grow online</h1>
-          <p class="hero-sub">NexoraWeb builds fast, modern, mobile-friendly websites for businesses, stores, offices, startups, portfolios, and e-commerce brands. The focus is simple: make your business look more trustworthy, more modern, and easier to contact.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact" data-prefill-message="I want a premium website for my business and need a free consultation.">
-              Get Free Consultation
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
-            </a>
-            <a class="btn btn-secondary" href="#portfolio">View Portfolio</a>
+ 
+  <div class="scroll-ind">
+    <div class="scroll-txt">scroll</div>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+ 
+<!-- STATS -->
+<div class="stats">
+  <div class="stat reveal"><div class="stat-n">120+</div><div class="stat-l">Websites Delivered</div></div>
+  <div class="stat reveal reveal-delay-1"><div class="stat-n">98%</div><div class="stat-l">Client Satisfaction</div></div>
+  <div class="stat reveal reveal-delay-2"><div class="stat-n">7 Days</div><div class="stat-l">Avg. Delivery Time</div></div>
+  <div class="stat reveal reveal-delay-3"><div class="stat-n">50%</div><div class="stat-l">Below Market Price</div></div>
+</div>
+ 
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="sec-inner">
+    <div class="about-grid">
+      <div>
+        <div class="eyebrow reveal">Who We Are</div>
+        <h2 class="sec-title reveal">We make businesses<br>look <span class="grad-text">credible online.</span></h2>
+        <p class="sec-sub reveal">NexoraWeb was born from a simple belief: every business deserves a great website — not just the ones with big budgets. We combine sharp design with technical excellence to deliver results at unbeatable prices.</p>
+        <div class="about-list reveal">
+          <div class="about-item">
+            <div class="about-check">✓</div>
+            <div class="about-item-txt"><strong>Affordable pricing</strong> — Professional quality at 50% of what agencies charge</div>
           </div>
-          <p class="hero-note"><strong>Hi, I'm Zubair, founder of NexoraWeb.</strong> I help businesses build modern, affordable, and high-performing websites that create a strong online presence and make a better first impression.</p>
-          <div class="hero-trust">
-            <span>Free consultation</span>
-            <span>Websites from Rs 4,999</span>
-            <span>Mobile responsive</span>
-            <span>Ongoing support</span>
+          <div class="about-item">
+            <div class="about-check">✓</div>
+            <div class="about-item-txt"><strong>Fast turnaround</strong> — Most sites live in 7–14 business days</div>
+          </div>
+          <div class="about-item">
+            <div class="about-check">✓</div>
+            <div class="about-item-txt"><strong>Built to perform</strong> — SEO-ready, mobile-first, and lightning fast</div>
+          </div>
+          <div class="about-item">
+            <div class="about-check">✓</div>
+            <div class="about-item-txt"><strong>Dedicated support</strong> — We're with you after launch, always</div>
           </div>
         </div>
-
-        <div class="hero-visual reveal" id="heroVisual">
-          <div class="visual-top">
-            <div class="visual-logo">NexoraWeb</div>
-            <div class="visual-links">
-              <span>Let's talk</span>
-              <span>01</span>
-            </div>
-          </div>
-          <canvas class="visual-canvas" id="visualCanvas" aria-hidden="true"></canvas>
-          <div class="visual-pill pill-one">
-            <strong>Fast delivery</strong>
-            <span>Launch-ready websites for businesses that need to move quickly.</span>
-          </div>
-          <div class="visual-pill pill-two">
-            <strong>Better trust</strong>
-            <span>Cleaner structure, stronger visuals, and a more premium online image.</span>
-          </div>
-          <div class="visual-copy">
-            <div class="small">Boost your brand</div>
-            <h2>Look more <span>premium</span></h2>
-            <p>A darker, cleaner, more modern design direction inspired by premium studio websites and built for real business conversion.</p>
-          </div>
+        <div style="margin-top:2rem;" class="reveal">
+          <a href="#contact" class="btn-main">Work with us →</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section" id="about">
-    <div class="wrap">
-      <div class="split-block">
-        <article class="statement reveal">
+      <div class="about-visual reveal">
+        <div class="about-card-main">
+          <div class="about-card-glow"></div>
+          <div class="mini-browser">
+            <div class="mini-bar">
+              <div class="mini-dot" style="background:#FF5F57"></div>
+              <div class="mini-dot" style="background:#FFBD2E"></div>
+              <div class="mini-dot" style="background:#28CA41"></div>
+              <div class="mini-addr">nexoraweb.com/your-business</div>
+            </div>
+            <div class="mini-content">
+              <div class="mc-h" style="width:60%"></div>
+              <div class="mc-p" style="width:90%"></div>
+              <div class="mc-p" style="width:75%"></div>
+              <div class="mc-grad" style="width:35%;margin-top:6px;"></div>
+              <div class="mc-row" style="margin-top:10px;">
+                <div class="mc-block"></div>
+                <div class="mc-block"></div>
+                <div class="mc-block"></div>
+              </div>
+              <div class="mc-p" style="width:85%;margin-top:8px;"></div>
+              <div class="mc-p" style="width:70%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="about-floating">
+          <div class="floating-icon">🚀</div>
           <div>
-            <small>Why this works</small>
-            <h3>Clean design. <span>Clear trust.</span> Better inquiries.</h3>
+            <div class="floating-txt">Live in 7 days</div>
+            <div class="floating-sub">Your site, delivered fast</div>
           </div>
-          <p>Your website should not feel outdated, overcrowded, or cheap. It should feel sharp, modern, and confident enough that people trust your business before they even contact you.</p>
-        </article>
-        <div class="signals">
-          <article class="signal reveal">
-            <strong>Client-focused structure</strong>
-            <p>Pages are arranged to explain what you do, show credibility, and guide visitors toward contacting you.</p>
-          </article>
-          <article class="signal reveal">
-            <strong>Premium visual direction</strong>
-            <p>Dark contrast, better typography, and cleaner spacing make your business look more serious and modern.</p>
-          </article>
-          <article class="signal reveal">
-            <strong>Built for mobile first</strong>
-            <p>Your site stays clear, readable, and smooth on mobile where most visitors first see your business.</p>
-          </article>
         </div>
       </div>
     </div>
-  </section>
-
-  <section class="section" id="services">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="section-copy">
-          <div class="eyebrow">Services</div>
-          <h2 class="section-title">Website design for stores, offices, startups, and growing local businesses.</h2>
-          <p class="section-text">The goal is not to make every website look the same. It is to shape the right look and structure for the business you want people to trust.</p>
-        </div>
+  </div>
+</section>
+ 
+<!-- SERVICES -->
+<section class="sec services-bg" id="services">
+  <div class="sec-inner">
+    <div class="services-header">
+      <div>
+        <div class="eyebrow reveal">What We Build</div>
+        <h2 class="sec-title reveal" style="margin-bottom:0;">Everything your<br>business needs online.</h2>
       </div>
-      <div class="services">
-        <article class="service reveal">
-          <div class="service-no">01</div>
-          <h3>Business and company sites</h3>
-          <p>Professional websites for offices, service businesses, agencies, and companies that need a stronger online presence.</p>
-          <a href="#contact" data-prefill-type="Business / Company Website" data-prefill-message="I need a premium business website for my company.">Start this project</a>
-        </article>
-        <article class="service reveal">
-          <div class="service-no">02</div>
-          <h3>Store and e-commerce websites</h3>
-          <p>Cleaner storefront presentation, better mobile layout, and a more modern feel for stores that want to sell online.</p>
-          <a href="#contact" data-prefill-type="E-Commerce Website" data-prefill-message="I want a premium e-commerce website for my store.">Start this project</a>
-        </article>
-        <article class="service reveal">
-          <div class="service-no">03</div>
-          <h3>Portfolio and personal brands</h3>
-          <p>Modern portfolio websites for freelancers, creators, consultants, and professionals who want to look more established.</p>
-          <a href="#contact" data-prefill-type="Portfolio Website" data-prefill-message="I need a modern premium portfolio website.">Start this project</a>
-        </article>
+      <a href="#contact" class="btn-outline reveal" style="flex-shrink:0;">Get a free quote →</a>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal">
+        <div class="svc-top-line"></div>
+        <div class="svc-icon">🎨</div>
+        <div class="svc-name">Business Websites</div>
+        <p class="svc-desc">Clean, professional multi-page websites that build trust and bring in leads. Perfect for local businesses, consultants, and startups.</p>
+        <a href="#contact" class="svc-link">Start yours →</a>
+      </div>
+      <div class="svc-card reveal reveal-delay-1">
+        <div class="svc-top-line"></div>
+        <div class="svc-icon">🛒</div>
+        <div class="svc-name">E-Commerce Stores</div>
+        <p class="svc-desc">Fully functional online stores with product pages, cart, and payment integration. Start selling online from day one.</p>
+        <a href="#contact" class="svc-link">Start yours →</a>
+      </div>
+      <div class="svc-card reveal reveal-delay-2">
+        <div class="svc-top-line"></div>
+        <div class="svc-icon">💼</div>
+        <div class="svc-name">Portfolio Sites</div>
+        <p class="svc-desc">Showcase your work beautifully. Designed for freelancers, designers, photographers, and creative professionals.</p>
+        <a href="#contact" class="svc-link">Start yours →</a>
+      </div>
+      <div class="svc-card reveal reveal-delay-1">
+        <div class="svc-top-line"></div>
+        <div class="svc-icon">📱</div>
+        <div class="svc-name">Landing Pages</div>
+        <p class="svc-desc">High-converting single-page sites for your product, service, or campaign. Built to turn visitors into customers.</p>
+        <a href="#contact" class="svc-link">Start yours →</a>
+      </div>
+      <div class="svc-card reveal reveal-delay-2">
+        <div class="svc-top-line"></div>
+        <div class="svc-icon">🔍</div>
+        <div class="svc-name">SEO Optimization</div>
+        <p class="svc-desc">Get found on Google. We build every site with on-page SEO, fast load times, and structured data baked in from the start.</p>
+        <a href="#contact" class="svc-link">Start yours →</a>
+      </div>
+      <div class="svc-card reveal reveal-delay-3">
+        <div class="svc-top-line"></div>
+        <div class="svc-icon">🛠️</div>
+        <div class="svc-name">Website Redesigns</div>
+        <p class="svc-desc">Got an outdated site? We'll give it a modern makeover — faster, better-looking, and ready to grow your business.</p>
+        <a href="#contact" class="svc-link">Start yours →</a>
       </div>
     </div>
-  </section>
-
-  <section class="section" id="portfolio">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="section-copy">
-          <div class="eyebrow">Portfolio direction</div>
-          <h2 class="section-title">Examples of the kind of premium presentation your business can have.</h2>
-          <p class="section-text">These are concept directions that show how the same clean design thinking can adapt across different business types.</p>
+  </div>
+</section>
+ 
+<!-- PORTFOLIO -->
+<section class="sec" id="portfolio">
+  <div class="sec-inner">
+    <div class="eyebrow reveal">Our Work</div>
+    <h2 class="sec-title reveal">Sites built by <span class="grad-text">NexoraWeb.</span></h2>
+    <p class="sec-sub reveal">A selection of recent projects across different industries.</p>
+    <div class="port-grid">
+      <div class="port-card reveal">
+        <div class="port-img">
+          <div class="port-mockup">
+            <div class="port-mbar"><div class="pm-dot pm-r"></div><div class="pm-dot pm-y"></div><div class="pm-dot pm-g"></div></div>
+            <div class="port-mbody">
+              <div class="pm-h" style="width:55%"></div>
+              <div class="pm-p" style="width:85%"></div>
+              <div class="pm-a" style="width:30%;margin-top:4px;"></div>
+              <div class="pm-row"><div class="pm-block"></div><div class="pm-block"></div><div class="pm-block"></div></div>
+            </div>
+          </div>
+          <div class="port-tag">E-Commerce</div>
+        </div>
+        <div class="port-info">
+          <div class="port-cat">Retail</div>
+          <div class="port-name">Craft Kart — Online Handicraft Store</div>
+          <p class="port-desc">Full e-commerce site with product catalogue, cart, and Razorpay integration. Traffic up 3× in 60 days.</p>
         </div>
       </div>
-      <div class="portfolio">
-        <article class="project reveal">
-          <div class="project-visual">
-            <div class="project-badge">Store</div>
-            <div class="project-frame">
-              <div class="project-bar">
-                <span class="project-dot"></span>
-                <span class="project-dot"></span>
-                <span class="project-dot"></span>
-              </div>
-              <div class="project-body">
-                <div class="project-big">Boost your <span>store</span></div>
-                <div class="project-mini">A cleaner storefront experience with stronger product presentation and more trust.</div>
-              </div>
+      <div class="port-card reveal reveal-delay-1">
+        <div class="port-img">
+          <div class="port-mockup">
+            <div class="port-mbar"><div class="pm-dot pm-r"></div><div class="pm-dot pm-y"></div><div class="pm-dot pm-g"></div></div>
+            <div class="port-mbody">
+              <div class="pm-h" style="width:70%"></div>
+              <div class="pm-p" style="width:90%"></div>
+              <div class="pm-p" style="width:60%"></div>
+              <div class="pm-a" style="width:40%;margin-top:4px;"></div>
+              <div class="pm-row"><div class="pm-block"></div><div class="pm-block"></div></div>
             </div>
           </div>
-          <div class="project-info">
-            <h3>Retail / store website</h3>
-            <p>A premium storefront-style direction for businesses that want better mobile shopping flow and a sharper brand image.</p>
-            <div class="project-actions">
-              <a href="#contact" data-prefill-type="E-Commerce Website" data-prefill-message="I want a website similar to the retail/store direction.">Request similar</a>
-              <a href="#pricing">See pricing</a>
-            </div>
-          </div>
-        </article>
-        <article class="project reveal">
-          <div class="project-visual">
-            <div class="project-badge">Startup</div>
-            <div class="project-frame">
-              <div class="project-bar">
-                <span class="project-dot"></span>
-                <span class="project-dot"></span>
-                <span class="project-dot"></span>
-              </div>
-              <div class="project-body">
-                <div class="project-big">Launch with <span>clarity</span></div>
-                <div class="project-mini">A stronger hero, cleaner feature flow, and better first impression for new ideas.</div>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <h3>Startup launch page</h3>
-            <p>A bold landing-page style for founders who need a cleaner way to explain their product or service online.</p>
-            <div class="project-actions">
-              <a href="#contact" data-prefill-type="Landing Page" data-prefill-message="I want a premium startup landing page.">Request similar</a>
-              <a href="#contact">Get quote</a>
-            </div>
-          </div>
-        </article>
-        <article class="project reveal">
-          <div class="project-visual">
-            <div class="project-badge">Office</div>
-            <div class="project-frame">
-              <div class="project-bar">
-                <span class="project-dot"></span>
-                <span class="project-dot"></span>
-                <span class="project-dot"></span>
-              </div>
-              <div class="project-body">
-                <div class="project-big">Look more <span>trusted</span></div>
-                <div class="project-mini">Clean service messaging and a more premium office or professional-business feel.</div>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <h3>Office / service brand website</h3>
-            <p>A polished service-focused layout for businesses that want visitors to understand their value and contact them faster.</p>
-            <div class="project-actions">
-              <a href="#contact" data-prefill-type="Business / Company Website" data-prefill-message="I want a premium office or service website like this direction.">Request similar</a>
-              <a href="#contact">Get quote</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="process">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="section-copy">
-          <div class="eyebrow">Process</div>
-          <h2 class="section-title">A simple path from consultation to launch.</h2>
-          <p class="section-text">You do not need a complicated process to get a better website. The flow stays simple, direct, and focused.</p>
+          <div class="port-tag">Business</div>
+        </div>
+        <div class="port-info">
+          <div class="port-cat">Real Estate</div>
+          <div class="port-name">Horizon Realty — Property Listings Site</div>
+          <p class="port-desc">Lead-generating property website with search filters and WhatsApp inquiry integration.</p>
         </div>
       </div>
-      <div class="process">
-        <article class="step reveal">
-          <div class="step-no">01</div>
-          <h3>Consultation</h3>
-          <p>We talk about your business, your audience, and the style of website you need.</p>
-        </article>
-        <article class="step reveal">
-          <div class="step-no">02</div>
-          <h3>Direction</h3>
-          <p>The page structure, design tone, and content flow are shaped around your goals.</p>
-        </article>
-        <article class="step reveal">
-          <div class="step-no">03</div>
-          <h3>Development</h3>
-          <p>The website is built to be modern, responsive, fast, and ready for real visitors.</p>
-        </article>
-        <article class="step reveal">
-          <div class="step-no">04</div>
-          <h3>Launch</h3>
-          <p>The final build is reviewed, refined, and prepared for deployment.</p>
-        </article>
-        <article class="step reveal">
-          <div class="step-no">05</div>
-          <h3>Support</h3>
-          <p>Need updates or improvements after launch? Support stays available when you need it.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="pricing">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="section-copy">
-          <div class="eyebrow">Pricing</div>
-          <h2 class="section-title">Free consultation and clear starting points.</h2>
-          <p class="section-text">Every business is different, but these starting points make it easier to choose the right level for your website.</p>
-        </div>
-      </div>
-      <div class="pricing">
-        <article class="plan reveal">
-          <small>Starter</small>
-          <div class="plan-price">Rs 4,999 <span>starting</span></div>
-          <p>For professionals and small businesses that need a clean, trustworthy online presence.</p>
-          <ul>
-            <li>1 to 3 pages</li>
-            <li>Mobile responsive layout</li>
-            <li>Clean modern design</li>
-            <li>Basic inquiry setup</li>
-          </ul>
-          <a class="btn btn-secondary" href="#contact" data-prefill-message="I want to start with the Starter website package.">Choose Starter</a>
-        </article>
-        <article class="plan featured reveal">
-          <div class="plan-badge">Popular</div>
-          <small>Growth</small>
-          <div class="plan-price">Rs 9,999 <span>starting</span></div>
-          <p>For businesses that want a more premium look, stronger structure, and better conversion flow.</p>
-          <ul>
-            <li>Custom homepage design</li>
-            <li>Service or business sections</li>
-            <li>WhatsApp inquiry integration</li>
-            <li>Stronger visual hierarchy</li>
-          </ul>
-          <a class="btn btn-primary" href="#contact" data-prefill-message="I want to start with the Growth website package.">Choose Growth</a>
-        </article>
-        <article class="plan reveal">
-          <small>Custom</small>
-          <div class="plan-price">Custom <span>quote</span></div>
-          <p>For e-commerce, redesigns, advanced features, or businesses that need a larger custom website.</p>
-          <ul>
-            <li>E-commerce or advanced pages</li>
-            <li>Custom content structure</li>
-            <li>More complex business needs</li>
-            <li>Support for future expansion</li>
-          </ul>
-          <a class="btn btn-secondary" href="#contact" data-prefill-message="I need a custom quote for a larger website project.">Request Custom Quote</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="contact">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="section-copy">
-          <div class="eyebrow">Contact</div>
-          <h2 class="section-title">Send your inquiry directly to WhatsApp.</h2>
-          <p class="section-text">Tell me about your business and what kind of website you want. Your message opens in WhatsApp and goes directly to Zubair.</p>
-        </div>
-      </div>
-      <div class="contact-shell">
-        <div class="contact-side reveal">
-          <div class="eyebrow">NexoraWeb contact</div>
-          <h3>Let's build your next website.</h3>
-          <p>If you want your business to look more premium, more trustworthy, and more modern online, this is the place to start.</p>
-          <div class="contact-items">
-            <a class="contact-item" href="mailto:zubair428kg@gmail.com">
-              <div class="contact-icon">01</div>
-              <div>
-                <div class="contact-label">Email</div>
-                <strong>zubair428kg@gmail.com</strong>
-              </div>
-            </a>
-            <a class="contact-item" href="https://wa.me/917259449945" target="_blank" rel="noreferrer">
-              <div class="contact-icon">02</div>
-              <div>
-                <div class="contact-label">WhatsApp</div>
-                <strong>+91 7259449945</strong>
-              </div>
-            </a>
-            <div class="contact-item">
-              <div class="contact-icon">03</div>
-              <div>
-                <div class="contact-label">Location</div>
-                <strong>India</strong>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-icon">04</div>
-              <div>
-                <div class="contact-label">Response time</div>
-                <strong>Usually within 24 hours</strong>
-              </div>
+      <div class="port-card reveal reveal-delay-2">
+        <div class="port-img">
+          <div class="port-mockup">
+            <div class="port-mbar"><div class="pm-dot pm-r"></div><div class="pm-dot pm-y"></div><div class="pm-dot pm-g"></div></div>
+            <div class="port-mbody">
+              <div class="pm-h" style="width:45%"></div>
+              <div class="pm-row" style="margin-top:4px;"><div class="pm-block"></div><div class="pm-block"></div><div class="pm-block"></div></div>
+              <div class="pm-p" style="width:80%;margin-top:6px;"></div>
+              <div class="pm-a" style="width:35%;"></div>
             </div>
           </div>
+          <div class="port-tag">Portfolio</div>
         </div>
-
-        <div class="contact-form reveal">
-          <h3>Get free consultation</h3>
-          <p>Fill in the details below and tap the button. The inquiry will open in WhatsApp with everything prefilled.</p>
-          <form id="quoteForm" novalidate>
-            <div class="form-grid">
-              <div class="field">
-                <label for="f-name">Your name</label>
-                <input class="input" id="f-name" type="text" placeholder="Your full name" />
-              </div>
-              <div class="field">
-                <label for="f-phone">Phone or WhatsApp</label>
-                <input class="input" id="f-phone" type="tel" placeholder="Your number" />
-              </div>
-              <div class="field-wide">
-                <label for="f-email">Email address</label>
-                <input class="input" id="f-email" type="email" placeholder="your@email.com" />
-              </div>
-              <div class="field-wide">
-                <label for="f-type">Type of website</label>
-                <select class="select" id="f-type">
-                  <option value="">Select website type</option>
-                  <option value="Business / Company Website">Business / Company Website</option>
-                  <option value="E-Commerce Website">E-Commerce Website</option>
-                  <option value="Portfolio Website">Portfolio Website</option>
-                  <option value="Landing Page">Landing Page</option>
-                  <option value="Website Redesign">Website Redesign</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-              <div class="field-wide">
-                <label for="f-msg">Project details</label>
-                <textarea class="textarea" id="f-msg" placeholder="Tell me about your business, pages you need, style you like, or anything important for the project."></textarea>
-              </div>
+        <div class="port-info">
+          <div class="port-cat">Photography</div>
+          <div class="port-name">Priya Lens — Photography Portfolio</div>
+          <p class="port-desc">Stunning visual portfolio with gallery pages and online booking system for shoots.</p>
+        </div>
+      </div>
+      <div class="port-card reveal reveal-delay-3">
+        <div class="port-img">
+          <div class="port-mockup">
+            <div class="port-mbar"><div class="pm-dot pm-r"></div><div class="pm-dot pm-y"></div><div class="pm-dot pm-g"></div></div>
+            <div class="port-mbody">
+              <div class="pm-h" style="width:65%"></div>
+              <div class="pm-p" style="width:90%"></div>
+              <div class="pm-a" style="width:28%;margin-top:4px;"></div>
+              <div class="pm-row"><div class="pm-block"></div><div class="pm-block"></div></div>
             </div>
-            <div class="form-actions">
-              <button class="btn btn-primary submit-btn" id="f-send" type="submit">
-                <span id="f-send-txt">Send Inquiry on WhatsApp</span>
-              </button>
-              <div class="form-status" id="formStatus"></div>
-            </div>
-            <p class="form-note">This inquiry opens in WhatsApp and sends directly to +91 7259449945.</p>
-          </form>
+          </div>
+          <div class="port-tag">Landing Page</div>
+        </div>
+        <div class="port-info">
+          <div class="port-cat">Coaching</div>
+          <div class="port-name">FitPro Coach — Fitness Landing Page</div>
+          <p class="port-desc">High-converting landing page for a fitness coach. 40% enquiry rate from paid ads traffic.</p>
         </div>
       </div>
     </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="section-copy">
-          <div class="eyebrow">FAQ</div>
-          <h2 class="section-title">A few quick answers before we start.</h2>
-          <p class="section-text">These cover the questions most people ask before starting a website project.</p>
-        </div>
-      </div>
-      <div class="faq">
-        <article class="faq-item reveal">
-          <h3>How long does it take?</h3>
-          <p>Most standard website projects are completed in around 7 to 14 days depending on content and revisions.</p>
-        </article>
-        <article class="faq-item reveal">
-          <h3>What is the starting price?</h3>
-          <p>The starting point is Rs 4,999 after a free consultation. Final cost depends on pages, features, and project size.</p>
-        </article>
-        <article class="faq-item reveal">
-          <h3>Do you help with domain and hosting?</h3>
-          <p>Yes. Guidance is available for domain setup, hosting, and deployment so the website can go live properly.</p>
-        </article>
-        <article class="faq-item reveal">
-          <h3>Can you redesign an existing website?</h3>
-          <p>Yes. Existing websites can be refreshed into a cleaner, more premium, and more modern version.</p>
-        </article>
-      </div>
+  </div>
+</section>
+ 
+<!-- PRICING -->
+<section class="sec pricing-bg" id="pricing">
+  <div class="sec-inner">
+    <div style="text-align:center;">
+      <div class="eyebrow reveal" style="justify-content:center;">Pricing</div>
+      <h2 class="sec-title reveal">Simple, honest <span class="grad-text">pricing.</span></h2>
+      <p class="sec-sub reveal" style="margin:0 auto 3rem;text-align:center;">No surprises, no hidden costs. Pick a plan and get online.</p>
     </div>
-  </section>
-</main>
-
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a class="brand" href="#home">
-          <span class="brand-mark">N</span>
-          <span>Nexora<em>Web</em></span>
-        </a>
-        <p>Turning ideas into powerful websites. Modern, client-focused, and premium business websites built to help you grow online.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Quick links</h4>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact">Contact</a></li>
+    <div class="price-grid">
+      <div class="price-card reveal">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price"><span class="curr">₹</span>4,999<span class="period">&nbsp;one-time</span></div>
+        <div class="plan-tag">Perfect for small businesses getting started</div>
+        <ul class="plan-features">
+          <li><span class="feat-check">✦</span> Up to 3 pages</li>
+          <li><span class="feat-check">✦</span> Mobile responsive design</li>
+          <li><span class="feat-check">✦</span> Contact form</li>
+          <li><span class="feat-check">✦</span> Basic SEO setup</li>
+          <li><span class="feat-check">✦</span> 2 free revisions</li>
+          <li><span class="feat-check">✦</span> Delivered in 7 days</li>
         </ul>
+        <a href="#contact" class="plan-btn">Get Started</a>
       </div>
-      <div class="footer-col">
-        <h4>Business</h4>
-        <ul>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#process">Process</a></li>
-          <li><a href="#about">About</a></li>
+      <div class="price-card featured reveal reveal-delay-1">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-name">Business</div>
+        <div class="plan-price"><span class="curr">₹</span>9,999<span class="period">&nbsp;one-time</span></div>
+        <div class="plan-tag">Best for growing businesses &amp; professionals</div>
+        <ul class="plan-features">
+          <li><span class="feat-check">✦</span> Up to 7 pages</li>
+          <li><span class="feat-check">✦</span> Premium custom design</li>
+          <li><span class="feat-check">✦</span> Animations &amp; interactions</li>
+          <li><span class="feat-check">✦</span> Full SEO optimization</li>
+          <li><span class="feat-check">✦</span> WhatsApp &amp; social integration</li>
+          <li><span class="feat-check">✦</span> 5 free revisions</li>
+          <li><span class="feat-check">✦</span> Delivered in 10 days</li>
         </ul>
+        <a href="#contact" class="plan-btn grad">Get Started</a>
       </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:zubair428kg@gmail.com">zubair428kg@gmail.com</a></li>
-          <li><a href="https://wa.me/917259449945" target="_blank" rel="noreferrer">+91 7259449945</a></li>
-          <li>India</li>
+      <div class="price-card reveal reveal-delay-2">
+        <div class="plan-name">E-Commerce</div>
+        <div class="plan-price"><span class="curr">₹</span>19,999<span class="period">&nbsp;one-time</span></div>
+        <div class="plan-tag">Full online store with payment integration</div>
+        <ul class="plan-features">
+          <li><span class="feat-check">✦</span> Unlimited products</li>
+          <li><span class="feat-check">✦</span> Razorpay / UPI payments</li>
+          <li><span class="feat-check">✦</span> Cart &amp; checkout flow</li>
+          <li><span class="feat-check">✦</span> Order management</li>
+          <li><span class="feat-check">✦</span> Full SEO + performance</li>
+          <li><span class="feat-check">✦</span> Unlimited revisions</li>
+          <li><span class="feat-check">✦</span> Delivered in 14 days</li>
         </ul>
+        <a href="#contact" class="plan-btn">Get Started</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div>Copyright 2026 NexoraWeb. All rights reserved.</div>
-      <div class="footer-socials">
-        <a href="https://wa.me/917259449945" target="_blank" rel="noreferrer" aria-label="WhatsApp">wa</a>
-        <a href="mailto:zubair428kg@gmail.com" aria-label="Email">@</a>
+    <p style="text-align:center;margin-top:1.5rem;font-size:0.82rem;color:var(--text3);">All plans include free domain setup assistance &amp; hosting guidance. Custom projects? <a href="#contact" style="color:var(--violet);text-decoration:none;">Let's talk →</a></p>
+  </div>
+</section>
+ 
+<!-- CONTACT -->
+<section class="sec" id="contact">
+  <div class="sec-inner">
+    <div class="eyebrow reveal">Get In Touch</div>
+    <h2 class="sec-title reveal">Let's build your<br><span class="grad-text">website today.</span></h2>
+    <p class="sec-sub reveal">Tell us about your project and we'll get back to you within 24 hours with a free quote.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-detail reveal">
+          <div class="cd-icon">📧</div>
+          <div>
+            <div class="cd-label">Email Us</div>
+            <div class="cd-val">hello@nexoraweb.com</div>
+          </div>
+        </div>
+        <div class="contact-detail reveal reveal-delay-1">
+          <div class="cd-icon">💬</div>
+          <div>
+            <div class="cd-label">WhatsApp</div>
+            <div class="cd-val">+91 98765 43210</div>
+          </div>
+        </div>
+        <div class="contact-detail reveal reveal-delay-2">
+          <div class="cd-icon">🕐</div>
+          <div>
+            <div class="cd-label">Response Time</div>
+            <div class="cd-val">Within 24 hours</div>
+          </div>
+        </div>
+        <div class="contact-detail reveal reveal-delay-3">
+          <div class="cd-icon">📍</div>
+          <div>
+            <div class="cd-label">Based In</div>
+            <div class="cd-val">India — serving clients worldwide</div>
+          </div>
+        </div>
       </div>
+      <div class="contact-form-wrap reveal">
+        <div class="form-title">Get a Free Quote</div>
+        <div class="form-sub">Fill in the details below and we'll send you a custom quote within 24 hours.</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input class="form-input" type="text" placeholder="Rahul Sharma" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone / WhatsApp</label>
+            <input class="form-input" type="tel" placeholder="+91 98765 43210" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input class="form-input" type="email" placeholder="rahul@yourbusiness.com" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Type of Website</label>
+          <select class="form-select form-input">
+            <option value="">Select a website type...</option>
+            <option>Business / Company Website</option>
+            <option>E-Commerce Store</option>
+            <option>Portfolio / Personal Site</option>
+            <option>Landing Page</option>
+            <option>Website Redesign</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tell us about your project</label>
+          <textarea class="form-textarea" placeholder="What does your business do? Any specific features or pages you need?"></textarea>
+        </div>
+        <button class="form-submit">
+          Send My Request
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 5l4 4-4 4"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="logo">NexoraWeb</a>
+      <p>Professional websites for businesses of all sizes — at prices that make sense.</p>
+    </div>
+    <div class="footer-links-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Business Websites</a></li>
+        <li><a href="#services">E-Commerce</a></li>
+        <li><a href="#services">Portfolio Sites</a></li>
+        <li><a href="#services">Landing Pages</a></li>
+      </ul>
+    </div>
+    <div class="footer-links-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#portfolio">Our Work</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 NexoraWeb. All rights reserved.</div>
+    <div class="footer-social">
+      <a class="social-btn" href="#">in</a>
+      <a class="social-btn" href="#">tw</a>
+      <a class="social-btn" href="#">ig</a>
     </div>
   </div>
 </footer>
-
-<a class="whatsapp-float" href="https://wa.me/917259449945" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp">
-  <span>W</span>
-  <span>Chat on WhatsApp</span>
-</a>
-
-<div class="toast" id="toast">WhatsApp opened with your inquiry.</div>
-
+ 
 <script>
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const siteNav = document.getElementById("siteNav");
-const menuBtn = document.getElementById("menuBtn");
-const mobileMenu = document.getElementById("mobileMenu");
-
-window.addEventListener("scroll", () => {
-  siteNav.classList.toggle("scrolled", window.scrollY > 10);
-});
-
-menuBtn.addEventListener("click", () => {
-  menuBtn.classList.toggle("open");
-  mobileMenu.classList.toggle("open");
-});
-
-mobileMenu.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    menuBtn.classList.remove("open");
-    mobileMenu.classList.remove("open");
-  });
-});
-
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("in");
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.14 });
-
-document.querySelectorAll(".reveal").forEach((element) => {
-  revealObserver.observe(element);
-});
-
-const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
-const navSections = navLinks.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
-const activeObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
-    navLinks.forEach((link) => {
-      link.classList.toggle("active", link.getAttribute("href") === "#" + entry.target.id);
-    });
-  });
-}, { threshold: 0.4 });
-
-navSections.forEach((section) => activeObserver.observe(section));
-
-document.querySelectorAll(".service").forEach((card) => {
-  card.addEventListener("mousemove", (event) => {
-    const rect = card.getBoundingClientRect();
-    card.style.setProperty("--mx", ((event.clientX - rect.left) / rect.width) * 100 + "%");
-    card.style.setProperty("--my", ((event.clientY - rect.top) / rect.height) * 100 + "%");
-  });
-});
-
-const typeField = document.getElementById("f-type");
-const messageField = document.getElementById("f-msg");
-const nameField = document.getElementById("f-name");
-const phoneField = document.getElementById("f-phone");
-const emailField = document.getElementById("f-email");
-const formStatus = document.getElementById("formStatus");
-const sendButton = document.getElementById("f-send");
-const sendText = document.getElementById("f-send-txt");
-const toast = document.getElementById("toast");
-let toastTimer = null;
-
-function showToast(message) {
-  toast.textContent = message;
-  toast.classList.add("show");
-  window.clearTimeout(toastTimer);
-  toastTimer = window.setTimeout(() => {
-    toast.classList.remove("show");
-  }, 2600);
+// Price counter animation
+function animateCounter(el, target, duration) {
+  let start = 0, step = target / (duration / 16);
+  const timer = setInterval(() => {
+    start += step;
+    if (start >= target) { start = target; clearInterval(timer); }
+    el.textContent = Math.floor(start).toLocaleString('en-IN');
+  }, 16);
 }
-
-function prefillInquiry(type, message) {
-  if (type) {
-    typeField.value = type;
-  }
-  if (message && !messageField.value.trim()) {
-    messageField.value = message;
-  }
-  document.getElementById("contact").scrollIntoView({ behavior: "smooth", block: "start" });
-}
-
-document.querySelectorAll("[data-prefill-type], [data-prefill-message]").forEach((trigger) => {
-  trigger.addEventListener("click", (event) => {
-    if (trigger.getAttribute("href") === "#contact") {
-      event.preventDefault();
-    }
-    prefillInquiry(trigger.dataset.prefillType || "", trigger.dataset.prefillMessage || "");
+window.addEventListener('load', () => {
+  setTimeout(() => animateCounter(document.getElementById('priceCounter'), 4999, 1800), 600);
+});
+ 
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.12 });
+reveals.forEach(el => obs.observe(el));
+ 
+// Stagger children of grid on reveal
+document.querySelectorAll('.svc-grid, .port-grid, .price-grid').forEach(grid => {
+  Array.from(grid.children).forEach((child, i) => {
+    child.style.transitionDelay = (i * 0.08) + 's';
   });
 });
-
-function clearInvalid(field) {
-  field.classList.remove("invalid");
-}
-
-[nameField, phoneField, emailField, typeField, messageField].forEach((field) => {
-  const eventName = field.tagName === "SELECT" ? "change" : "input";
-  field.addEventListener(eventName, () => {
-    clearInvalid(field);
-    if (formStatus.textContent) {
-      formStatus.textContent = "";
-      formStatus.className = "form-status";
-    }
-  });
+ 
+// Nav scroll effect
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.boxShadow =
+    window.scrollY > 40 ? '0 4px 30px rgba(0,0,0,0.4)' : 'none';
 });
-
-function setStatus(message, tone) {
-  formStatus.textContent = message;
-  formStatus.className = "form-status" + (tone ? " " + tone : "");
-}
-
-function validateForm() {
-  let valid = true;
-
-  [nameField, phoneField, typeField].forEach((field) => {
-    if (!field.value.trim()) {
-      field.classList.add("invalid");
-      valid = false;
-    }
-  });
-
-  const email = emailField.value.trim();
-  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    emailField.classList.add("invalid");
-    valid = false;
-  }
-
-  const phone = phoneField.value.trim().replace(/[^\d+]/g, "");
-  if (phone && phone.length < 8) {
-    phoneField.classList.add("invalid");
-    valid = false;
-  }
-
-  if (!valid) {
-    setStatus("Please complete the highlighted fields before sending your inquiry.", "error");
-  }
-
-  return valid;
-}
-
-document.getElementById("quoteForm").addEventListener("submit", (event) => {
-  event.preventDefault();
-  if (!validateForm()) return;
-
-  const whatsappText = [
-    "Hello Zubair, I would like a website quote from NexoraWeb.",
-    "",
-    "Name: " + nameField.value.trim(),
-    "Phone / WhatsApp: " + phoneField.value.trim(),
-    "Email: " + (emailField.value.trim() || "Not provided"),
-    "Website Type: " + typeField.value.trim(),
-    "Project Details: " + (messageField.value.trim() || "No project details provided yet.")
-  ].join("\n");
-
-  sendButton.disabled = true;
-  sendText.textContent = "Opening WhatsApp...";
-  setStatus("Opening WhatsApp with your inquiry...", "success");
-
-  window.open("https://wa.me/917259449945?text=" + encodeURIComponent(whatsappText), "_blank", "noopener");
-  showToast("WhatsApp opened with your inquiry.");
-
-  window.setTimeout(() => {
-    sendButton.disabled = false;
-    sendText.textContent = "Send Inquiry on WhatsApp";
-  }, 1500);
+ 
+// Form submit feedback
+document.querySelector('.form-submit').addEventListener('click', function(e) {
+  e.preventDefault();
+  this.textContent = '✓ Request sent! We\'ll be in touch soon.';
+  this.style.background = 'linear-gradient(135deg,#059669,#10B981)';
+  setTimeout(() => {
+    this.innerHTML = 'Send My Request <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 5l4 4-4 4"/></svg>';
+    this.style.background = '';
+  }, 3000);
 });
-
-const visualCanvas = document.getElementById("visualCanvas");
-const heroVisual = document.getElementById("heroVisual");
-
-if (visualCanvas && heroVisual) {
-  const ctx = visualCanvas.getContext("2d");
-  const particles = [];
-  const total = 240;
-  const pointer = { x: 0, y: 0 };
-  let width = 0;
-  let height = 0;
-  let radius = 0;
-
-  for (let i = 0; i < total; i += 1) {
-    particles.push({
-      theta: Math.random() * Math.PI * 2,
-      phi: Math.acos((Math.random() * 2) - 1),
-      speed: 0.002 + Math.random() * 0.0035,
-      size: 0.8 + Math.random() * 1.8,
-      tint: Math.random()
-    });
-  }
-
-  function resizeVisual() {
-    const rect = heroVisual.getBoundingClientRect();
-    const ratio = window.devicePixelRatio || 1;
-    width = rect.width;
-    height = rect.height;
-    visualCanvas.width = width * ratio;
-    visualCanvas.height = height * ratio;
-    visualCanvas.style.width = width + "px";
-    visualCanvas.style.height = height + "px";
-    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-    radius = Math.min(width, height) * 0.22;
-  }
-
-  function render(time) {
-    ctx.clearRect(0, 0, width, height);
-    const centerX = width * 0.58;
-    const centerY = height * 0.44;
-    const turn = time * 0.00024;
-    const tilt = Math.sin(time * 0.0003) * 0.42 + pointer.y * 0.12;
-    const yaw = turn + pointer.x * 0.18;
-    const perspective = radius * 3.3;
-    const points = [];
-
-    particles.forEach((particle) => {
-      const theta = particle.theta + yaw + time * particle.speed;
-      const phi = particle.phi;
-      const px = radius * Math.sin(phi) * Math.cos(theta);
-      const py = radius * Math.cos(phi);
-      const pz = radius * Math.sin(phi) * Math.sin(theta);
-
-      const ry = py * Math.cos(tilt) - pz * Math.sin(tilt);
-      const rz = py * Math.sin(tilt) + pz * Math.cos(tilt);
-      const scale = perspective / (perspective + rz + radius * 1.2);
-
-      points.push({
-        x: centerX + px * scale,
-        y: centerY + ry * scale,
-        z: rz,
-        r: Math.max(0.45, particle.size * scale * 1.3),
-        alpha: 0.18 + ((rz + radius) / (radius * 2)) * 0.78,
-        tint: particle.tint
-      });
-    });
-
-    points.sort((a, b) => a.z - b.z);
-
-    points.forEach((point) => {
-      const rgb = point.tint > 0.74 ? "94,230,255" : point.tint > 0.4 ? "122,113,255" : "255,255,255";
-      ctx.beginPath();
-      ctx.arc(point.x, point.y, point.r, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(" + rgb + "," + point.alpha.toFixed(3) + ")";
-      ctx.shadowBlur = point.tint > 0.74 ? 18 : 10;
-      ctx.shadowColor = point.tint > 0.74 ? "rgba(94,230,255,0.35)" : "rgba(122,113,255,0.26)";
-      ctx.fill();
-    });
-
-    ctx.shadowBlur = 0;
-
-    for (let i = 0; i < points.length; i += 8) {
-      const a = points[i];
-      const b = points[(i + 29) % points.length];
-      const dx = a.x - b.x;
-      const dy = a.y - b.y;
-      const distance = Math.sqrt((dx * dx) + (dy * dy));
-      if (distance < radius * 1.18) {
-        ctx.beginPath();
-        ctx.moveTo(a.x, a.y);
-        ctx.lineTo(b.x, b.y);
-        ctx.strokeStyle = "rgba(255,255,255," + Math.max(0.012, 0.08 - (distance / (radius * 18))).toFixed(3) + ")";
-        ctx.lineWidth = 0.8;
-        ctx.stroke();
-      }
-    }
-
-    if (!prefersReducedMotion) {
-      window.requestAnimationFrame(render);
-    }
-  }
-
-  heroVisual.addEventListener("mousemove", (event) => {
-    const rect = heroVisual.getBoundingClientRect();
-    pointer.x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
-    pointer.y = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
-  });
-
-  heroVisual.addEventListener("mouseleave", () => {
-    pointer.x = 0;
-    pointer.y = 0;
-  });
-
-  window.addEventListener("resize", resizeVisual);
-  resizeVisual();
-  render(0);
-}
 </script>
 </body>
 </html>
+ 
