@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NexoraWeb | Premium Business Websites</title>
+<title>NexoraWeb | Modern Websites For Growing Businesses</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
@@ -17,25 +17,22 @@
 }
 
 :root {
-  --bg: #04050c;
-  --bg-soft: #0a0d18;
-  --panel: rgba(12, 16, 28, 0.84);
-  --panel-strong: rgba(14, 19, 34, 0.96);
-  --line: rgba(255, 255, 255, 0.09);
-  --line-strong: rgba(255, 255, 255, 0.16);
-  --text: #f5f7ff;
-  --muted: #97a0b7;
-  --dim: #65708b;
-  --cyan: #5de4ff;
-  --cyan-soft: rgba(93, 228, 255, 0.18);
-  --blue: #4a78ff;
-  --violet: #7c6dff;
-  --gradient: linear-gradient(135deg, #7c6dff 0%, #45d8ff 100%);
-  --gradient-soft: linear-gradient(135deg, rgba(124, 109, 255, 0.18), rgba(69, 216, 255, 0.08));
+  --bg: #03050b;
+  --bg-soft: #090d17;
+  --panel: rgba(10, 13, 24, 0.86);
+  --panel-strong: rgba(12, 16, 29, 0.96);
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.14);
+  --text: #f7f8fd;
+  --muted: #9ba7be;
+  --dim: #69748d;
+  --cyan: #5ee6ff;
+  --violet: #7a71ff;
+  --gradient: linear-gradient(135deg, #7a71ff 0%, #50dcff 100%);
   --heading: "Space Grotesk", sans-serif;
   --body: "Manrope", sans-serif;
   --container: 1180px;
-  --shadow: 0 28px 80px rgba(0, 0, 0, 0.38);
+  --shadow: 0 30px 80px rgba(0, 0, 0, 0.42);
 }
 
 html {
@@ -43,14 +40,13 @@ html {
 }
 
 body {
+  min-height: 100vh;
   font-family: var(--body);
   color: var(--text);
   background:
-    radial-gradient(circle at 12% 16%, rgba(69, 216, 255, 0.12), transparent 20%),
-    radial-gradient(circle at 84% 18%, rgba(124, 109, 255, 0.14), transparent 24%),
-    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.06), transparent 36%),
-    linear-gradient(180deg, #020309 0%, #05070f 28%, #080b14 100%);
-  min-height: 100vh;
+    radial-gradient(circle at 14% 16%, rgba(94, 230, 255, 0.1), transparent 18%),
+    radial-gradient(circle at 82% 12%, rgba(122, 113, 255, 0.12), transparent 22%),
+    linear-gradient(180deg, #020309 0%, #04060d 32%, #080b14 100%);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -65,21 +61,20 @@ body::after {
 }
 
 body::before {
-  opacity: 0.22;
   background-image:
-    radial-gradient(circle at center, rgba(255, 255, 255, 0.9) 0 1px, transparent 1px),
-    radial-gradient(circle at center, rgba(93, 228, 255, 0.7) 0 1px, transparent 1px);
-  background-size: 140px 140px, 220px 220px;
-  background-position: 0 0, 60px 40px;
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 70px 70px;
+  mask-image: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.7) 18%, black 50%, rgba(0, 0, 0, 0.6) 82%, transparent);
 }
 
 body::after {
-  opacity: 0.45;
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 80px 80px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), black 22%, black 74%, rgba(0, 0, 0, 0.35));
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.22) 0 1px, transparent 1px),
+    radial-gradient(circle at center, rgba(94, 230, 255, 0.18) 0 1px, transparent 1px);
+  background-size: 140px 140px, 220px 220px;
+  background-position: 0 0, 44px 36px;
+  opacity: 0.14;
 }
 
 a {
@@ -99,10 +94,8 @@ button {
   background: none;
 }
 
-img,
 canvas {
   display: block;
-  max-width: 100%;
 }
 
 ::-webkit-scrollbar {
@@ -110,105 +103,57 @@ canvas {
 }
 
 ::-webkit-scrollbar-track {
-  background: #04050c;
+  background: #04060d;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #7c6dff, #45d8ff);
+  background: linear-gradient(180deg, #7a71ff, #50dcff);
   border-radius: 999px;
 }
 
 section[id] {
-  scroll-margin-top: 92px;
+  scroll-margin-top: 90px;
 }
 
-.shell {
+.wrap {
   width: min(100% - 2rem, var(--container));
   margin: 0 auto;
 }
 
-.kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  min-height: 34px;
-  padding: 0.35rem 0.85rem;
-  border-radius: 999px;
-  border: 1px solid rgba(93, 228, 255, 0.18);
-  background: rgba(93, 228, 255, 0.07);
-  color: var(--cyan);
-  font-size: 0.73rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.kicker::before {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: currentColor;
-  box-shadow: 0 0 0 6px rgba(93, 228, 255, 0.08);
-}
-
-.section {
-  padding: 5.5rem 0;
-}
-
-.section-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 2rem;
-  margin-bottom: 2.2rem;
-}
-
-.section-copy {
-  max-width: 560px;
-}
-
-.section-title {
-  font-family: var(--heading);
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 0.98;
-  letter-spacing: -0.06em;
-  margin: 1rem 0 0.8rem;
-}
-
-.section-text {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: var(--muted);
-}
-
-.ghost {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  padding: 0.8rem 1.15rem;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  color: var(--text);
-  transition: border-color 0.2s, transform 0.2s, background 0.2s;
-}
-
-.ghost:hover {
-  border-color: rgba(93, 228, 255, 0.3);
-  background: rgba(93, 228, 255, 0.06);
-  transform: translateY(-2px);
-}
-
 .reveal {
   opacity: 0;
-  transform: translateY(26px);
+  transform: translateY(24px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .reveal.in {
   opacity: 1;
   transform: translateY(0);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 34px;
+  padding: 0.38rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(94, 230, 255, 0.18);
+  background: rgba(94, 230, 255, 0.06);
+  color: var(--cyan);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 0 6px rgba(94, 230, 255, 0.08);
 }
 
 .site-nav {
@@ -218,26 +163,26 @@ section[id] {
   padding-top: 1rem;
 }
 
-.site-nav.scrolled .nav-bar {
-  background: rgba(6, 8, 16, 0.86);
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-}
-
-.nav-bar {
-  width: min(100% - 2rem, calc(var(--container) + 1rem));
+.nav-shell {
+  width: min(100% - 2rem, calc(var(--container) + 0.6rem));
   margin: 0 auto;
-  min-height: 72px;
+  min-height: 70px;
   padding: 0.85rem 1rem 0.85rem 1.2rem;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 24px;
-  backdrop-filter: blur(18px);
-  background: rgba(8, 11, 20, 0.58);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.2rem;
+  gap: 1rem;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(7, 10, 18, 0.58);
+  backdrop-filter: blur(18px);
   transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.site-nav.scrolled .nav-shell {
+  background: rgba(7, 10, 18, 0.86);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.3);
 }
 
 .brand {
@@ -245,7 +190,7 @@ section[id] {
   align-items: center;
   gap: 0.75rem;
   font-family: var(--heading);
-  font-size: 1.06rem;
+  font-size: 1.04rem;
   font-weight: 700;
   letter-spacing: -0.04em;
 }
@@ -254,17 +199,12 @@ section[id] {
   width: 32px;
   height: 32px;
   border-radius: 10px;
-  background: var(--gradient);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #02050c;
-  font-size: 0.9rem;
-  box-shadow: 0 12px 30px rgba(69, 216, 255, 0.18);
-}
-
-.brand span:last-child {
-  color: rgba(245, 247, 255, 0.92);
+  background: var(--gradient);
+  color: #03131d;
+  box-shadow: 0 10px 30px rgba(80, 220, 255, 0.18);
 }
 
 .brand em {
@@ -276,17 +216,17 @@ section[id] {
 }
 
 .nav-links {
+  list-style: none;
   display: flex;
   align-items: center;
-  gap: 1.6rem;
-  list-style: none;
+  gap: 1.5rem;
 }
 
 .nav-links a {
   color: var(--muted);
-  font-size: 0.83rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   transition: color 0.2s;
 }
@@ -302,37 +242,37 @@ section[id] {
   gap: 0.8rem;
 }
 
-.nav-talk {
+.talk-link {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
   min-height: 42px;
-  padding: 0.7rem 1.05rem;
+  padding: 0.72rem 1.05rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--text);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  transition: transform 0.2s, border-color 0.2s, background 0.2s;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
 }
 
-.nav-talk:hover {
+.talk-link:hover {
   transform: translateY(-2px);
-  border-color: rgba(93, 228, 255, 0.28);
-  background: rgba(93, 228, 255, 0.05);
+  border-color: rgba(94, 230, 255, 0.22);
+  background: rgba(94, 230, 255, 0.05);
 }
 
 .menu-btn {
   width: 42px;
   height: 42px;
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
   display: none;
   align-items: center;
   justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
   cursor: pointer;
 }
 
@@ -376,15 +316,13 @@ section[id] {
 
 .mobile-menu {
   display: none;
-  margin-top: 0.8rem;
-  width: min(100% - 2rem, calc(var(--container) + 1rem));
-  margin-left: auto;
-  margin-right: auto;
+  width: min(100% - 2rem, calc(var(--container) + 0.6rem));
+  margin: 0.7rem auto 0;
+  padding: 1rem;
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(8, 11, 20, 0.94);
+  background: rgba(7, 10, 18, 0.96);
   box-shadow: var(--shadow);
-  padding: 1rem;
 }
 
 .mobile-menu.open {
@@ -394,15 +332,15 @@ section[id] {
 .mobile-menu ul {
   list-style: none;
   display: grid;
-  gap: 0.6rem;
+  gap: 0.55rem;
 }
 
 .mobile-menu a {
   display: block;
-  padding: 0.8rem 0.9rem;
+  padding: 0.85rem 0.95rem;
   border-radius: 16px;
-  color: var(--muted);
   background: rgba(255, 255, 255, 0.03);
+  color: var(--muted);
 }
 
 .mobile-menu a:hover {
@@ -411,51 +349,49 @@ section[id] {
 }
 
 .hero {
-  padding: 8.6rem 0 5rem;
+  min-height: 100vh;
+  padding: 8.6rem 0 4.5rem;
+  display: flex;
+  align-items: center;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.04fr 0.96fr;
-  gap: 2.2rem;
+  grid-template-columns: 1.02fr 0.98fr;
+  gap: 2rem;
   align-items: center;
 }
 
-.hero-copy {
-  position: relative;
-  z-index: 1;
-}
-
-.hero-copy .kicker {
-  margin-bottom: 1.4rem;
+.hero-copy .eyebrow {
+  margin-bottom: 1.35rem;
 }
 
 .hero-title {
+  max-width: 9.2ch;
   font-family: var(--heading);
-  font-size: clamp(3rem, 8vw, 6.35rem);
-  line-height: 0.9;
-  letter-spacing: -0.08em;
-  max-width: 9.7ch;
+  font-size: clamp(3.3rem, 8vw, 6.7rem);
+  line-height: 0.88;
+  letter-spacing: -0.09em;
 }
 
-.hero-title span {
+.hero-title .outline {
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.46);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.42);
 }
 
 .hero-sub {
-  max-width: 620px;
-  margin-top: 1.5rem;
+  margin-top: 1.35rem;
+  max-width: 600px;
   color: var(--muted);
-  font-size: 1.03rem;
-  line-height: 1.9;
+  font-size: 1rem;
+  line-height: 1.92;
 }
 
 .hero-actions {
+  margin-top: 1.9rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.9rem;
-  margin-top: 2rem;
+  gap: 0.85rem;
 }
 
 .btn {
@@ -464,11 +400,11 @@ section[id] {
   justify-content: center;
   gap: 0.55rem;
   min-height: 50px;
-  padding: 0.95rem 1.3rem;
+  padding: 0.95rem 1.28rem;
   border-radius: 999px;
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 800;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, background 0.2s;
 }
@@ -478,13 +414,9 @@ section[id] {
 }
 
 .btn-primary {
-  color: #05111c;
   background: var(--gradient);
-  box-shadow: 0 16px 40px rgba(69, 216, 255, 0.16);
-}
-
-.btn-primary:hover {
-  box-shadow: 0 22px 52px rgba(69, 216, 255, 0.22);
+  color: #04111b;
+  box-shadow: 0 14px 34px rgba(80, 220, 255, 0.16);
 }
 
 .btn-secondary {
@@ -494,81 +426,62 @@ section[id] {
 }
 
 .btn-secondary:hover {
-  border-color: rgba(93, 228, 255, 0.28);
-  background: rgba(93, 228, 255, 0.05);
+  border-color: rgba(94, 230, 255, 0.22);
+  background: rgba(94, 230, 255, 0.05);
 }
 
-.hero-meta {
-  margin-top: 1.8rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-}
-
-.hero-meta-card {
-  min-width: 156px;
-  padding: 0.9rem 1rem;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(14px);
-}
-
-.hero-meta-label {
-  color: var(--dim);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.hero-meta-value {
-  margin-top: 0.4rem;
-  font-size: 0.97rem;
-  font-weight: 700;
-}
-
-.hero-founder {
-  margin-top: 1.7rem;
-  max-width: 560px;
+.hero-note {
+  margin-top: 1.6rem;
   padding-left: 1rem;
-  border-left: 2px solid rgba(93, 228, 255, 0.28);
+  border-left: 2px solid rgba(94, 230, 255, 0.24);
   color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.8;
+  font-size: 0.92rem;
+  line-height: 1.85;
+  max-width: 560px;
 }
 
-.hero-founder strong {
+.hero-note strong {
   color: var(--text);
 }
 
-.hero-art {
-  position: relative;
-  min-height: 620px;
-  border-radius: 34px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background:
-    radial-gradient(circle at 50% 38%, rgba(93, 228, 255, 0.08), transparent 24%),
-    radial-gradient(circle at 50% 52%, rgba(124, 109, 255, 0.14), transparent 32%),
-    linear-gradient(180deg, rgba(10, 13, 24, 0.96), rgba(8, 10, 18, 0.98));
-  box-shadow: var(--shadow);
-  overflow: hidden;
+.hero-trust {
+  margin-top: 1.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
 }
 
-.hero-art::before {
+.hero-trust span {
+  min-height: 36px;
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.hero-visual {
+  position: relative;
+  min-height: 640px;
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(8, 11, 21, 0.96), rgba(5, 8, 16, 0.99));
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.hero-visual::before {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 26px 26px, 56px 56px, 56px 56px;
-  mask-image: radial-gradient(circle at 50% 46%, black 22%, transparent 72%);
-  opacity: 0.34;
+    radial-gradient(circle at 62% 28%, rgba(80, 220, 255, 0.16), transparent 18%),
+    radial-gradient(circle at 44% 56%, rgba(122, 113, 255, 0.18), transparent 28%);
 }
 
-.art-top {
+.visual-top {
   position: absolute;
   top: 1.2rem;
   left: 1.2rem;
@@ -576,237 +489,42 @@ section[id] {
   z-index: 2;
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
   gap: 1rem;
 }
 
-.art-brand {
+.visual-logo {
   font-family: var(--heading);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(245, 247, 255, 0.72);
+  color: rgba(247, 248, 253, 0.72);
 }
 
-.art-links {
+.visual-links {
   display: flex;
   gap: 0.7rem;
+  color: var(--muted);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--muted);
 }
 
-.art-links span:last-child {
+.visual-links span:last-child {
   color: var(--text);
 }
 
-.art-center {
-  position: absolute;
-  inset: 0;
-}
-
-.art-glow {
-  position: absolute;
-  inset: 18% 14% 20%;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle, rgba(93, 228, 255, 0.14), rgba(124, 109, 255, 0.1) 34%, transparent 68%);
-  filter: blur(30px);
-}
-
-.art-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.art-copy {
+.visual-copy {
   position: absolute;
   left: 1.5rem;
-  bottom: 1.4rem;
-  max-width: 300px;
+  bottom: 1.5rem;
   z-index: 2;
+  max-width: 320px;
 }
 
-.art-kicker {
-  color: var(--cyan);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.art-title {
-  margin-top: 0.6rem;
-  font-family: var(--heading);
-  font-size: clamp(1.9rem, 4vw, 3.65rem);
-  line-height: 0.92;
-  letter-spacing: -0.07em;
-}
-
-.art-copy p {
-  margin-top: 0.85rem;
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.8;
-}
-
-.art-pill {
-  position: absolute;
-  z-index: 2;
-  min-width: 160px;
-  padding: 0.8rem 0.95rem;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(7, 11, 21, 0.76);
-  backdrop-filter: blur(14px);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
-}
-
-.art-pill strong {
-  display: block;
-  font-size: 1rem;
-  margin-bottom: 0.2rem;
-}
-
-.art-pill span {
-  color: var(--muted);
-  font-size: 0.78rem;
-  line-height: 1.6;
-}
-
-.pill-a {
-  top: 5.3rem;
-  right: 1.2rem;
-}
-
-.pill-b {
-  left: 1.2rem;
-  top: 8.6rem;
-}
-
-.hero-strip {
-  margin-top: 2.4rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-}
-
-.hero-strip-card {
-  padding: 1rem 1.05rem;
-  border-radius: 20px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.hero-strip-card strong {
-  display: block;
-  margin-bottom: 0.35rem;
-  font-size: 0.95rem;
-}
-
-.hero-strip-card span {
-  color: var(--muted);
-  font-size: 0.86rem;
-  line-height: 1.65;
-}
-
-.signals {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.signal-card {
-  position: relative;
-  padding: 1.35rem;
-  border-radius: 24px;
-  border: 1px solid var(--line);
-  background: var(--panel);
-  overflow: hidden;
-}
-
-.signal-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--gradient-soft);
-  opacity: 0;
-  transition: opacity 0.25s;
-}
-
-.signal-card:hover::before {
-  opacity: 1;
-}
-
-.signal-card strong,
-.signal-card p {
-  position: relative;
-  z-index: 1;
-}
-
-.signal-card strong {
-  display: block;
-  font-size: 1rem;
-  margin-bottom: 0.45rem;
-}
-
-.signal-card p {
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.8;
-}
-
-.signal-index {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--cyan);
-  font-size: 0.78rem;
-  font-weight: 800;
-  margin-bottom: 0.9rem;
-}
-
-.founder-grid {
-  display: grid;
-  grid-template-columns: 0.94fr 1.06fr;
-  gap: 1.25rem;
-}
-
-.founder-card,
-.founder-panel {
-  border: 1px solid var(--line);
-  border-radius: 30px;
-  background: var(--panel);
-  box-shadow: var(--shadow);
-}
-
-.founder-card {
-  padding: 2rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.founder-card::before {
-  content: "";
-  position: absolute;
-  inset: auto -10% -15% auto;
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(124, 109, 255, 0.28), transparent 68%);
-  filter: blur(16px);
-}
-
-.founder-label {
+.visual-copy .small {
   color: var(--cyan);
   font-size: 0.72rem;
   font-weight: 800;
@@ -814,257 +532,303 @@ section[id] {
   text-transform: uppercase;
 }
 
-.founder-card h2 {
-  margin-top: 0.9rem;
+.visual-copy h2 {
+  margin-top: 0.6rem;
   font-family: var(--heading);
-  font-size: clamp(2rem, 4vw, 3.1rem);
-  line-height: 0.95;
-  letter-spacing: -0.06em;
-}
-
-.founder-card p {
-  margin-top: 1rem;
-  color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.9;
-  max-width: 52ch;
-}
-
-.founder-mini {
-  margin-top: 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.founder-mini span {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  min-height: 38px;
-  padding: 0.5rem 0.85rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: var(--muted);
-  font-size: 0.82rem;
-  font-weight: 700;
-}
-
-.founder-mini span::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--cyan);
-}
-
-.founder-panel {
-  padding: 1.35rem;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-}
-
-.metric {
-  min-height: 190px;
-  padding: 1.3rem;
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.metric strong {
-  display: block;
-  font-family: var(--heading);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 0.9;
   letter-spacing: -0.08em;
 }
 
-.metric h3 {
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
+.visual-copy h2 span {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.34);
 }
 
-.metric p {
-  margin-top: 0.6rem;
+.visual-copy p {
+  margin-top: 0.9rem;
   color: var(--muted);
   font-size: 0.9rem;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
-.services-grid {
+.visual-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.visual-pill {
+  position: absolute;
+  z-index: 2;
+  min-width: 170px;
+  padding: 0.8rem 0.95rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(8, 11, 20, 0.76);
+  backdrop-filter: blur(14px);
+}
+
+.visual-pill strong {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+}
+
+.visual-pill span {
+  color: var(--muted);
+  font-size: 0.77rem;
+  line-height: 1.6;
+}
+
+.pill-one {
+  top: 5.2rem;
+  right: 1.1rem;
+}
+
+.pill-two {
+  left: 1.1rem;
+  top: 8.2rem;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.section-copy {
+  max-width: 580px;
+}
+
+.section-copy .eyebrow {
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: var(--heading);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 0.94;
+  letter-spacing: -0.08em;
+}
+
+.section-text {
+  margin-top: 0.9rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.86;
+}
+
+.section-action {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.78rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section-action:hover {
+  border-color: rgba(94, 230, 255, 0.22);
+  background: rgba(94, 230, 255, 0.05);
+}
+
+.split-block {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 1rem;
+}
+
+.statement {
+  min-height: 420px;
+  padding: 1.6rem;
+  border-radius: 28px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+}
+
+.statement small {
+  color: var(--dim);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.statement h3 {
+  margin-top: 1rem;
+  font-family: var(--heading);
+  font-size: clamp(2.3rem, 5vw, 4.2rem);
+  line-height: 0.9;
+  letter-spacing: -0.09em;
+}
+
+.statement h3 span {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.34);
+}
+
+.statement p {
+  max-width: 34ch;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.86;
+}
+
+.signals {
+  display: grid;
+  gap: 1rem;
+}
+
+.signal {
+  padding: 1.3rem 1.35rem;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.signal strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.signal p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.services {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
 
-.service-card {
+.service {
   position: relative;
-  padding: 1.5rem;
-  border-radius: 26px;
+  min-height: 300px;
+  padding: 1.4rem;
+  border-radius: 28px;
   border: 1px solid var(--line);
   background: var(--panel);
   overflow: hidden;
-  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+  transition: transform 0.25s, border-color 0.25s;
 }
 
-.service-card::before {
+.service::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(93, 228, 255, 0.14), transparent 32%);
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(94, 230, 255, 0.13), transparent 28%);
   opacity: 0;
   transition: opacity 0.25s;
 }
 
-.service-card:hover {
+.service:hover {
   transform: translateY(-6px);
-  border-color: rgba(93, 228, 255, 0.2);
-  box-shadow: var(--shadow);
+  border-color: rgba(94, 230, 255, 0.18);
 }
 
-.service-card:hover::before {
+.service:hover::before {
   opacity: 1;
 }
 
-.service-card > * {
+.service > * {
   position: relative;
   z-index: 1;
 }
 
-.service-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: var(--cyan);
-  font-size: 1.15rem;
-  margin-bottom: 1rem;
-}
-
-.service-card h3 {
-  font-size: 1rem;
-  margin-bottom: 0.55rem;
-}
-
-.service-card p {
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.8;
-}
-
-.service-card a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  margin-top: 1rem;
-  color: var(--cyan);
-  font-size: 0.82rem;
+.service-no {
+  color: var(--dim);
+  font-size: 0.74rem;
   font-weight: 800;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
-.portfolio-grid {
+.service h3 {
+  margin-top: 0.95rem;
+  font-family: var(--heading);
+  font-size: 1.5rem;
+  line-height: 0.96;
+  letter-spacing: -0.05em;
+}
+
+.service p {
+  margin-top: 0.95rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.82;
+  max-width: 28ch;
+}
+
+.service a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1.35rem;
+  color: var(--cyan);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.portfolio {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
 
-.portfolio-card {
+.project {
   border-radius: 28px;
   border: 1px solid var(--line);
-  overflow: hidden;
   background: var(--panel);
-  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+  overflow: hidden;
+  transition: transform 0.25s, border-color 0.25s;
 }
 
-.portfolio-card:hover {
+.project:hover {
   transform: translateY(-6px);
-  border-color: rgba(93, 228, 255, 0.2);
-  box-shadow: var(--shadow);
+  border-color: rgba(94, 230, 255, 0.18);
 }
 
-.portfolio-preview {
+.project-visual {
   position: relative;
-  height: 260px;
+  height: 270px;
   padding: 1.1rem;
   background:
-    radial-gradient(circle at 62% 24%, rgba(69, 216, 255, 0.2), transparent 18%),
-    radial-gradient(circle at 34% 70%, rgba(124, 109, 255, 0.28), transparent 34%),
-    linear-gradient(180deg, #09111d, #070a13);
+    radial-gradient(circle at 64% 24%, rgba(80, 220, 255, 0.18), transparent 18%),
+    radial-gradient(circle at 36% 72%, rgba(122, 113, 255, 0.26), transparent 30%),
+    linear-gradient(180deg, #09101a, #070a13);
 }
 
-.portfolio-frame {
-  height: 100%;
-  border-radius: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(180deg, rgba(9, 13, 24, 0.9), rgba(6, 8, 16, 0.98));
-  overflow: hidden;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
-}
-
-.portfolio-bar {
-  height: 34px;
-  padding: 0 0.9rem;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.portfolio-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.22);
-}
-
-.portfolio-surface {
-  height: calc(100% - 34px);
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.portfolio-outline {
-  font-family: var(--heading);
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 0.9;
-  letter-spacing: -0.08em;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
-}
-
-.portfolio-copy-mini {
-  max-width: 78%;
-}
-
-.portfolio-copy-mini p {
-  color: var(--muted);
-  font-size: 0.8rem;
-  line-height: 1.75;
-}
-
-.portfolio-chip {
+.project-badge {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  display: inline-flex;
-  align-items: center;
   min-height: 30px;
-  padding: 0.3rem 0.7rem;
+  padding: 0.35rem 0.7rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--text);
   font-size: 0.68rem;
   font-weight: 800;
@@ -1072,61 +836,110 @@ section[id] {
   text-transform: uppercase;
 }
 
-.portfolio-info {
-  padding: 1.35rem;
+.project-frame {
+  height: 100%;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(7, 10, 18, 0.94);
+  overflow: hidden;
 }
 
-.portfolio-info h3 {
-  font-size: 1rem;
-  margin-bottom: 0.4rem;
+.project-bar {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 0.38rem;
+  padding: 0 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.portfolio-info p {
+.project-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.project-body {
+  height: calc(100% - 32px);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-big {
+  font-family: var(--heading);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 0.9;
+  letter-spacing: -0.08em;
+}
+
+.project-big span {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.34);
+}
+
+.project-mini {
+  max-width: 78%;
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: 0.8rem;
+  line-height: 1.74;
+}
+
+.project-info {
+  padding: 1.3rem;
+}
+
+.project-info h3 {
+  font-size: 0.98rem;
+  margin-bottom: 0.35rem;
+}
+
+.project-info p {
+  color: var(--muted);
+  font-size: 0.9rem;
   line-height: 1.8;
 }
 
-.portfolio-actions {
-  margin-top: 1rem;
+.project-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.7rem;
+  margin-top: 1rem;
 }
 
-.portfolio-actions a {
+.project-actions a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 42px;
-  padding: 0.75rem 1rem;
+  padding: 0.72rem 0.95rem;
   border-radius: 999px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.portfolio-actions a:first-child {
-  background: rgba(93, 228, 255, 0.08);
-  border: 1px solid rgba(93, 228, 255, 0.16);
-  color: var(--text);
+.project-actions a:first-child {
+  background: rgba(94, 230, 255, 0.07);
+  border: 1px solid rgba(94, 230, 255, 0.14);
 }
 
-.portfolio-actions a:last-child {
-  border: 1px solid rgba(255, 255, 255, 0.09);
+.project-actions a:last-child {
+  border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--muted);
 }
 
-.process-grid {
+.process {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
 }
 
-.step-card {
-  position: relative;
-  padding: 1.35rem;
+.step {
+  padding: 1.25rem;
   border-radius: 24px;
   border: 1px solid var(--line);
   background: var(--panel);
@@ -1136,128 +949,122 @@ section[id] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.06);
   color: var(--cyan);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 800;
-  margin-bottom: 0.85rem;
 }
 
-.step-card h3 {
-  font-size: 0.95rem;
-  margin-bottom: 0.4rem;
+.step h3 {
+  margin-top: 0.85rem;
+  font-size: 0.96rem;
 }
 
-.step-card p {
+.step p {
+  margin-top: 0.45rem;
   color: var(--muted);
   font-size: 0.88rem;
-  line-height: 1.75;
+  line-height: 1.76;
 }
 
-.pricing-grid {
+.pricing {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
 
-.pricing-card {
+.plan {
   position: relative;
-  padding: 1.6rem;
+  padding: 1.45rem;
   border-radius: 28px;
   border: 1px solid var(--line);
   background: var(--panel);
-  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
 }
 
-.pricing-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow);
+.plan.featured {
+  border-color: rgba(94, 230, 255, 0.18);
+  background: linear-gradient(180deg, rgba(10, 15, 27, 0.98), rgba(8, 11, 19, 0.98));
 }
 
-.pricing-card.popular {
-  border-color: rgba(93, 228, 255, 0.22);
-  background: linear-gradient(180deg, rgba(12, 18, 31, 0.96), rgba(10, 14, 24, 0.98));
-}
-
-.popular-badge {
+.plan-badge {
   position: absolute;
   top: 1rem;
   right: 1rem;
   min-height: 28px;
-  padding: 0.25rem 0.7rem;
+  padding: 0.28rem 0.7rem;
   border-radius: 999px;
   background: var(--gradient);
-  color: #03121d;
-  font-size: 0.68rem;
+  color: #04121b;
+  font-size: 0.67rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.pricing-tier {
+.plan small {
   color: var(--dim);
   font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
-.price {
+.plan-price {
   margin-top: 0.9rem;
   font-family: var(--heading);
-  font-size: clamp(2.4rem, 4vw, 3.4rem);
-  line-height: 0.95;
-  letter-spacing: -0.08em;
+  font-size: clamp(2.4rem, 4vw, 3.7rem);
+  line-height: 0.92;
+  letter-spacing: -0.09em;
 }
 
-.price span {
+.plan-price span {
   font-family: var(--body);
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--dim);
   letter-spacing: 0;
 }
 
-.pricing-card p {
+.plan p {
   margin-top: 0.8rem;
   color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.8;
+  font-size: 0.9rem;
+  line-height: 1.82;
 }
 
-.pricing-list {
-  margin-top: 1.2rem;
+.plan ul {
   list-style: none;
+  margin-top: 1.1rem;
   display: grid;
-  gap: 0.75rem;
+  gap: 0.72rem;
 }
 
-.pricing-list li {
+.plan li {
   display: flex;
-  align-items: start;
-  gap: 0.65rem;
+  align-items: flex-start;
+  gap: 0.6rem;
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: 0.87rem;
   line-height: 1.7;
 }
 
-.pricing-list li::before {
+.plan li::before {
   content: "";
   width: 8px;
   height: 8px;
   margin-top: 0.42rem;
   border-radius: 50%;
   background: var(--cyan);
-  box-shadow: 0 0 0 6px rgba(93, 228, 255, 0.08);
+  box-shadow: 0 0 0 6px rgba(94, 230, 255, 0.08);
   flex-shrink: 0;
 }
 
-.pricing-card .btn {
+.plan .btn {
   width: 100%;
-  margin-top: 1.35rem;
+  margin-top: 1.25rem;
 }
 
 .contact-shell {
@@ -1267,12 +1074,12 @@ section[id] {
   padding: 1rem;
   border-radius: 32px;
   border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(11, 15, 27, 0.96), rgba(8, 11, 20, 0.98));
+  background: linear-gradient(180deg, rgba(9, 12, 21, 0.98), rgba(7, 10, 18, 0.98));
   box-shadow: var(--shadow);
 }
 
 .contact-side,
-.contact-form-wrap {
+.contact-form {
   border-radius: 28px;
   border: 1px solid rgba(255, 255, 255, 0.06);
   background: rgba(255, 255, 255, 0.03);
@@ -1285,28 +1092,28 @@ section[id] {
 .contact-side h3 {
   margin-top: 0.95rem;
   font-family: var(--heading);
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  line-height: 0.94;
-  letter-spacing: -0.06em;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 0.92;
+  letter-spacing: -0.08em;
 }
 
 .contact-side p {
   margin-top: 0.9rem;
   color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.85;
+  font-size: 0.94rem;
+  line-height: 1.86;
 }
 
-.contact-list {
-  margin-top: 1.5rem;
+.contact-items {
+  margin-top: 1.45rem;
   display: grid;
   gap: 0.85rem;
 }
 
-.contact-card {
+.contact-item {
   display: flex;
   gap: 0.9rem;
-  align-items: start;
+  align-items: flex-start;
   padding: 1rem;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.07);
@@ -1314,13 +1121,13 @@ section[id] {
   transition: transform 0.2s, border-color 0.2s, background 0.2s;
 }
 
-.contact-card:hover {
+.contact-item:hover {
   transform: translateY(-2px);
-  border-color: rgba(93, 228, 255, 0.22);
-  background: rgba(93, 228, 255, 0.05);
+  border-color: rgba(94, 230, 255, 0.18);
+  background: rgba(94, 230, 255, 0.05);
 }
 
-.contact-card-icon {
+.contact-icon {
   width: 44px;
   height: 44px;
   border-radius: 14px;
@@ -1334,30 +1141,30 @@ section[id] {
   font-size: 1rem;
 }
 
-.contact-card-label {
+.contact-label {
   color: var(--dim);
   font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
-.contact-card strong {
+.contact-item strong {
   display: block;
   margin-top: 0.2rem;
   font-size: 0.96rem;
 }
 
-.contact-form-wrap {
+.contact-form {
   padding: 1.45rem;
 }
 
-.form-heading {
-  font-size: 1.08rem;
+.contact-form h3 {
+  font-size: 1.05rem;
   font-weight: 800;
 }
 
-.form-copy {
+.contact-form p {
   margin-top: 0.35rem;
   color: var(--muted);
   font-size: 0.9rem;
@@ -1365,7 +1172,7 @@ section[id] {
 }
 
 .form-grid {
-  margin-top: 1.25rem;
+  margin-top: 1.2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.9rem;
@@ -1375,7 +1182,7 @@ section[id] {
 .field-wide {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.38rem;
 }
 
 .field-wide {
@@ -1385,9 +1192,9 @@ section[id] {
 .field label,
 .field-wide label {
   color: var(--muted);
-  font-size: 0.76rem;
+  font-size: 0.75rem;
   font-weight: 800;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -1399,7 +1206,7 @@ section[id] {
   padding: 0.95rem 1rem;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(6, 9, 18, 0.82);
+  background: rgba(4, 6, 13, 0.88);
   color: var(--text);
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
@@ -1413,52 +1220,52 @@ section[id] {
 .input:focus,
 .select:focus,
 .textarea:focus {
-  border-color: rgba(93, 228, 255, 0.28);
-  box-shadow: 0 0 0 4px rgba(93, 228, 255, 0.08);
+  border-color: rgba(94, 230, 255, 0.22);
+  box-shadow: 0 0 0 4px rgba(94, 230, 255, 0.08);
   transform: translateY(-1px);
 }
 
 .select {
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2365708B' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2369748D' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
 }
 
 .textarea {
-  min-height: 128px;
+  min-height: 130px;
   resize: vertical;
 }
 
 .invalid {
-  border-color: rgba(248, 113, 113, 0.72) !important;
+  border-color: rgba(248, 113, 113, 0.7) !important;
   box-shadow: 0 0 0 4px rgba(248, 113, 113, 0.08) !important;
 }
 
 .form-actions {
-  margin-top: 1.15rem;
+  margin-top: 1.1rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
   align-items: center;
 }
 
-.submit {
-  min-width: 250px;
+.submit-btn {
+  min-width: 255px;
 }
 
-.status {
+.form-status {
   min-height: 1.2rem;
   color: var(--dim);
-  font-size: 0.83rem;
+  font-size: 0.82rem;
 }
 
-.status.success {
-  color: #7bf3b0;
+.form-status.success {
+  color: #7bf0b0;
 }
 
-.status.error {
-  color: #ff9d9d;
+.form-status.error {
+  color: #ff9b9b;
 }
 
 .form-note {
@@ -1468,48 +1275,45 @@ section[id] {
   line-height: 1.7;
 }
 
-.faq-grid {
+.faq {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
-.faq-card {
-  padding: 1.25rem;
+.faq-item {
+  padding: 1.2rem;
   border-radius: 24px;
   border: 1px solid var(--line);
   background: var(--panel);
 }
 
-.faq-card h3 {
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
+.faq-item h3 {
+  font-size: 0.94rem;
+  margin-bottom: 0.45rem;
 }
 
-.faq-card p {
+.faq-item p {
   color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.8;
+  font-size: 0.88rem;
+  line-height: 1.78;
 }
 
-.site-footer {
-  padding: 2.6rem 0 2.2rem;
+.footer {
+  padding: 2.6rem 0 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(3, 5, 11, 0.78);
+  background: rgba(3, 5, 10, 0.86);
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr 0.85fr 0.95fr;
-  gap: 1.2rem;
-}
-
-.footer-brand {
-  max-width: 320px;
+  gap: 1.1rem;
 }
 
 .footer-brand p {
-  margin-top: 0.9rem;
+  margin-top: 0.85rem;
+  max-width: 320px;
   color: var(--muted);
   font-size: 0.9rem;
   line-height: 1.8;
@@ -1519,21 +1323,21 @@ section[id] {
   color: var(--dim);
   font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.85rem;
 }
 
 .footer-col ul {
   list-style: none;
   display: grid;
-  gap: 0.6rem;
+  gap: 0.58rem;
 }
 
 .footer-col a,
 .footer-col li {
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: 0.87rem;
 }
 
 .footer-col a:hover {
@@ -1552,53 +1356,49 @@ section[id] {
   font-size: 0.8rem;
 }
 
-.socials {
+.footer-socials {
   display: flex;
   gap: 0.7rem;
 }
 
-.socials a {
+.footer-socials a {
   width: 36px;
   height: 36px;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 800;
 }
 
-.socials a:hover {
+.footer-socials a:hover {
   color: var(--text);
-  border-color: rgba(93, 228, 255, 0.22);
+  border-color: rgba(94, 230, 255, 0.2);
 }
 
-.wa-float {
+.whatsapp-float {
   position: fixed;
   right: 1rem;
   bottom: 1rem;
-  z-index: 19;
+  z-index: 18;
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.55rem;
   min-height: 56px;
   padding: 0.85rem 1rem;
   border-radius: 999px;
-  background: linear-gradient(135deg, #14ce66, #33dd8f);
-  color: #062915;
-  font-size: 0.85rem;
+  background: linear-gradient(135deg, #12c55e, #31da86);
+  color: #062613;
+  font-size: 0.84rem;
   font-weight: 800;
-  box-shadow: 0 18px 38px rgba(20, 206, 102, 0.28);
+  box-shadow: 0 18px 40px rgba(18, 197, 94, 0.28);
 }
 
-.wa-float:hover {
-  transform: translateY(-2px);
-}
-
-.wa-float span:first-child {
+.whatsapp-float span:first-child {
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -1613,18 +1413,17 @@ section[id] {
   left: 50%;
   bottom: 1.2rem;
   transform: translate(-50%, 110px);
-  z-index: 25;
+  z-index: 24;
   min-width: min(90vw, 340px);
   padding: 0.9rem 1.1rem;
   border-radius: 16px;
-  background: rgba(7, 12, 22, 0.94);
-  border: 1px solid rgba(93, 228, 255, 0.16);
+  border: 1px solid rgba(94, 230, 255, 0.14);
+  background: rgba(7, 10, 18, 0.96);
   box-shadow: var(--shadow);
-  color: var(--text);
-  font-size: 0.88rem;
   text-align: center;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  font-size: 0.88rem;
   opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .toast.show {
@@ -1634,32 +1433,27 @@ section[id] {
 
 @media (max-width: 1120px) {
   .hero-grid,
-  .founder-grid,
+  .split-block,
   .contact-shell,
-  .signals,
-  .portfolio-grid,
-  .pricing-grid,
-  .process-grid,
   .footer-grid {
     grid-template-columns: 1fr;
   }
 
-  .services-grid {
+  .services,
+  .portfolio,
+  .pricing,
+  .process {
     grid-template-columns: 1fr 1fr;
   }
 
-  .hero-strip {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hero-art {
-    min-height: 520px;
+  .hero-visual {
+    min-height: 560px;
   }
 }
 
 @media (max-width: 860px) {
   .nav-links,
-  .nav-talk {
+  .talk-link {
     display: none;
   }
 
@@ -1669,121 +1463,93 @@ section[id] {
 
   .section-head {
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
   }
 
   .hero {
-    padding-top: 7.5rem;
+    padding-top: 7.6rem;
   }
 
-  .hero-grid {
-    gap: 1.4rem;
+  .hero-visual {
+    min-height: 500px;
   }
 
-  .hero-art {
-    min-height: 460px;
-  }
-
-  .hero-actions,
+  .faq,
   .form-grid {
     grid-template-columns: 1fr;
-  }
-
-  .services-grid,
-  .faq-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-grid {
-    display: grid;
   }
 }
 
 @media (max-width: 640px) {
-  .shell {
-    width: min(100% - 1.1rem, var(--container));
+  .wrap {
+    width: min(100% - 1rem, var(--container));
   }
 
-  .nav-bar,
+  .nav-shell,
   .mobile-menu {
-    width: min(100% - 1.1rem, calc(var(--container) + 1rem));
+    width: min(100% - 1rem, calc(var(--container) + 0.6rem));
   }
 
   .hero-title {
-    font-size: clamp(2.5rem, 13vw, 4.4rem);
+    font-size: clamp(2.6rem, 14vw, 4.8rem);
   }
 
-  .hero-sub,
-  .section-text,
-  .founder-card p,
-  .contact-side p {
-    font-size: 0.94rem;
-  }
-
-  .hero-strip {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-actions {
+  .hero-actions,
+  .form-actions {
     flex-direction: column;
     align-items: stretch;
   }
 
+  .services,
+  .portfolio,
+  .pricing,
+  .process,
+  .faq {
+    grid-template-columns: 1fr;
+  }
+
   .btn,
-  .submit {
+  .submit-btn {
     width: 100%;
   }
 
-  .hero-art {
-    min-height: 430px;
+  .hero-trust {
+    gap: 0.55rem;
   }
 
-  .art-copy {
+  .hero-visual {
+    min-height: 440px;
+  }
+
+  .visual-copy {
     left: 1rem;
     right: 1rem;
     max-width: none;
   }
 
-  .pill-a {
+  .pill-one {
     top: 4.6rem;
     right: 0.9rem;
   }
 
-  .pill-b {
+  .pill-two {
     top: auto;
-    bottom: 7.9rem;
     left: 0.9rem;
+    bottom: 8rem;
   }
 
-  .hero-strip-card,
-  .signal-card,
-  .service-card,
-  .portfolio-info,
-  .pricing-card,
-  .step-card,
-  .faq-card {
-    padding: 1.2rem;
-  }
-
-  .founder-card,
+  .statement,
+  .service,
+  .project-info,
+  .step,
+  .plan,
+  .faq-item,
   .contact-side,
-  .contact-form-wrap {
-    padding: 1.25rem;
+  .contact-form {
+    padding: 1.15rem;
   }
 
-  .founder-panel {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-shell {
-    padding: 0.8rem;
-  }
-
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .wa-float {
+  .whatsapp-float {
     right: 0.8rem;
     left: 0.8rem;
     justify-content: center;
@@ -1807,30 +1573,26 @@ section[id] {
 </head>
 <body>
 <header class="site-nav" id="siteNav">
-  <div class="nav-bar">
+  <div class="nav-shell">
     <a class="brand" href="#home">
       <span class="brand-mark">N</span>
       <span>Nexora<em>Web</em></span>
     </a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
-      <li><a href="#portfolio">Work</a></li>
-      <li><a href="#process">Process</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-actions">
-      <a class="nav-talk" href="#contact" data-prefill-message="I would like to discuss a new website project for my business.">Let's Talk</a>
-      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle navigation">
-        <span></span>
-      </button>
+      <a class="talk-link" href="#contact" data-prefill-message="I want a premium website for my business and would like to discuss the project.">Let's Talk</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu"><span></span></button>
     </div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <ul>
       <li><a href="#services">Services</a></li>
-      <li><a href="#portfolio">Work</a></li>
-      <li><a href="#process">Process</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -1839,143 +1601,77 @@ section[id] {
 
 <main id="home">
   <section class="hero">
-    <div class="shell">
+    <div class="wrap">
       <div class="hero-grid">
         <div class="hero-copy reveal">
-          <div class="kicker">Premium web presence for modern businesses</div>
-          <h1 class="hero-title">Professional websites that help your business <span>grow online</span></h1>
-          <p class="hero-sub">NexoraWeb builds fast, modern, mobile-friendly websites for stores, offices, startups, local businesses, portfolios, and e-commerce brands - designed to attract customers, increase trust, and turn visitors into inquiries.</p>
+          <div class="eyebrow">NexoraWeb premium website studio</div>
+          <h1 class="hero-title">Professional <span class="outline">websites</span> that help your business grow online</h1>
+          <p class="hero-sub">NexoraWeb builds fast, modern, mobile-friendly websites for businesses, stores, offices, startups, portfolios, and e-commerce brands. The focus is simple: make your business look more trustworthy, more modern, and easier to contact.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact" data-prefill-message="I want a premium website for my business and would like a free consultation.">
+            <a class="btn btn-primary" href="#contact" data-prefill-message="I want a premium website for my business and need a free consultation.">
               Get Free Consultation
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
             </a>
             <a class="btn btn-secondary" href="#portfolio">View Portfolio</a>
           </div>
-          <div class="hero-meta">
-            <div class="hero-meta-card">
-              <div class="hero-meta-label">Starting Point</div>
-              <div class="hero-meta-value">Free consultation + projects from Rs 4,999</div>
-            </div>
-            <div class="hero-meta-card">
-              <div class="hero-meta-label">Built For</div>
-              <div class="hero-meta-value">Stores, offices, startups, portfolios, e-commerce</div>
-            </div>
+          <p class="hero-note"><strong>Hi, I'm Zubair, founder of NexoraWeb.</strong> I help businesses build modern, affordable, and high-performing websites that create a strong online presence and make a better first impression.</p>
+          <div class="hero-trust">
+            <span>Free consultation</span>
+            <span>Websites from Rs 4,999</span>
+            <span>Mobile responsive</span>
+            <span>Ongoing support</span>
           </div>
-          <p class="hero-founder"><strong>Hi, I'm Zubair, founder of NexoraWeb.</strong> I help businesses build modern, affordable, and high-performing websites that create a strong online presence and make a better first impression.</p>
         </div>
 
-        <div class="hero-art reveal" id="heroArt">
-          <div class="art-top">
-            <div class="art-brand">NexoraWeb</div>
-            <div class="art-links">
+        <div class="hero-visual reveal" id="heroVisual">
+          <div class="visual-top">
+            <div class="visual-logo">NexoraWeb</div>
+            <div class="visual-links">
               <span>Let's talk</span>
               <span>01</span>
             </div>
           </div>
-          <div class="art-center">
-            <div class="art-glow"></div>
-            <canvas class="art-canvas" id="artCanvas" aria-hidden="true"></canvas>
-          </div>
-          <div class="art-pill pill-a">
+          <canvas class="visual-canvas" id="visualCanvas" aria-hidden="true"></canvas>
+          <div class="visual-pill pill-one">
             <strong>Fast delivery</strong>
-            <span>Clean launch-ready websites delivered with clarity and speed.</span>
+            <span>Launch-ready websites for businesses that need to move quickly.</span>
           </div>
-          <div class="art-pill pill-b">
-            <strong>Trust-first design</strong>
-            <span>Sharper messaging, mobile polish, and stronger credibility online.</span>
+          <div class="visual-pill pill-two">
+            <strong>Better trust</strong>
+            <span>Cleaner structure, stronger visuals, and a more premium online image.</span>
           </div>
-          <div class="art-copy">
-            <div class="art-kicker">Boost your brand</div>
-            <div class="art-title">Bold digital presence</div>
-            <p>Modern design direction inspired by premium studio websites, tailored for real businesses that want more leads and better credibility.</p>
+          <div class="visual-copy">
+            <div class="small">Boost your brand</div>
+            <h2>Look more <span>premium</span></h2>
+            <p>A darker, cleaner, more modern design direction inspired by premium studio websites and built for real business conversion.</p>
           </div>
         </div>
-      </div>
-
-      <div class="hero-strip">
-        <div class="hero-strip-card reveal">
-          <strong>Modern UI</strong>
-          <span>Stronger first impressions with clean layouts, better spacing, and polished visuals.</span>
-        </div>
-        <div class="hero-strip-card reveal">
-          <strong>Mobile responsive</strong>
-          <span>Your website looks sharp and works smoothly on phones, tablets, and desktops.</span>
-        </div>
-        <div class="hero-strip-card reveal">
-          <strong>SEO friendly</strong>
-          <span>Structured pages built to load fast and help people find your business online.</span>
-        </div>
-        <div class="hero-strip-card reveal">
-          <strong>Ongoing support</strong>
-          <span>Help with updates, hosting guidance, and improving your site after launch.</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="shell">
-      <div class="section-head reveal">
-        <div class="section-copy">
-          <div class="kicker">Why businesses choose NexoraWeb</div>
-          <h2 class="section-title">Designed to look premium and perform with purpose.</h2>
-          <p class="section-text">The goal is not just a pretty website. It is a website that makes your business feel trustworthy, clear, modern, and worth contacting.</p>
-        </div>
-      </div>
-      <div class="signals">
-        <article class="signal-card reveal">
-          <div class="signal-index">01</div>
-          <strong>Fast delivery</strong>
-          <p>Launch quickly without losing polish. We keep the process focused so you can go live sooner.</p>
-        </article>
-        <article class="signal-card reveal">
-          <div class="signal-index">02</div>
-          <strong>Client-focused pages</strong>
-          <p>Clear messaging, strong structure, and better conversion flow so visitors know why they should choose you.</p>
-        </article>
-        <article class="signal-card reveal">
-          <div class="signal-index">03</div>
-          <strong>Affordable without looking cheap</strong>
-          <p>Professional presentation for growing businesses that want premium quality at a realistic budget.</p>
-        </article>
       </div>
     </div>
   </section>
 
   <section class="section" id="about">
-    <div class="shell">
-      <div class="founder-grid">
-        <article class="founder-card reveal">
-          <div class="founder-label">Founder note</div>
-          <h2>Small agency feel. High-end presentation.</h2>
-          <p>NexoraWeb is built for businesses that want a premium online image without the confusion and cost of a large agency process. Every project is shaped around speed, clarity, conversion, and trust.</p>
-          <div class="founder-mini">
-            <span>Founder-led communication</span>
-            <span>Responsive support</span>
-            <span>Built for real business growth</span>
+    <div class="wrap">
+      <div class="split-block">
+        <article class="statement reveal">
+          <div>
+            <small>Why this works</small>
+            <h3>Clean design. <span>Clear trust.</span> Better inquiries.</h3>
           </div>
+          <p>Your website should not feel outdated, overcrowded, or cheap. It should feel sharp, modern, and confident enough that people trust your business before they even contact you.</p>
         </article>
-        <div class="founder-panel reveal">
-          <article class="metric">
-            <strong>100%</strong>
-            <h3>Custom visual direction</h3>
-            <p>No generic drag-and-drop look. The site is tailored to your business tone and audience.</p>
+        <div class="signals">
+          <article class="signal reveal">
+            <strong>Client-focused structure</strong>
+            <p>Pages are arranged to explain what you do, show credibility, and guide visitors toward contacting you.</p>
           </article>
-          <article class="metric">
-            <strong>24h</strong>
-            <h3>Quick response flow</h3>
-            <p>Direct communication for planning, revisions, and launch decisions without long waiting times.</p>
+          <article class="signal reveal">
+            <strong>Premium visual direction</strong>
+            <p>Dark contrast, better typography, and cleaner spacing make your business look more serious and modern.</p>
           </article>
-          <article class="metric">
-            <strong>5x</strong>
-            <h3>More polished first impression</h3>
-            <p>Premium structure, cleaner hierarchy, and stronger visual trust than a basic template site.</p>
-          </article>
-          <article class="metric">
-            <strong>1 goal</strong>
-            <h3>Turn visitors into leads</h3>
-            <p>Every section supports one outcome: helping people understand your value and contact you faster.</p>
+          <article class="signal reveal">
+            <strong>Built for mobile first</strong>
+            <p>Your site stays clear, readable, and smooth on mobile where most visitors first see your business.</p>
           </article>
         </div>
       </div>
@@ -1983,139 +1679,115 @@ section[id] {
   </section>
 
   <section class="section" id="services">
-    <div class="shell">
+    <div class="wrap">
       <div class="section-head reveal">
         <div class="section-copy">
-          <div class="kicker">Services</div>
-          <h2 class="section-title">Website solutions for different business goals.</h2>
-          <p class="section-text">Whether you need a fast lead-generation site, a polished office website, or a stronger storefront experience, the build stays modern, lightweight, and conversion-focused.</p>
+          <div class="eyebrow">Services</div>
+          <h2 class="section-title">Website design for stores, offices, startups, and growing local businesses.</h2>
+          <p class="section-text">The goal is not to make every website look the same. It is to shape the right look and structure for the business you want people to trust.</p>
         </div>
       </div>
-      <div class="services-grid">
-        <article class="service-card reveal">
-          <div class="service-icon">01</div>
-          <h3>Business websites</h3>
-          <p>Professional websites for offices, service providers, consultants, and local businesses that need trust and clarity.</p>
+      <div class="services">
+        <article class="service reveal">
+          <div class="service-no">01</div>
+          <h3>Business and company sites</h3>
+          <p>Professional websites for offices, service businesses, agencies, and companies that need a stronger online presence.</p>
           <a href="#contact" data-prefill-type="Business / Company Website" data-prefill-message="I need a premium business website for my company.">Start this project</a>
         </article>
-        <article class="service-card reveal">
-          <div class="service-icon">02</div>
-          <h3>Store and e-commerce sites</h3>
-          <p>Clean product presentation, mobile-friendly shopping flow, and a stronger storefront feel for online sellers.</p>
-          <a href="#contact" data-prefill-type="E-Commerce Website" data-prefill-message="I want an e-commerce website for my store.">Start this project</a>
+        <article class="service reveal">
+          <div class="service-no">02</div>
+          <h3>Store and e-commerce websites</h3>
+          <p>Cleaner storefront presentation, better mobile layout, and a more modern feel for stores that want to sell online.</p>
+          <a href="#contact" data-prefill-type="E-Commerce Website" data-prefill-message="I want a premium e-commerce website for my store.">Start this project</a>
         </article>
-        <article class="service-card reveal">
-          <div class="service-icon">03</div>
+        <article class="service reveal">
+          <div class="service-no">03</div>
           <h3>Portfolio and personal brands</h3>
-          <p>Modern portfolios for freelancers, creators, professionals, and founders who want a more premium online presence.</p>
-          <a href="#contact" data-prefill-type="Portfolio Website" data-prefill-message="I need a premium portfolio website.">Start this project</a>
-        </article>
-        <article class="service-card reveal">
-          <div class="service-icon">04</div>
-          <h3>Startup launch pages</h3>
-          <p>Landing pages that explain your idea, highlight features, and make your startup look launch-ready and credible.</p>
-          <a href="#contact" data-prefill-type="Landing Page" data-prefill-message="I want a modern launch page for my startup.">Start this project</a>
-        </article>
-        <article class="service-card reveal">
-          <div class="service-icon">05</div>
-          <h3>Website redesigns</h3>
-          <p>Upgrade an outdated site into something sharper, faster, and more aligned with how your business should look now.</p>
-          <a href="#contact" data-prefill-type="Website Redesign" data-prefill-message="I want to redesign my current website into a premium modern style.">Start this project</a>
-        </article>
-        <article class="service-card reveal">
-          <div class="service-icon">06</div>
-          <h3>Support and optimization</h3>
-          <p>Help with edits, performance cleanup, mobile improvements, content updates, and launch guidance after the site is live.</p>
-          <a href="#contact" data-prefill-type="Other" data-prefill-message="I need support or improvements for an existing website.">Start this project</a>
+          <p>Modern portfolio websites for freelancers, creators, consultants, and professionals who want to look more established.</p>
+          <a href="#contact" data-prefill-type="Portfolio Website" data-prefill-message="I need a modern premium portfolio website.">Start this project</a>
         </article>
       </div>
     </div>
   </section>
 
   <section class="section" id="portfolio">
-    <div class="shell">
+    <div class="wrap">
       <div class="section-head reveal">
         <div class="section-copy">
-          <div class="kicker">Portfolio direction</div>
-          <h2 class="section-title">Premium website looks built for different industries.</h2>
-          <p class="section-text">These are example directions that show how NexoraWeb can create bold, responsive, and conversion-focused websites across different business types.</p>
+          <div class="eyebrow">Portfolio direction</div>
+          <h2 class="section-title">Examples of the kind of premium presentation your business can have.</h2>
+          <p class="section-text">These are concept directions that show how the same clean design thinking can adapt across different business types.</p>
         </div>
       </div>
-      <div class="portfolio-grid">
-        <article class="portfolio-card reveal">
-          <div class="portfolio-preview">
-            <div class="portfolio-chip">Retail</div>
-            <div class="portfolio-frame">
-              <div class="portfolio-bar">
-                <span class="portfolio-dot"></span>
-                <span class="portfolio-dot"></span>
-                <span class="portfolio-dot"></span>
+      <div class="portfolio">
+        <article class="project reveal">
+          <div class="project-visual">
+            <div class="project-badge">Store</div>
+            <div class="project-frame">
+              <div class="project-bar">
+                <span class="project-dot"></span>
+                <span class="project-dot"></span>
+                <span class="project-dot"></span>
               </div>
-              <div class="portfolio-surface">
-                <div class="portfolio-outline">Boost your store</div>
-                <div class="portfolio-copy-mini">
-                  <p>Product-driven layout with stronger trust, clearer categories, and mobile-first shopping flow.</p>
-                </div>
+              <div class="project-body">
+                <div class="project-big">Boost your <span>store</span></div>
+                <div class="project-mini">A cleaner storefront experience with stronger product presentation and more trust.</div>
               </div>
             </div>
           </div>
-          <div class="portfolio-info">
-            <h3>Storefront website</h3>
-            <p>A polished retail-style website concept for stores that want to present products better and look more reliable online.</p>
-            <div class="portfolio-actions">
-              <a href="#contact" data-prefill-type="E-Commerce Website" data-prefill-message="I want a premium storefront website like the portfolio example.">Request similar</a>
+          <div class="project-info">
+            <h3>Retail / store website</h3>
+            <p>A premium storefront-style direction for businesses that want better mobile shopping flow and a sharper brand image.</p>
+            <div class="project-actions">
+              <a href="#contact" data-prefill-type="E-Commerce Website" data-prefill-message="I want a website similar to the retail/store direction.">Request similar</a>
               <a href="#pricing">See pricing</a>
             </div>
           </div>
         </article>
-        <article class="portfolio-card reveal">
-          <div class="portfolio-preview">
-            <div class="portfolio-chip">Startup</div>
-            <div class="portfolio-frame">
-              <div class="portfolio-bar">
-                <span class="portfolio-dot"></span>
-                <span class="portfolio-dot"></span>
-                <span class="portfolio-dot"></span>
+        <article class="project reveal">
+          <div class="project-visual">
+            <div class="project-badge">Startup</div>
+            <div class="project-frame">
+              <div class="project-bar">
+                <span class="project-dot"></span>
+                <span class="project-dot"></span>
+                <span class="project-dot"></span>
               </div>
-              <div class="portfolio-surface">
-                <div class="portfolio-outline">Launch with clarity</div>
-                <div class="portfolio-copy-mini">
-                  <p>Hero-led product messaging and a stronger modern identity for founders and early-stage businesses.</p>
-                </div>
+              <div class="project-body">
+                <div class="project-big">Launch with <span>clarity</span></div>
+                <div class="project-mini">A stronger hero, cleaner feature flow, and better first impression for new ideas.</div>
               </div>
             </div>
           </div>
-          <div class="portfolio-info">
-            <h3>Startup landing page</h3>
-            <p>A bold landing-page direction for startups that need clean storytelling, sharper visuals, and stronger first impressions.</p>
-            <div class="portfolio-actions">
-              <a href="#contact" data-prefill-type="Landing Page" data-prefill-message="I want a startup landing page with a premium modern design.">Request similar</a>
-              <a href="#process">See process</a>
+          <div class="project-info">
+            <h3>Startup launch page</h3>
+            <p>A bold landing-page style for founders who need a cleaner way to explain their product or service online.</p>
+            <div class="project-actions">
+              <a href="#contact" data-prefill-type="Landing Page" data-prefill-message="I want a premium startup landing page.">Request similar</a>
+              <a href="#contact">Get quote</a>
             </div>
           </div>
         </article>
-        <article class="portfolio-card reveal">
-          <div class="portfolio-preview">
-            <div class="portfolio-chip">Professional</div>
-            <div class="portfolio-frame">
-              <div class="portfolio-bar">
-                <span class="portfolio-dot"></span>
-                <span class="portfolio-dot"></span>
-                <span class="portfolio-dot"></span>
+        <article class="project reveal">
+          <div class="project-visual">
+            <div class="project-badge">Office</div>
+            <div class="project-frame">
+              <div class="project-bar">
+                <span class="project-dot"></span>
+                <span class="project-dot"></span>
+                <span class="project-dot"></span>
               </div>
-              <div class="portfolio-surface">
-                <div class="portfolio-outline">Look more trusted</div>
-                <div class="portfolio-copy-mini">
-                  <p>Refined service pages, stronger testimonials, and cleaner structure for offices and local businesses.</p>
-                </div>
+              <div class="project-body">
+                <div class="project-big">Look more <span>trusted</span></div>
+                <div class="project-mini">Clean service messaging and a more premium office or professional-business feel.</div>
               </div>
             </div>
           </div>
-          <div class="portfolio-info">
-            <h3>Office or service brand site</h3>
-            <p>A premium business website concept built to help visitors quickly understand your services and feel confident contacting you.</p>
-            <div class="portfolio-actions">
-              <a href="#contact" data-prefill-type="Business / Company Website" data-prefill-message="I want a business website like the office and service example.">Request similar</a>
+          <div class="project-info">
+            <h3>Office / service brand website</h3>
+            <p>A polished service-focused layout for businesses that want visitors to understand their value and contact them faster.</p>
+            <div class="project-actions">
+              <a href="#contact" data-prefill-type="Business / Company Website" data-prefill-message="I want a premium office or service website like this direction.">Request similar</a>
               <a href="#contact">Get quote</a>
             </div>
           </div>
@@ -2125,144 +1797,144 @@ section[id] {
   </section>
 
   <section class="section" id="process">
-    <div class="shell">
+    <div class="wrap">
       <div class="section-head reveal">
         <div class="section-copy">
-          <div class="kicker">Process</div>
-          <h2 class="section-title">A simple process from idea to launch.</h2>
-          <p class="section-text">The workflow stays straightforward so you always know what happens next and how the website is moving forward.</p>
+          <div class="eyebrow">Process</div>
+          <h2 class="section-title">A simple path from consultation to launch.</h2>
+          <p class="section-text">You do not need a complicated process to get a better website. The flow stays simple, direct, and focused.</p>
         </div>
       </div>
-      <div class="process-grid">
-        <article class="step-card reveal">
+      <div class="process">
+        <article class="step reveal">
           <div class="step-no">01</div>
           <h3>Consultation</h3>
-          <p>We talk about your business, goals, audience, and the kind of website you need.</p>
+          <p>We talk about your business, your audience, and the style of website you need.</p>
         </article>
-        <article class="step-card reveal">
+        <article class="step reveal">
           <div class="step-no">02</div>
           <h3>Direction</h3>
-          <p>We shape the design style, page structure, and the message your site needs to communicate.</p>
+          <p>The page structure, design tone, and content flow are shaped around your goals.</p>
         </article>
-        <article class="step-card reveal">
+        <article class="step reveal">
           <div class="step-no">03</div>
           <h3>Development</h3>
-          <p>Your website is built to be fast, responsive, clean, and ready to represent your brand properly.</p>
+          <p>The website is built to be modern, responsive, fast, and ready for real visitors.</p>
         </article>
-        <article class="step-card reveal">
+        <article class="step reveal">
           <div class="step-no">04</div>
           <h3>Launch</h3>
-          <p>We help you review the final site, connect the basics, and get it live with confidence.</p>
+          <p>The final build is reviewed, refined, and prepared for deployment.</p>
         </article>
-        <article class="step-card reveal">
+        <article class="step reveal">
           <div class="step-no">05</div>
           <h3>Support</h3>
-          <p>Need changes, guidance, or improvements after launch? Ongoing help is available.</p>
+          <p>Need updates or improvements after launch? Support stays available when you need it.</p>
         </article>
       </div>
     </div>
   </section>
 
   <section class="section" id="pricing">
-    <div class="shell">
+    <div class="wrap">
       <div class="section-head reveal">
         <div class="section-copy">
-          <div class="kicker">Pricing</div>
-          <h2 class="section-title">Clear options for different business stages.</h2>
-          <p class="section-text">Every plan starts with a free consultation and can be adjusted based on the pages, features, and business goals you need.</p>
+          <div class="eyebrow">Pricing</div>
+          <h2 class="section-title">Free consultation and clear starting points.</h2>
+          <p class="section-text">Every business is different, but these starting points make it easier to choose the right level for your website.</p>
         </div>
       </div>
-      <div class="pricing-grid">
-        <article class="pricing-card reveal">
-          <div class="pricing-tier">Starter</div>
-          <div class="price">Rs 4,999 <span>starting</span></div>
-          <p>Best for small businesses or professionals who need a clean, trustworthy online presence fast.</p>
-          <ul class="pricing-list">
-            <li>1 to 3 key pages</li>
+      <div class="pricing">
+        <article class="plan reveal">
+          <small>Starter</small>
+          <div class="plan-price">Rs 4,999 <span>starting</span></div>
+          <p>For professionals and small businesses that need a clean, trustworthy online presence.</p>
+          <ul>
+            <li>1 to 3 pages</li>
             <li>Mobile responsive layout</li>
-            <li>Basic lead or contact setup</li>
             <li>Clean modern design</li>
+            <li>Basic inquiry setup</li>
           </ul>
           <a class="btn btn-secondary" href="#contact" data-prefill-message="I want to start with the Starter website package.">Choose Starter</a>
         </article>
-        <article class="pricing-card popular reveal">
-          <div class="popular-badge">Popular</div>
-          <div class="pricing-tier">Growth</div>
-          <div class="price">Rs 9,999 <span>starting</span></div>
-          <p>Best for businesses that want a stronger premium look, more content, and a better conversion flow.</p>
-          <ul class="pricing-list">
-            <li>Custom multi-section homepage</li>
-            <li>Service or business pages</li>
-            <li>WhatsApp and inquiry integration</li>
-            <li>Better visual hierarchy and polish</li>
+        <article class="plan featured reveal">
+          <div class="plan-badge">Popular</div>
+          <small>Growth</small>
+          <div class="plan-price">Rs 9,999 <span>starting</span></div>
+          <p>For businesses that want a more premium look, stronger structure, and better conversion flow.</p>
+          <ul>
+            <li>Custom homepage design</li>
+            <li>Service or business sections</li>
+            <li>WhatsApp inquiry integration</li>
+            <li>Stronger visual hierarchy</li>
           </ul>
           <a class="btn btn-primary" href="#contact" data-prefill-message="I want to start with the Growth website package.">Choose Growth</a>
         </article>
-        <article class="pricing-card reveal">
-          <div class="pricing-tier">Advanced</div>
-          <div class="price">Custom <span>quote</span></div>
-          <p>For e-commerce, complex pages, redesigns, or businesses that need something more custom and strategic.</p>
-          <ul class="pricing-list">
-            <li>E-commerce or advanced features</li>
-            <li>Larger page count</li>
+        <article class="plan reveal">
+          <small>Custom</small>
+          <div class="plan-price">Custom <span>quote</span></div>
+          <p>For e-commerce, redesigns, advanced features, or businesses that need a larger custom website.</p>
+          <ul>
+            <li>E-commerce or advanced pages</li>
             <li>Custom content structure</li>
-            <li>Support for future growth</li>
+            <li>More complex business needs</li>
+            <li>Support for future expansion</li>
           </ul>
-          <a class="btn btn-secondary" href="#contact" data-prefill-message="I need a custom quote for an advanced website project.">Request Custom Quote</a>
+          <a class="btn btn-secondary" href="#contact" data-prefill-message="I need a custom quote for a larger website project.">Request Custom Quote</a>
         </article>
       </div>
     </div>
   </section>
 
   <section class="section" id="contact">
-    <div class="shell">
+    <div class="wrap">
       <div class="section-head reveal">
         <div class="section-copy">
-          <div class="kicker">Contact</div>
+          <div class="eyebrow">Contact</div>
           <h2 class="section-title">Send your inquiry directly to WhatsApp.</h2>
-          <p class="section-text">Share your business type, project idea, and what kind of website you need. The inquiry opens in WhatsApp and goes directly to Zubair.</p>
+          <p class="section-text">Tell me about your business and what kind of website you want. Your message opens in WhatsApp and goes directly to Zubair.</p>
         </div>
       </div>
       <div class="contact-shell">
         <div class="contact-side reveal">
-          <div class="kicker">NexoraWeb contact</div>
-          <h3>Let's build a better online presence.</h3>
-          <p>Businesses trust websites that feel modern, clear, and premium. If you want your site to make a better first impression, let's talk.</p>
-          <div class="contact-list">
-            <a class="contact-card" href="mailto:zubair428kg@gmail.com">
-              <div class="contact-card-icon">01</div>
+          <div class="eyebrow">NexoraWeb contact</div>
+          <h3>Let's build your next website.</h3>
+          <p>If you want your business to look more premium, more trustworthy, and more modern online, this is the place to start.</p>
+          <div class="contact-items">
+            <a class="contact-item" href="mailto:zubair428kg@gmail.com">
+              <div class="contact-icon">01</div>
               <div>
-                <div class="contact-card-label">Email</div>
+                <div class="contact-label">Email</div>
                 <strong>zubair428kg@gmail.com</strong>
               </div>
             </a>
-            <a class="contact-card" href="https://wa.me/917259449945" target="_blank" rel="noreferrer">
-              <div class="contact-card-icon">02</div>
+            <a class="contact-item" href="https://wa.me/917259449945" target="_blank" rel="noreferrer">
+              <div class="contact-icon">02</div>
               <div>
-                <div class="contact-card-label">WhatsApp</div>
+                <div class="contact-label">WhatsApp</div>
                 <strong>+91 7259449945</strong>
               </div>
             </a>
-            <div class="contact-card">
-              <div class="contact-card-icon">03</div>
+            <div class="contact-item">
+              <div class="contact-icon">03</div>
               <div>
-                <div class="contact-card-label">Location</div>
+                <div class="contact-label">Location</div>
                 <strong>India</strong>
               </div>
             </div>
-            <div class="contact-card">
-              <div class="contact-card-icon">04</div>
+            <div class="contact-item">
+              <div class="contact-icon">04</div>
               <div>
-                <div class="contact-card-label">Response time</div>
+                <div class="contact-label">Response time</div>
                 <strong>Usually within 24 hours</strong>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="contact-form-wrap reveal">
-          <div class="form-heading">Get a free consultation</div>
-          <div class="form-copy">Fill in a few details and tap the button. Your message opens in WhatsApp with everything prefilled.</div>
+        <div class="contact-form reveal">
+          <h3>Get free consultation</h3>
+          <p>Fill in the details below and tap the button. The inquiry will open in WhatsApp with everything prefilled.</p>
           <form id="quoteForm" novalidate>
             <div class="form-grid">
               <div class="field">
@@ -2271,7 +1943,7 @@ section[id] {
               </div>
               <div class="field">
                 <label for="f-phone">Phone or WhatsApp</label>
-                <input class="input" id="f-phone" type="tel" placeholder="Your phone number" />
+                <input class="input" id="f-phone" type="tel" placeholder="Your number" />
               </div>
               <div class="field-wide">
                 <label for="f-email">Email address</label>
@@ -2295,10 +1967,10 @@ section[id] {
               </div>
             </div>
             <div class="form-actions">
-              <button class="btn btn-primary submit" id="f-send" type="submit">
+              <button class="btn btn-primary submit-btn" id="f-send" type="submit">
                 <span id="f-send-txt">Send Inquiry on WhatsApp</span>
               </button>
-              <div class="status" id="formStatus"></div>
+              <div class="form-status" id="formStatus"></div>
             </div>
             <p class="form-note">This inquiry opens in WhatsApp and sends directly to +91 7259449945.</p>
           </form>
@@ -2308,45 +1980,45 @@ section[id] {
   </section>
 
   <section class="section">
-    <div class="shell">
+    <div class="wrap">
       <div class="section-head reveal">
         <div class="section-copy">
-          <div class="kicker">FAQ</div>
-          <h2 class="section-title">Quick answers before we start.</h2>
-          <p class="section-text">A few common questions businesses ask before choosing a website partner.</p>
+          <div class="eyebrow">FAQ</div>
+          <h2 class="section-title">A few quick answers before we start.</h2>
+          <p class="section-text">These cover the questions most people ask before starting a website project.</p>
         </div>
       </div>
-      <div class="faq-grid">
-        <article class="faq-card reveal">
+      <div class="faq">
+        <article class="faq-item reveal">
           <h3>How long does it take?</h3>
-          <p>Most small and medium website projects can be completed in around 7 to 14 days depending on content and revisions.</p>
+          <p>Most standard website projects are completed in around 7 to 14 days depending on content and revisions.</p>
         </article>
-        <article class="faq-card reveal">
+        <article class="faq-item reveal">
           <h3>What is the starting price?</h3>
-          <p>The starting point is Rs 4,999 after a free consultation. Final pricing depends on pages, features, and design complexity.</p>
+          <p>The starting point is Rs 4,999 after a free consultation. Final cost depends on pages, features, and project size.</p>
         </article>
-        <article class="faq-card reveal">
+        <article class="faq-item reveal">
           <h3>Do you help with domain and hosting?</h3>
-          <p>Yes. Guidance is available for domain setup, hosting, deployment, and getting your website live properly.</p>
+          <p>Yes. Guidance is available for domain setup, hosting, and deployment so the website can go live properly.</p>
         </article>
-        <article class="faq-card reveal">
+        <article class="faq-item reveal">
           <h3>Can you redesign an existing website?</h3>
-          <p>Yes. Existing sites can be refreshed into a more modern, faster, and more premium-looking experience.</p>
+          <p>Yes. Existing websites can be refreshed into a cleaner, more premium, and more modern version.</p>
         </article>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="site-footer">
-  <div class="shell">
+<footer class="footer">
+  <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
         <a class="brand" href="#home">
           <span class="brand-mark">N</span>
           <span>Nexora<em>Web</em></span>
         </a>
-        <p>Turning ideas into powerful websites. Premium business websites built to look trustworthy, modern, and ready to grow.</p>
+        <p>Turning ideas into powerful websites. Modern, client-focused, and premium business websites built to help you grow online.</p>
       </div>
       <div class="footer-col">
         <h4>Quick links</h4>
@@ -2376,7 +2048,7 @@ section[id] {
     </div>
     <div class="footer-bottom">
       <div>Copyright 2026 NexoraWeb. All rights reserved.</div>
-      <div class="socials">
+      <div class="footer-socials">
         <a href="https://wa.me/917259449945" target="_blank" rel="noreferrer" aria-label="WhatsApp">wa</a>
         <a href="mailto:zubair428kg@gmail.com" aria-label="Email">@</a>
       </div>
@@ -2384,7 +2056,7 @@ section[id] {
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/917259449945" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp">
+<a class="whatsapp-float" href="https://wa.me/917259449945" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp">
   <span>W</span>
   <span>Chat on WhatsApp</span>
 </a>
@@ -2393,14 +2065,12 @@ section[id] {
 
 <script>
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-const nav = document.getElementById("siteNav");
+const siteNav = document.getElementById("siteNav");
 const menuBtn = document.getElementById("menuBtn");
 const mobileMenu = document.getElementById("mobileMenu");
-const mobileLinks = mobileMenu.querySelectorAll("a");
 
 window.addEventListener("scroll", () => {
-  nav.classList.toggle("scrolled", window.scrollY > 12);
+  siteNav.classList.toggle("scrolled", window.scrollY > 10);
 });
 
 menuBtn.addEventListener("click", () => {
@@ -2408,7 +2078,7 @@ menuBtn.addEventListener("click", () => {
   mobileMenu.classList.toggle("open");
 });
 
-mobileLinks.forEach((link) => {
+mobileMenu.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     menuBtn.classList.remove("open");
     mobileMenu.classList.remove("open");
@@ -2422,33 +2092,52 @@ const revealObserver = new IntersectionObserver((entries) => {
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.14 });
 
 document.querySelectorAll(".reveal").forEach((element) => {
   revealObserver.observe(element);
 });
 
-const sectionLinks = Array.from(document.querySelectorAll(".nav-links a"));
-const trackedSections = sectionLinks
-  .map((link) => document.querySelector(link.getAttribute("href")))
-  .filter(Boolean);
-
+const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
+const navSections = navLinks.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
 const activeObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
-    sectionLinks.forEach((link) => {
+    navLinks.forEach((link) => {
       link.classList.toggle("active", link.getAttribute("href") === "#" + entry.target.id);
     });
   });
-}, { threshold: 0.45 });
+}, { threshold: 0.4 });
 
-trackedSections.forEach((section) => activeObserver.observe(section));
+navSections.forEach((section) => activeObserver.observe(section));
+
+document.querySelectorAll(".service").forEach((card) => {
+  card.addEventListener("mousemove", (event) => {
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty("--mx", ((event.clientX - rect.left) / rect.width) * 100 + "%");
+    card.style.setProperty("--my", ((event.clientY - rect.top) / rect.height) * 100 + "%");
+  });
+});
 
 const typeField = document.getElementById("f-type");
 const messageField = document.getElementById("f-msg");
 const nameField = document.getElementById("f-name");
 const phoneField = document.getElementById("f-phone");
 const emailField = document.getElementById("f-email");
+const formStatus = document.getElementById("formStatus");
+const sendButton = document.getElementById("f-send");
+const sendText = document.getElementById("f-send-txt");
+const toast = document.getElementById("toast");
+let toastTimer = null;
+
+function showToast(message) {
+  toast.textContent = message;
+  toast.classList.add("show");
+  window.clearTimeout(toastTimer);
+  toastTimer = window.setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2600);
+}
 
 function prefillInquiry(type, message) {
   if (type) {
@@ -2469,31 +2158,6 @@ document.querySelectorAll("[data-prefill-type], [data-prefill-message]").forEach
   });
 });
 
-const serviceCards = document.querySelectorAll(".service-card");
-serviceCards.forEach((card) => {
-  card.addEventListener("mousemove", (event) => {
-    const rect = card.getBoundingClientRect();
-    card.style.setProperty("--mx", ((event.clientX - rect.left) / rect.width) * 100 + "%");
-    card.style.setProperty("--my", ((event.clientY - rect.top) / rect.height) * 100 + "%");
-  });
-});
-
-const quoteForm = document.getElementById("quoteForm");
-const formStatus = document.getElementById("formStatus");
-const sendButton = document.getElementById("f-send");
-const sendText = document.getElementById("f-send-txt");
-const toast = document.getElementById("toast");
-let toastTimer = null;
-
-function showToast(message) {
-  toast.textContent = message;
-  toast.classList.add("show");
-  window.clearTimeout(toastTimer);
-  toastTimer = window.setTimeout(() => {
-    toast.classList.remove("show");
-  }, 2600);
-}
-
 function clearInvalid(field) {
   field.classList.remove("invalid");
 }
@@ -2504,18 +2168,19 @@ function clearInvalid(field) {
     clearInvalid(field);
     if (formStatus.textContent) {
       formStatus.textContent = "";
-      formStatus.className = "status";
+      formStatus.className = "form-status";
     }
   });
 });
 
 function setStatus(message, tone) {
   formStatus.textContent = message;
-  formStatus.className = "status" + (tone ? " " + tone : "");
+  formStatus.className = "form-status" + (tone ? " " + tone : "");
 }
 
 function validateForm() {
   let valid = true;
+
   [nameField, phoneField, typeField].forEach((field) => {
     if (!field.value.trim()) {
       field.classList.add("invalid");
@@ -2542,7 +2207,7 @@ function validateForm() {
   return valid;
 }
 
-quoteForm.addEventListener("submit", (event) => {
+document.getElementById("quoteForm").addEventListener("submit", (event) => {
   event.preventDefault();
   if (!validateForm()) return;
 
@@ -2569,51 +2234,50 @@ quoteForm.addEventListener("submit", (event) => {
   }, 1500);
 });
 
-const artCanvas = document.getElementById("artCanvas");
-const heroArt = document.getElementById("heroArt");
+const visualCanvas = document.getElementById("visualCanvas");
+const heroVisual = document.getElementById("heroVisual");
 
-if (artCanvas && heroArt) {
-  const ctx = artCanvas.getContext("2d");
+if (visualCanvas && heroVisual) {
+  const ctx = visualCanvas.getContext("2d");
   const particles = [];
-  const particleCount = 260;
+  const total = 240;
   const pointer = { x: 0, y: 0 };
   let width = 0;
   let height = 0;
   let radius = 0;
 
-  for (let i = 0; i < particleCount; i += 1) {
+  for (let i = 0; i < total; i += 1) {
     particles.push({
       theta: Math.random() * Math.PI * 2,
       phi: Math.acos((Math.random() * 2) - 1),
-      speed: 0.002 + Math.random() * 0.004,
-      size: 0.7 + Math.random() * 1.9,
+      speed: 0.002 + Math.random() * 0.0035,
+      size: 0.8 + Math.random() * 1.8,
       tint: Math.random()
     });
   }
 
-  function resizeArt() {
-    const rect = heroArt.getBoundingClientRect();
+  function resizeVisual() {
+    const rect = heroVisual.getBoundingClientRect();
     const ratio = window.devicePixelRatio || 1;
     width = rect.width;
     height = rect.height;
-    artCanvas.width = width * ratio;
-    artCanvas.height = height * ratio;
-    artCanvas.style.width = width + "px";
-    artCanvas.style.height = height + "px";
+    visualCanvas.width = width * ratio;
+    visualCanvas.height = height * ratio;
+    visualCanvas.style.width = width + "px";
+    visualCanvas.style.height = height + "px";
     ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-    radius = Math.min(width, height) * 0.24;
+    radius = Math.min(width, height) * 0.22;
   }
 
-  function renderSphere(time) {
+  function render(time) {
     ctx.clearRect(0, 0, width, height);
     const centerX = width * 0.58;
-    const centerY = height * 0.47;
-    const turn = time * 0.00026;
-    const tilt = Math.sin(time * 0.0003) * 0.45 + pointer.y * 0.14;
+    const centerY = height * 0.44;
+    const turn = time * 0.00024;
+    const tilt = Math.sin(time * 0.0003) * 0.42 + pointer.y * 0.12;
     const yaw = turn + pointer.x * 0.18;
-    const perspective = radius * 3.2;
-
-    const projected = [];
+    const perspective = radius * 3.3;
+    const points = [];
 
     particles.forEach((particle) => {
       const theta = particle.theta + yaw + time * particle.speed;
@@ -2625,37 +2289,34 @@ if (artCanvas && heroArt) {
       const ry = py * Math.cos(tilt) - pz * Math.sin(tilt);
       const rz = py * Math.sin(tilt) + pz * Math.cos(tilt);
       const scale = perspective / (perspective + rz + radius * 1.2);
-      const x = centerX + px * scale;
-      const y = centerY + ry * scale;
-      const alpha = 0.18 + ((rz + radius) / (radius * 2)) * 0.78;
 
-      projected.push({
-        x,
-        y,
+      points.push({
+        x: centerX + px * scale,
+        y: centerY + ry * scale,
         z: rz,
-        r: particle.size * scale * 1.25,
-        alpha,
+        r: Math.max(0.45, particle.size * scale * 1.3),
+        alpha: 0.18 + ((rz + radius) / (radius * 2)) * 0.78,
         tint: particle.tint
       });
     });
 
-    projected.sort((a, b) => a.z - b.z);
+    points.sort((a, b) => a.z - b.z);
 
-    projected.forEach((point) => {
-      const hue = point.tint > 0.72 ? "93,228,255" : point.tint > 0.4 ? "124,109,255" : "255,255,255";
+    points.forEach((point) => {
+      const rgb = point.tint > 0.74 ? "94,230,255" : point.tint > 0.4 ? "122,113,255" : "255,255,255";
       ctx.beginPath();
-      ctx.arc(point.x, point.y, Math.max(point.r, 0.4), 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(" + hue + "," + point.alpha.toFixed(3) + ")";
-      ctx.shadowBlur = point.tint > 0.72 ? 18 : 10;
-      ctx.shadowColor = point.tint > 0.72 ? "rgba(93,228,255,0.34)" : "rgba(124,109,255,0.22)";
+      ctx.arc(point.x, point.y, point.r, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(" + rgb + "," + point.alpha.toFixed(3) + ")";
+      ctx.shadowBlur = point.tint > 0.74 ? 18 : 10;
+      ctx.shadowColor = point.tint > 0.74 ? "rgba(94,230,255,0.35)" : "rgba(122,113,255,0.26)";
       ctx.fill();
     });
 
     ctx.shadowBlur = 0;
 
-    for (let i = 0; i < projected.length; i += 8) {
-      const a = projected[i];
-      const b = projected[(i + 31) % projected.length];
+    for (let i = 0; i < points.length; i += 8) {
+      const a = points[i];
+      const b = points[(i + 29) % points.length];
       const dx = a.x - b.x;
       const dy = a.y - b.y;
       const distance = Math.sqrt((dx * dx) + (dy * dy));
@@ -2663,31 +2324,31 @@ if (artCanvas && heroArt) {
         ctx.beginPath();
         ctx.moveTo(a.x, a.y);
         ctx.lineTo(b.x, b.y);
-        ctx.strokeStyle = "rgba(255,255,255," + Math.max(0.015, 0.09 - (distance / (radius * 18))).toFixed(3) + ")";
+        ctx.strokeStyle = "rgba(255,255,255," + Math.max(0.012, 0.08 - (distance / (radius * 18))).toFixed(3) + ")";
         ctx.lineWidth = 0.8;
         ctx.stroke();
       }
     }
 
     if (!prefersReducedMotion) {
-      window.requestAnimationFrame(renderSphere);
+      window.requestAnimationFrame(render);
     }
   }
 
-  heroArt.addEventListener("mousemove", (event) => {
-    const rect = heroArt.getBoundingClientRect();
+  heroVisual.addEventListener("mousemove", (event) => {
+    const rect = heroVisual.getBoundingClientRect();
     pointer.x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
     pointer.y = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
   });
 
-  heroArt.addEventListener("mouseleave", () => {
+  heroVisual.addEventListener("mouseleave", () => {
     pointer.x = 0;
     pointer.y = 0;
   });
 
-  window.addEventListener("resize", resizeArt);
-  resizeArt();
-  renderSphere(0);
+  window.addEventListener("resize", resizeVisual);
+  resizeVisual();
+  render(0);
 }
 </script>
 </body>
