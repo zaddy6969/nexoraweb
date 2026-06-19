@@ -95,8 +95,14 @@ a{text-decoration:none;color:inherit;}
 }
 #ldr.gone{opacity:0;pointer-events:none;transform:scale(1.05);}
 .ldr-name{
-  font-family:var(--disp);font-size:2.2rem;font-weight:800;letter-spacing:-.04em;
-  background:var(--gr2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:flex;align-items:center;justify-content:center;
+}
+.ldr-logo{
+  display:block;
+  width:min(340px,72vw);
+  height:auto;
+  border-radius:18px;
+  box-shadow:0 18px 54px rgba(0,0,0,.38);
 }
 .ldr-ring{
   width:48px;height:48px;border-radius:50%;
@@ -125,8 +131,17 @@ nav{
   transition:background .4s,border-color .4s,height .3s,backdrop-filter .4s;
 }
 nav.stuck{background:rgba(4,6,18,.82);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border-color:var(--ln);height:62px;}
-.logo{font-family:var(--disp);font-size:1.3rem;font-weight:800;letter-spacing:-.04em;}
-.logo em{font-style:normal;background:var(--gr2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.logo{display:flex;align-items:center;flex-shrink:0;}
+.nav-logo{
+  display:block;
+  width:auto;
+  height:52px;
+  border-radius:12px;
+  box-shadow:0 12px 28px rgba(0,0,0,.2);
+  transition:transform .2s ease,height .3s ease;
+}
+.logo:hover .nav-logo{transform:translateY(-1px);}
+nav.stuck .nav-logo{height:46px;}
 .nlinks{display:flex;align-items:center;gap:2.4rem;list-style:none;}
 .nlinks a{font-size:.875rem;font-weight:500;color:var(--g1);transition:color .2s;position:relative;}
 .nlinks a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1.5px;background:var(--gr);border-radius:1px;transition:width .3s var(--ease);}
@@ -308,11 +323,12 @@ nav.stuck{background:rgba(4,6,18,.82);backdrop-filter:blur(28px);-webkit-backdro
 .mq{
   overflow:hidden;padding:1.25rem 0;
   border-top:1px solid var(--ln);border-bottom:1px solid var(--ln);
-  background:var(--s0);position:relative;
+  background:rgba(7,9,24,.42);position:relative;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
 }
 .mq::before,.mq::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;}
-.mq::before{left:0;background:linear-gradient(90deg,var(--s0),transparent);}
-.mq::after{right:0;background:linear-gradient(-90deg,var(--s0),transparent);}
+.mq::before{left:0;background:linear-gradient(90deg,rgba(7,9,24,.92),transparent);}
+.mq::after{right:0;background:linear-gradient(-90deg,rgba(7,9,24,.92),transparent);}
 .mq-t{display:flex;gap:2.8rem;width:max-content;animation:slide 20s linear infinite;}
 .mq-t:hover{animation-play-state:paused;}
 @keyframes slide{to{transform:translateX(-50%);}}
@@ -320,7 +336,7 @@ nav.stuck{background:rgba(4,6,18,.82);backdrop-filter:blur(28px);-webkit-backdro
 .mq-d{width:3px;height:3px;border-radius:50%;background:var(--v2);}
 
 /* ─── STATS ─── */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--s0);border-bottom:1px solid var(--ln);}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);background:rgba(7,9,24,.34);border-bottom:1px solid var(--ln);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
 .stc{padding:2.8rem 2rem;text-align:center;border-right:1px solid var(--ln);transition:background .3s;}
 .stc:last-child{border-right:none;}
 .stc:hover{background:var(--s1);}
@@ -338,7 +354,7 @@ nav.stuck{background:rgba(4,6,18,.82);backdrop-filter:blur(28px);-webkit-backdro
 .gr3{background:var(--gr3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 
 /* ─── SERVICES ─── */
-#services{background:var(--s0);}
+#services{background:transparent;}
 .svc-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;flex-wrap:wrap;gap:1.5rem;}
 .svc-hd .sp{margin-bottom:0;}
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.15rem;background:none;}
@@ -362,30 +378,8 @@ nav.stuck{background:rgba(4,6,18,.82);backdrop-filter:blur(28px);-webkit-backdro
 .sv-name{font-family:var(--disp);font-size:1.02rem;font-weight:700;margin-bottom:.6rem;letter-spacing:-.02em;}
 .sv-desc{font-size:.9rem;color:rgba(240,240,255,.68);line-height:1.72;}
 
-/* ─── WHY US ─── */
-#why{background:var(--ink);}
-.why-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
-.why-vis{position:relative;height:400px;}
-.wcard{
-  position:absolute;background:rgba(18,18,46,.86);border:1px solid var(--ln2);border-radius:18px;padding:1.6rem;
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  transition:transform .3s var(--ease),box-shadow .3s;
-}
-.wcard:hover{transform:translateY(-6px);box-shadow:0 24px 64px rgba(0,0,0,.4);}
-.wc1{width:260px;top:0;left:0;border-top:2px solid var(--v);}
-.wc2{width:235px;top:48%;left:48%;border-top:2px solid var(--c);}
-.wc3{width:215px;bottom:0;left:28px;border-top:2px solid var(--r);}
-.wcard-ico{font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--c);margin-bottom:.7rem;}
-.wcard-t{font-family:var(--disp);font-size:.95rem;font-weight:700;margin-bottom:.3rem;letter-spacing:-.02em;}
-.wcard-p{font-size:.86rem;color:rgba(240,240,255,.68);line-height:1.72;}
-.why-list{display:flex;flex-direction:column;gap:1.1rem;margin-top:1.5rem;}
-.wi{display:flex;align-items:flex-start;gap:12px;}
-.wi-chk{width:22px;height:22px;border-radius:6px;background:rgba(124,58,237,.14);border:1px solid rgba(124,58,237,.3);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--v3);margin-top:2px;}
-.wi-t{font-size:.9rem;color:var(--g1);line-height:1.6;}
-.wi-t strong{color:var(--w);font-weight:600;}
-
 /* ─── STICKY FEATURES (signature element) ─── */
-#features{background:var(--s0);}
+#features{background:transparent;}
 .feat-sticky-wrap{
   display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;
   position:relative;
@@ -421,7 +415,7 @@ nav.stuck{background:rgba(4,6,18,.82);backdrop-filter:blur(28px);-webkit-backdro
 .feat-p{font-size:.95rem;color:rgba(240,240,255,.7);line-height:1.78;max-width:430px;}
 
 /* ─── PROJECTS ─── */
-#projects{background:var(--ink);}
+#projects{background:transparent;}
 .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
 .pc{
   background:rgba(18,18,46,.85);border:1px solid var(--ln);border-radius:18px;overflow:hidden;
@@ -455,24 +449,8 @@ nav.stuck{background:rgba(4,6,18,.82);backdrop-filter:blur(28px);-webkit-backdro
 .pc-link{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:600;color:var(--v3);border:1px solid rgba(124,58,237,.25);padding:.38rem .9rem;border-radius:100px;transition:background .2s,border-color .2s,transform .2s;}
 .pc-link:hover{background:rgba(124,58,237,.12);border-color:rgba(124,58,237,.5);transform:translateX(3px);}
 
-/* ─── PROCESS ─── */
-#process{background:var(--s0);}
-.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;position:relative;}
-.proc-grid::before{display:none;}
-.proc-step{padding:2rem 1.4rem;text-align:center;position:relative;background:rgba(18,18,46,.82);border:1px solid var(--ln);border-radius:22px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
-.proc-n{
-  width:76px;height:76px;border-radius:50%;margin:0 auto 1.5rem;
-  background:var(--gr);display:flex;align-items:center;justify-content:center;
-  font-family:var(--disp);font-size:1.3rem;font-weight:800;color:#fff;
-  box-shadow:0 0 0 10px rgba(124,58,237,.07),0 0 0 20px rgba(124,58,237,.03);
-  position:relative;z-index:1;transition:transform .3s,box-shadow .3s;
-}
-.proc-step:hover .proc-n{transform:scale(1.1);box-shadow:0 0 0 10px rgba(124,58,237,.15),0 0 40px rgba(124,58,237,.45);}
-.proc-t{font-family:var(--disp);font-size:1rem;font-weight:700;margin-bottom:.5rem;letter-spacing:-.02em;}
-.proc-p{font-size:.88rem;color:rgba(240,240,255,.68);line-height:1.72;}
-
 /* ─── PRICING ─── */
-#pricing{background:var(--ink);}
+#pricing{background:transparent;}
 .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
 .pgc{
   background:rgba(18,18,46,.84);border:1px solid var(--ln);border-radius:22px;padding:2.4rem 2rem;
@@ -499,20 +477,8 @@ nav.stuck{background:rgba(4,6,18,.82);backdrop-filter:blur(28px);-webkit-backdro
 .pp-btn.gb{background:var(--gr);border:none;box-shadow:0 8px 28px rgba(124,58,237,.42);}
 .pp-btn.gb:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 14px 44px rgba(124,58,237,.58);}
 
-/* ─── TESTIMONIALS ─── */
-#testi{background:var(--s0);}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.tc{background:rgba(18,18,46,.82);border:1px solid var(--ln);border-radius:18px;padding:2rem;transition:transform .3s var(--ease),border-color .3s;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
-.tc:hover{transform:translateY(-4px);border-color:rgba(124,58,237,.3);}
-.stars{color:#FBBF24;font-size:.85rem;letter-spacing:2px;margin-bottom:1rem;}
-.tq{font-size:.95rem;color:rgba(240,240,255,.7);line-height:1.78;margin-bottom:1.4rem;font-style:italic;}
-.ta{display:flex;align-items:center;gap:10px;}
-.tav{width:38px;height:38px;border-radius:50%;background:var(--gr);display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-size:.9rem;font-weight:800;color:#fff;flex-shrink:0;}
-.tn{font-family:var(--disp);font-size:.88rem;font-weight:700;margin-bottom:.1rem;}
-.tr{font-size:.7rem;color:var(--g1);}
-
 /* ─── CONTACT ─── */
-#contact{background:var(--ink);position:relative;overflow:hidden;}
+#contact{background:transparent;position:relative;overflow:hidden;}
 .contact-glow{position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(124,58,237,.09),transparent 65%);pointer-events:none;}
 .contact-wrap{display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:start;position:relative;z-index:1;}
 .c-info{display:flex;flex-direction:column;gap:1rem;}
@@ -564,9 +530,16 @@ nav.stuck{background:rgba(4,6,18,.82);backdrop-filter:blur(28px);-webkit-backdro
 #toast.show{transform:translateY(0);opacity:1;pointer-events:auto;}
 
 /* ─── FOOTER ─── */
-footer{background:var(--ink);border-top:1px solid var(--ln);padding:3rem 5% 2rem;}
+footer{background:rgba(7,9,24,.34);border-top:1px solid var(--ln);padding:3rem 5% 2rem;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
 .ft-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:2rem;margin-bottom:2.5rem;}
-.ft-logo{font-family:var(--disp);font-size:1.35rem;font-weight:800;letter-spacing:-.04em;margin-bottom:.5rem;}
+.ft-logo{
+  display:block;
+  width:min(260px,70vw);
+  height:auto;
+  border-radius:16px;
+  margin-bottom:.8rem;
+  box-shadow:0 16px 40px rgba(0,0,0,.26);
+}
 .ft-br p{font-size:.88rem;color:rgba(240,240,255,.68);max-width:260px;line-height:1.7;}
 .ft-col h4{font-family:var(--mono);font-size:.67rem;font-weight:500;color:var(--g2);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.9rem;}
 .ft-col ul{list-style:none;display:flex;flex-direction:column;gap:.5rem;}
@@ -577,6 +550,17 @@ footer{background:var(--ink);border-top:1px solid var(--ln);padding:3rem 5% 2rem
 .ft-soc{display:flex;gap:.65rem;}
 .fso{width:38px;height:38px;border-radius:10px;background:rgba(18,18,46,.86);border:1px solid var(--ln);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.7rem;font-weight:600;color:var(--g1);transition:all .25s;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
 .fso:hover{border-color:rgba(124,58,237,.45);color:var(--w);background:rgba(124,58,237,.1);transform:translateY(-2px);}
+.sr-only{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
 
 /* ─── ANIM UTIL ─── */
 @keyframes fup{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
@@ -590,18 +574,15 @@ footer{background:var(--ink);border-top:1px solid var(--ln);padding:3rem 5% 2rem
   .hero-trust{justify-content:center;}
   .feat-sticky-wrap{grid-template-columns:1fr;}
   .feat-left{display:none;}
-  .why-wrap{grid-template-columns:1fr;}
-  .why-vis{display:none;}
   .proj-grid{grid-template-columns:repeat(2,1fr);}
-  .proc-grid{grid-template-columns:repeat(2,1fr);}
-  .proc-grid::before{display:none;}
-  .price-grid,.testi-grid{grid-template-columns:1fr;}
+  .price-grid{grid-template-columns:1fr;}
   .contact-wrap{grid-template-columns:1fr;}
   .stats{grid-template-columns:repeat(2,1fr);}
 }
 @media(max-width:768px){
   .nlinks,.ncta{display:none;}
   .mob-btn{display:flex;}
+  .nav-logo{height:46px;}
   .svc-grid{grid-template-columns:1fr!important;}
   .proj-grid{grid-template-columns:1fr!important;}
   .sec{padding:4.5rem 5%;}
@@ -613,7 +594,6 @@ footer{background:var(--ink);border-top:1px solid var(--ln);padding:3rem 5% 2rem
 }
 @media(max-width:520px){
   .stats{grid-template-columns:1fr 1fr;}
-  .proc-grid{grid-template-columns:1fr;}
   .price-grid{grid-template-columns:1fr;}
 }
 </style>
@@ -622,7 +602,7 @@ footer{background:var(--ink);border-top:1px solid var(--ln);padding:3rem 5% 2rem
 
 <!-- LOADER -->
 <div id="ldr">
-  <div class="ldr-name">NexoraWeb</div>
+  <div class="ldr-name"><img src="assets/nexoraweb-logo.jpg" alt="NexoraWeb logo" class="ldr-logo"/></div>
   <div class="ldr-ring"></div>
   <div class="ldr-pct" id="lpct">0%</div>
 </div>
@@ -634,7 +614,10 @@ footer{background:var(--ink);border-top:1px solid var(--ln);padding:3rem 5% 2rem
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#hero" class="logo">Nexora<em>Web</em></a>
+  <a href="#hero" class="logo" aria-label="NexoraWeb home">
+    <img src="assets/nexoraweb-logo.jpg" alt="NexoraWeb" class="nav-logo"/>
+    <span class="sr-only">NexoraWeb</span>
+  </a>
   <ul class="nlinks">
     <li><a href="#services">Services</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -753,31 +736,6 @@ footer{background:var(--ink);border-top:1px solid var(--ln);padding:3rem 5% 2rem
   </div>
 </section>
 
-<!-- WHY US -->
-<section class="sec" id="why" style="background:var(--s0)">
-  <div class="si">
-    <div class="why-wrap">
-      <div class="why-vis rv">
-        <div class="wcard wc1"><div class="wcard-ico">FAST</div><div class="wcard-t">Lightning Fast</div><p class="wcard-p">Fast pages that feel smooth on mobile and desktop.</p></div>
-        <div class="wcard wc2"><div class="wcard-ico">SALE</div><div class="wcard-t">Built to Convert</div><p class="wcard-p">Clear sections and strong calls to action that guide visitors.</p></div>
-        <div class="wcard wc3"><div class="wcard-ico">FAIR</div><div class="wcard-t">Affordable Value</div><p class="wcard-p">Premium design without the heavy agency cost.</p></div>
-      </div>
-      <div>
-        <div class="ey rv">Why NexoraWeb</div>
-        <h2 class="sh rv">The smarter way to get<br><span class="gt">your website done.</span></h2>
-        <p class="sp rv">You get a modern website, simple communication, and fast delivery from one direct team.</p>
-        <div class="why-list">
-          <div class="wi rv"><div class="wi-chk">✓</div><div class="wi-t"><strong>Direct contact</strong> — you work with Zubair from start to finish.</div></div>
-          <div class="wi rv"><div class="wi-chk">✓</div><div class="wi-t"><strong>Fast delivery</strong> — most websites are ready in 7 to 14 days.</div></div>
-          <div class="wi rv"><div class="wi-chk">✓</div><div class="wi-t"><strong>SEO-ready setup</strong> — clean structure so your business is easy to find.</div></div>
-          <div class="wi rv"><div class="wi-chk">✓</div><div class="wi-t"><strong>Clear pricing</strong> — simple plans and no surprise charges.</div></div>
-          <div class="wi rv"><div class="wi-chk">✓</div><div class="wi-t"><strong>Support after launch</strong> — help is available when you need updates.</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- STICKY FEATURES (signature element) -->
 <section class="sec" id="features">
   <div class="si">
@@ -823,7 +781,7 @@ footer{background:var(--ink);border-top:1px solid var(--ln);padding:3rem 5% 2rem
 </section>
 
 <!-- PROJECTS -->
-<section class="sec" id="projects" style="background:var(--s0)">
+<section class="sec" id="projects">
   <div class="si">
     <div class="ey rv">Demo Projects</div>
     <h2 class="sh rv">Built by us. <span class="gt">Live & running.</span></h2>
@@ -906,25 +864,8 @@ footer{background:var(--ink);border-top:1px solid var(--ln);padding:3rem 5% 2rem
   </div>
 </section>
 
-<!-- PROCESS -->
-<section class="sec" id="process">
-  <div class="si">
-    <div style="text-align:center;margin-bottom:3.5rem">
-      <div class="ey rv" style="justify-content:center">How It Works</div>
-      <h2 class="sh rv" style="margin-bottom:.5rem">From idea to live website<br><span class="gt">in 4 clear steps.</span></h2>
-      <p class="sp rv" style="margin:0 auto;text-align:center">A simple process from first message to final launch.</p>
-    </div>
-    <div class="proc-grid">
-      <div class="proc-step rv"><div class="proc-n">1</div><div class="proc-t">Consult</div><p class="proc-p">We learn about your business, goals, and what the website needs to do.</p></div>
-      <div class="proc-step rv"><div class="proc-n">2</div><div class="proc-t">Design</div><p class="proc-p">We shape the layout, style, and content direction before build starts.</p></div>
-      <div class="proc-step rv"><div class="proc-n">3</div><div class="proc-t">Develop</div><p class="proc-p">We build the site, test it carefully, and make sure it works well everywhere.</p></div>
-      <div class="proc-step rv"><div class="proc-n">4</div><div class="proc-t">Launch</div><p class="proc-p">We put your website live and stay available for updates and support.</p></div>
-    </div>
-  </div>
-</section>
-
 <!-- PRICING -->
-<section class="sec" id="pricing" style="background:var(--s0)">
+<section class="sec" id="pricing">
   <div class="si">
     <div style="text-align:center">
       <div class="ey rv" style="justify-content:center">Pricing</div>
@@ -940,23 +881,8 @@ footer{background:var(--ink);border-top:1px solid var(--ln);padding:3rem 5% 2rem
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="sec" id="testi">
-  <div class="si">
-    <div style="text-align:center;margin-bottom:3rem">
-      <div class="ey rv" style="justify-content:center">Testimonials</div>
-      <h2 class="sh rv">What our clients <span class="gt">say about us.</span></h2>
-    </div>
-    <div class="testi-grid">
-      <div class="tc rv"><div class="stars">★★★★★</div><p class="tq">"Zubair delivered our business website in just 8 days. The design is clean, loads incredibly fast, and we've already received enquiries through it. Best investment this year."</p><div class="ta"><div class="tav">A</div><div><div class="tn">Arjun Mehta</div><div class="tr">Owner, Mehta Traders</div></div></div></div>
-      <div class="tc rv"><div class="stars">★★★★★</div><p class="tq">"I needed a portfolio to showcase my photography. NexoraWeb built something I'm genuinely proud to share with clients. Professional, fast, and very affordable."</p><div class="ta"><div class="tav">S</div><div><div class="tn">Sara Nair</div><div class="tr">Freelance Photographer</div></div></div></div>
-      <div class="tc rv"><div class="stars">★★★★★</div><p class="tq">"Our old site was embarrassing. NexoraWeb modernised it completely — mobile-friendly, fast, and our bounce rate dropped massively within the first month."</p><div class="ta"><div class="tav">R</div><div><div class="tn">Riya Kapoor</div><div class="tr">Director, Kapoor Interiors</div></div></div></div>
-    </div>
-  </div>
-</section>
-
 <!-- CONTACT -->
-<section class="sec" id="contact" style="background:var(--s0)">
+<section class="sec" id="contact">
   <div class="contact-glow"></div>
   <div class="si">
     <div class="ey rv">Get In Touch</div>
@@ -1006,7 +932,7 @@ footer{background:var(--ink);border-top:1px solid var(--ln);padding:3rem 5% 2rem
 <footer>
   <div class="ft-top">
     <div class="ft-br">
-      <div class="ft-logo">Nexora<span class="gt">Web</span></div>
+      <img src="assets/nexoraweb-logo.jpg" alt="NexoraWeb logo" class="ft-logo"/>
       <p>Clean websites for businesses that want to look strong online.</p>
     </div>
     <div class="ft-col"><h4>Services</h4><ul><li><a href="#services">Business Websites</a></li><li><a href="#services">E-Commerce Stores</a></li><li><a href="#services">AI Web Apps</a></li><li><a href="#services">Landing Pages</a></li></ul></div>
@@ -1171,12 +1097,6 @@ gsap.to('.hero-l', {
 gsap.fromTo('.sv', { opacity: 0, y: 30, scale: .97 }, {
   opacity: 1, y: 0, scale: 1, duration: .6, stagger: .09, ease: 'power3.out',
   scrollTrigger: { trigger: '.svc-grid', start: 'top 85%', toggleActions: 'play none none none' }
-});
-
-// ─── GSAP PROCESS STEPS ───
-gsap.fromTo('.proc-step', { opacity: 0, y: 40 }, {
-  opacity: 1, y: 0, duration: .65, stagger: .15, ease: 'back.out(1.4)',
-  scrollTrigger: { trigger: '.proc-grid', start: 'top 85%', toggleActions: 'play none none none' }
 });
 
 // ─── GSAP PROJECT CARDS ───
